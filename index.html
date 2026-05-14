@@ -22,7 +22,7 @@
             height: 100vh;
         }
 
-        /* Карусель на весь экран */
+        /* Карусель на весь экран (только ручное управление) */
         .carousel {
             position: fixed;
             top: 0;
@@ -54,7 +54,7 @@
             pointer-events: none;
         }
 
-        /* Лёгкое затемнение снизу для читаемости текста */
+        /* Лёгкое затемнение снизу (для читаемости нижних элементов) */
         .carousel::after {
             content: '';
             position: absolute;
@@ -62,7 +62,7 @@
             left: 0;
             width: 100%;
             height: 35%;
-            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+            background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
             pointer-events: none;
             z-index: 2;
         }
@@ -97,7 +97,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0,0,0,0.25);
+            background: rgba(0,0,0,0.5);
             backdrop-filter: blur(6px);
             width: 44px;
             height: 44px;
@@ -110,10 +110,10 @@
             cursor: pointer;
             z-index: 15;
             transition: 0.2s;
-            border: none;
+            border: 1px solid rgba(0,0,0,0.7);
         }
         .carousel-arrow:hover {
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.7);
         }
         .arrow-left { left: 16px; }
         .arrow-right { right: 16px; }
@@ -122,13 +122,13 @@
             .carousel-dots { bottom: 20px; }
         }
 
-        /* Верхняя панель: логотип и бургер — без овалов, просто текст и иконка */
+        /* --- Верхняя панель: логотип и бургер (с чёрной обводкой и фоном) --- */
         .top-bar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 24px 24px;
+            padding: 20px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -137,15 +137,17 @@
         }
         .logo {
             pointer-events: auto;
-            font-size: 1.9rem;
+            font-size: 1.8rem;
             font-weight: 500;
             letter-spacing: -0.02em;
             color: white;
             text-decoration: none;
-            background: transparent;
-            backdrop-filter: none;
-            padding: 0;
-            border: none;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            border-radius: 40px;
+            padding: 6px 18px;
+            transition: 0.2s;
             font-family: inherit;
         }
         .logo span {
@@ -153,21 +155,22 @@
         }
         .burger {
             pointer-events: auto;
-            width: 32px;
-            height: 32px;
-            background: transparent;
-            backdrop-filter: none;
-            border-radius: 0;
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            border-radius: 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 6px;
             cursor: pointer;
-            border: none;
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            transition: 0.2s;
         }
         .burger span {
-            width: 24px;
+            width: 22px;
             height: 2px;
             background: white;
             border-radius: 2px;
@@ -183,15 +186,15 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* Меню: вместо чёрного экрана — прозрачный серый оверлей, пункты без фона */
+        /* --- Оверлей меню: полупрозрачный, чтобы фото просвечивало --- */
         .menu-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(30, 30, 35, 0.85); /* слегка серый полупрозрачный */
-            backdrop-filter: blur(8px);
+            background: rgba(20, 20, 25, 0.65); /* светлый серый, фото видно */
+            backdrop-filter: blur(6px);
             z-index: 35;
             opacity: 0;
             visibility: hidden;
@@ -202,7 +205,7 @@
             visibility: visible;
         }
 
-        /* Меню-контейнер: без фона, текст на оверлее */
+        /* Меню-контейнер: текст на оверлее, без дополнительного фона */
         .side-menu {
             position: fixed;
             top: 0;
@@ -217,7 +220,6 @@
             display: flex;
             flex-direction: column;
             gap: 28px;
-            backdrop-filter: none;
             pointer-events: auto;
         }
         .side-menu.open {
@@ -234,10 +236,10 @@
             padding-bottom: 8px;
             display: inline-block;
             width: fit-content;
-            opacity: 0.9;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
         .side-menu a:hover {
-            opacity: 1;
+            opacity: 0.85;
             transform: translateX(5px);
             font-weight: 500;
         }
@@ -246,33 +248,34 @@
             .side-menu { padding: 90px 28px 30px; }
         }
 
-        /* Соцсети — только иконки, без овала */
+        /* --- Соцсети: общий блок с фоном и чёрной обводкой, как у логотипа --- */
         .social-footer {
             position: fixed;
             bottom: 24px;
             left: 20px;
             z-index: 20;
             display: flex;
-            gap: 20px;
-            background: transparent;
-            backdrop-filter: none;
-            padding: 0;
-            border: none;
+            gap: 16px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            border-radius: 40px;
+            padding: 8px 18px;
             pointer-events: auto;
         }
         .social-footer a {
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             transition: 0.2s;
             text-decoration: none;
-            opacity: 0.85;
+            opacity: 0.9;
         }
         .social-footer a:hover {
             opacity: 1;
             transform: translateY(-2px);
         }
 
-        /* Языковой переключатель (овальный, только кнопка внизу справа) */
+        /* Языковой переключатель (остаётся внизу справа, стиль не меняем, только обводка чёрная по запросу) */
         .t-lang-switch {
             position: fixed;
             bottom: 24px;
@@ -284,7 +287,7 @@
             border-radius: 60px;
             padding: 6px;
             gap: 4px;
-            border: 0.5px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.8);
             pointer-events: auto;
         }
         .t-lang-btn {
@@ -316,17 +319,16 @@
         @media (max-width: 760px) {
             .t-lang-switch { bottom: 20px; right: 16px; padding: 4px; gap: 2px; }
             .t-lang-btn { padding: 6px 16px; font-size: 12px; }
-            .social-footer { bottom: 20px; left: 16px; gap: 16px; }
-            .social-footer a { font-size: 1.4rem; }
+            .social-footer { bottom: 20px; left: 16px; gap: 14px; padding: 6px 16px; }
+            .social-footer a { font-size: 1.3rem; }
+            .logo { font-size: 1.5rem; padding: 5px 14px; }
+            .burger { width: 40px; height: 40px; }
         }
-
-        /* Убираем лишние конфликты */
-        a, button { -webkit-tap-highlight-color: transparent; }
     </style>
 </head>
 <body>
 
-<!-- КАРУСЕЛЬ (вручную) -->
+<!-- КАРУСЕЛЬ -->
 <div class="carousel">
     <div class="carousel-inner" id="carouselInner">
         <div class="carousel-slide"><img src="images/pool.jpg" alt="Современный бассейн"></div>
@@ -340,7 +342,7 @@
     </div>
 </div>
 
-<!-- Верхняя панель: логотип и бургер (без фона) -->
+<!-- Верхняя панель: логотип и бургер -->
 <div class="top-bar">
     <a href="#" class="logo">bau<span>.in</span></a>
     <div class="burger" id="burgerBtn">
@@ -348,10 +350,10 @@
     </div>
 </div>
 
-<!-- Оверлей (серый, полупрозрачный) для меню -->
+<!-- Оверлей меню (полупрозрачный, фото просвечивает) -->
 <div class="menu-overlay" id="menuOverlay"></div>
 
-<!-- Меню (пункты на сером оверлее, без чёрного фона) -->
+<!-- Меню (пункты на оверлее) -->
 <div class="side-menu" id="sideMenu">
     <a href="#">Главная</a>
     <a href="#">О нас</a>
@@ -362,7 +364,7 @@
     <a href="#">Контакты</a>
 </div>
 
-<!-- Соцсети (просто иконки, без овала) -->
+<!-- Соцсети (с чёрной обводкой и фоном, как у лого) -->
 <div class="social-footer">
     <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
     <a href="tel:+66812345678" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
@@ -378,7 +380,7 @@
 </div>
 
 <script>
-    // ---------- КАРУСЕЛЬ: ТОЛЬКО РУЧНОЕ УПРАВЛЕНИЕ (без автопрокрутки) ----------
+    // ---------- КАРУСЕЛЬ: ТОЛЬКО РУЧНОЕ УПРАВЛЕНИЕ ----------
     const slides = document.querySelectorAll('.carousel-slide');
     const inner = document.getElementById('carouselInner');
     let currentIndex = 0;
@@ -438,7 +440,7 @@
     window.addEventListener('resize', () => updateCarousel());
     updateCarousel();
 
-    // ---------- БУРГЕР-МЕНЮ (серый оверлей, пункты без чёрного фона) ----------
+    // ---------- БУРГЕР-МЕНЮ ----------
     const burger = document.getElementById('burgerBtn');
     const sideMenu = document.getElementById('sideMenu');
     const overlay = document.getElementById('menuOverlay');
@@ -461,7 +463,6 @@
         else openMenu();
     });
     overlay.addEventListener('click', closeMenu);
-    // Закрытие при клике на ссылки меню
     document.querySelectorAll('.side-menu a').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -471,23 +472,19 @@
         });
     });
 
-    // ---------- ЯЗЫКОВОЙ ПЕРЕКЛЮЧАТЕЛЬ (видимый, активный язык — белый фон) ----------
+    // ---------- ЯЗЫКОВОЙ ПЕРЕКЛЮЧАТЕЛЬ (видимый) ----------
     (function() {
         const langBtns = document.querySelectorAll('.t-lang-btn');
-        let currentLang = 'ru'; // по умолчанию
+        let currentLang = 'ru';
 
         function setActiveLang(lang) {
             langBtns.forEach(btn => {
                 const btnLang = btn.getAttribute('data-lang');
-                if (btnLang === lang) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
+                if (btnLang === lang) btn.classList.add('active');
+                else btn.classList.remove('active');
             });
         }
 
-        // Проверка URL на /en
         if (window.location.pathname.startsWith('/en')) currentLang = 'en';
         setActiveLang(currentLang);
 
@@ -496,7 +493,6 @@
                 e.preventDefault();
                 const targetLang = btn.getAttribute('data-lang');
                 if (targetLang === currentLang) return;
-                // Эмуляция / реальная смена языка (демо-режим)
                 let newUrl = window.location.href;
                 if (targetLang === 'en') {
                     if (!newUrl.includes('/en/') && !newUrl.endsWith('/en')) {
@@ -507,10 +503,10 @@
                 } else {
                     newUrl = newUrl.replace(/\/en\//, '/').replace(/\/en$/, '/');
                 }
-                alert(`Переключение на ${targetLang.toUpperCase()}. В реальном проекте будет редирект на:\n${newUrl}`);
+                alert(`Переключение на ${targetLang.toUpperCase()}. Реальный редирект:\n${newUrl}`);
                 setActiveLang(targetLang);
                 currentLang = targetLang;
-                // При желании раскомментировать: window.location.href = newUrl;
+                // window.location.href = newUrl;
             });
         });
     })();
