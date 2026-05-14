@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>bau.in | Инжиниринг и консалтинг в Таиланде</title>
-    <!-- Font Awesome 6 (бесплатные иконки) -->
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Шрифт: минималистичный архитектурный -->
     <style>
         * {
             margin: 0;
@@ -16,13 +15,14 @@
         }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            font-family: 'Tilda Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 400;
             background: #000;
             overflow-x: hidden;
             height: 100vh;
         }
 
-        /* Фуллскрин карусель */
+        /* Карусель на весь экран */
         .carousel {
             position: fixed;
             top: 0;
@@ -51,23 +51,23 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            pointer-events: none; /* чтобы свайпы не мешали */
+            pointer-events: none;
         }
 
-        /* Затемняющий оверлей для читаемости текста (лёгкий градиент) */
+        /* Лёгкое затемнение снизу для читаемости текста */
         .carousel::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 40%;
-            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+            height: 35%;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
             pointer-events: none;
             z-index: 2;
         }
 
-        /* Навигация карусели (точки и стрелки) */
+        /* Точки и стрелки (ручное управление) */
         .carousel-dots {
             position: absolute;
             bottom: 24px;
@@ -97,8 +97,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(4px);
+            background: rgba(0,0,0,0.25);
+            backdrop-filter: blur(6px);
             width: 44px;
             height: 44px;
             border-radius: 60px;
@@ -110,54 +110,42 @@
             cursor: pointer;
             z-index: 15;
             transition: 0.2s;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: none;
         }
         .carousel-arrow:hover {
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.5);
         }
-        .arrow-left {
-            left: 16px;
-        }
-        .arrow-right {
-            right: 16px;
-        }
+        .arrow-left { left: 16px; }
+        .arrow-right { right: 16px; }
         @media (max-width: 760px) {
-            .carousel-arrow {
-                width: 36px;
-                height: 36px;
-                font-size: 18px;
-            }
-            .carousel-dots {
-                bottom: 20px;
-            }
+            .carousel-arrow { width: 36px; height: 36px; font-size: 18px; }
+            .carousel-dots { bottom: 20px; }
         }
 
-        /* ---------- Верхний слой (логотип + бургер) ---------- */
+        /* Верхняя панель: логотип и бургер — без овалов, просто текст и иконка */
         .top-bar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px 24px;
+            padding: 24px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 30;
-            pointer-events: none; /* чтобы кликать сквозь на карусель, но дети смогут */
+            pointer-events: none;
         }
         .logo {
             pointer-events: auto;
-            font-size: 1.8rem;
-            font-weight: 600;
+            font-size: 1.9rem;
+            font-weight: 500;
             letter-spacing: -0.02em;
             color: white;
             text-decoration: none;
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(8px);
-            padding: 6px 16px;
-            border-radius: 60px;
-            border: 0.5px solid rgba(255,255,255,0.3);
-            transition: 0.2s;
+            background: transparent;
+            backdrop-filter: none;
+            padding: 0;
+            border: none;
             font-family: inherit;
         }
         .logo span {
@@ -165,22 +153,21 @@
         }
         .burger {
             pointer-events: auto;
-            width: 48px;
-            height: 48px;
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(8px);
-            border-radius: 60px;
+            width: 32px;
+            height: 32px;
+            background: transparent;
+            backdrop-filter: none;
+            border-radius: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 6px;
             cursor: pointer;
-            transition: 0.2s;
-            border: 0.5px solid rgba(255,255,255,0.3);
+            border: none;
         }
         .burger span {
-            width: 22px;
+            width: 24px;
             height: 2px;
             background: white;
             border-radius: 2px;
@@ -196,81 +183,81 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* ---------- Боковое меню (бургер) скользящее ---------- */
-        .side-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            max-width: 320px;
-            height: 100vh;
-            background: #0a0a0a;
-            z-index: 40;
-            transition: right 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            padding: 100px 32px 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-            box-shadow: -5px 0 25px rgba(0,0,0,0.5);
-            overflow-y: auto;
-        }
-        .side-menu.open {
-            right: 0;
-        }
+        /* Меню: вместо чёрного экрана — прозрачный серый оверлей, пункты без фона */
         .menu-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(3px);
+            background: rgba(30, 30, 35, 0.85); /* слегка серый полупрозрачный */
+            backdrop-filter: blur(8px);
             z-index: 35;
             opacity: 0;
             visibility: hidden;
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
         .menu-overlay.active {
             opacity: 1;
             visibility: visible;
         }
+
+        /* Меню-контейнер: без фона, текст на оверлее */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 75%;
+            max-width: 300px;
+            height: 100vh;
+            background: transparent;
+            z-index: 40;
+            transition: right 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            padding: 100px 32px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            backdrop-filter: none;
+            pointer-events: auto;
+        }
+        .side-menu.open {
+            right: 0;
+        }
         .side-menu a {
             color: white;
             text-decoration: none;
             font-size: 1.6rem;
-            font-weight: 500;
-            letter-spacing: -0.3px;
+            font-weight: 450;
+            letter-spacing: -0.2px;
             transition: 0.2s;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 12px;
+            border-bottom: none;
+            padding-bottom: 8px;
+            display: inline-block;
+            width: fit-content;
+            opacity: 0.9;
         }
         .side-menu a:hover {
-            opacity: 0.7;
-            transform: translateX(4px);
+            opacity: 1;
+            transform: translateX(5px);
+            font-weight: 500;
         }
-        /* мелкие шрифты навигации */
         @media (max-width: 480px) {
-            .side-menu a {
-                font-size: 1.4rem;
-            }
-            .side-menu {
-                padding: 80px 28px 30px;
-            }
+            .side-menu a { font-size: 1.5rem; }
+            .side-menu { padding: 90px 28px 30px; }
         }
 
-        /* ---------- Левый нижний угол: соцсети ---------- */
+        /* Соцсети — только иконки, без овала */
         .social-footer {
             position: fixed;
             bottom: 24px;
             left: 20px;
             z-index: 20;
             display: flex;
-            gap: 18px;
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(12px);
-            padding: 8px 16px;
-            border-radius: 60px;
-            border: 0.5px solid rgba(255,255,255,0.2);
+            gap: 20px;
+            background: transparent;
+            backdrop-filter: none;
+            padding: 0;
+            border: none;
             pointer-events: auto;
         }
         .social-footer a {
@@ -278,46 +265,43 @@
             font-size: 1.5rem;
             transition: 0.2s;
             text-decoration: none;
-            display: flex;
-            align-items: center;
+            opacity: 0.85;
         }
         .social-footer a:hover {
+            opacity: 1;
             transform: translateY(-2px);
-            opacity: 0.8;
         }
 
-        /* ---------- Переключатель языков (овальный, правый нижний угол) ---------- */
-        /* Модификация оригинального стиля: перемещаем вниз-вправо, делаем овальным */
+        /* Языковой переключатель (овальный, только кнопка внизу справа) */
         .t-lang-switch {
             position: fixed;
             bottom: 24px;
             right: 20px;
             z-index: 20;
             display: flex;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.55);
             backdrop-filter: blur(12px);
             border-radius: 60px;
             padding: 6px;
             gap: 4px;
             border: 0.5px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            font-family: system-ui, 'Inter', sans-serif;
             pointer-events: auto;
         }
         .t-lang-btn {
             display: inline-block;
             padding: 8px 20px;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 14px;
-            letter-spacing: 0.3px;
-            text-decoration: none !important;
+            letter-spacing: 0.2px;
+            text-decoration: none;
             text-align: center;
             cursor: pointer;
             transition: all 0.2s ease;
             background: transparent;
             border: none;
-            color: #ffffff !important;
+            color: #ffffff;
+            font-family: inherit;
         }
         .t-lang-btn.active {
             background: #ffffff !important;
@@ -327,93 +311,36 @@
         }
         .t-lang-btn:not(.active):hover {
             background: rgba(255, 255, 255, 0.2) !important;
-            color: #ffffff !important;
             transform: translateY(-1px);
         }
         @media (max-width: 760px) {
-            .t-lang-switch {
-                bottom: 20px;
-                right: 16px;
-                padding: 4px;
-                gap: 2px;
-            }
-            .t-lang-btn {
-                padding: 6px 16px;
-                font-size: 12px;
-            }
-            .social-footer {
-                bottom: 20px;
-                left: 16px;
-                gap: 14px;
-                padding: 6px 14px;
-            }
-            .social-footer a {
-                font-size: 1.3rem;
-            }
+            .t-lang-switch { bottom: 20px; right: 16px; padding: 4px; gap: 2px; }
+            .t-lang-btn { padding: 6px 16px; font-size: 12px; }
+            .social-footer { bottom: 20px; left: 16px; gap: 16px; }
+            .social-footer a { font-size: 1.4rem; }
         }
 
-        /* Скрываем лишние дефолтные стили */
-        .t-lang-switch * {
-            all: unset; /* осторожно: возвращаем базовый дисплей, но мы задали выше */
-            display: revert;
-            box-sizing: border-box;
-        }
-        /* Корректировка после unset */
-        .t-lang-switch {
-            all: revert;
-            position: fixed;
-            bottom: 24px;
-            right: 20px;
-            display: flex;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(12px);
-            border-radius: 60px;
-            padding: 6px;
-            gap: 4px;
-            border: 0.5px solid rgba(255, 255, 255, 0.3);
-        }
-        .t-lang-btn {
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            background: transparent;
-            border: none;
-            color: white;
-        }
-        .t-lang-btn.active {
-            background: white;
-            color: black;
-        }
-
-        /* Чтобы ссылки не ломали карусель */
-        a, button {
-            -webkit-tap-highlight-color: transparent;
-        }
+        /* Убираем лишние конфликты */
+        a, button { -webkit-tap-highlight-color: transparent; }
     </style>
 </head>
 <body>
 
-<!-- КАРУСЕЛЬ НА ВЕСЬ ЭКРАН -->
+<!-- КАРУСЕЛЬ (вручную) -->
 <div class="carousel">
     <div class="carousel-inner" id="carouselInner">
-        <div class="carousel-slide"><img src="images/pool.jpg" alt="Бассейн современная архитектура"></div>
-        <div class="carousel-slide"><img src="images/rock.jpg" alt="Скальный ландшафт и строительство"></div>
-        <!-- при желании можно добавить ещё слайд, но оставим два -->
+        <div class="carousel-slide"><img src="images/pool.jpg" alt="Современный бассейн"></div>
+        <div class="carousel-slide"><img src="images/rock.jpg" alt="Скальный ландшафт"></div>
     </div>
-    <!-- Стрелки -->
     <div class="carousel-arrow arrow-left" id="prevSlide"><i class="fas fa-chevron-left"></i></div>
     <div class="carousel-arrow arrow-right" id="nextSlide"><i class="fas fa-chevron-right"></i></div>
-    <!-- Точки (индикаторы) -->
     <div class="carousel-dots" id="carouselDots">
         <div class="dot active"></div>
         <div class="dot"></div>
     </div>
 </div>
 
-<!-- Верхняя панель: лого + бургер -->
+<!-- Верхняя панель: логотип и бургер (без фона) -->
 <div class="top-bar">
     <a href="#" class="logo">bau<span>.in</span></a>
     <div class="burger" id="burgerBtn">
@@ -421,8 +348,10 @@
     </div>
 </div>
 
-<!-- Боковое меню (скользящее) -->
+<!-- Оверлей (серый, полупрозрачный) для меню -->
 <div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- Меню (пункты на сером оверлее, без чёрного фона) -->
 <div class="side-menu" id="sideMenu">
     <a href="#">Главная</a>
     <a href="#">О нас</a>
@@ -433,36 +362,30 @@
     <a href="#">Контакты</a>
 </div>
 
-<!-- Левый нижний угол: соцсети и мессенджеры -->
+<!-- Соцсети (просто иконки, без овала) -->
 <div class="social-footer">
     <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="tel:+66812345678" aria-label="Телефон"><i class="fas fa-phone-alt"></i></a>
+    <a href="tel:+66812345678" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
     <a href="https://wa.me/66812345678" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     <a href="mailto:info@bau.in" aria-label="Email"><i class="far fa-envelope"></i></a>
     <a href="https://t.me/bauin" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
 </div>
 
-<!-- ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ (овальный, правый нижний угол) по предоставленному коду, но с коррекцией позиции -->
+<!-- Языковой переключатель (видимый, овальный) -->
 <div class="t-lang-switch">
-    <a class="t-lang-btn" data-lang="ru">Ru</a>
+    <a class="t-lang-btn active" data-lang="ru">Ru</a>
     <a class="t-lang-btn" data-lang="en">En</a>
 </div>
 
 <script>
-    // -------------------- КАРУСЕЛЬ (полноэкранная, авто + точки + стрелки) --------------------
+    // ---------- КАРУСЕЛЬ: ТОЛЬКО РУЧНОЕ УПРАВЛЕНИЕ (без автопрокрутки) ----------
     const slides = document.querySelectorAll('.carousel-slide');
     const inner = document.getElementById('carouselInner');
-    const dotsContainer = document.getElementById('carouselDots');
     let currentIndex = 0;
-    let autoInterval;
-    let isDragging = false;
-    let startX = 0;
-    let translateCurrent = 0;
 
     function updateCarousel() {
         const width = inner.parentElement.clientWidth;
         inner.style.transform = `translateX(-${currentIndex * width}px)`;
-        // обновить активную точку
         const dots = document.querySelectorAll('.dot');
         dots.forEach((dot, idx) => {
             if (idx === currentIndex) dot.classList.add('active');
@@ -471,104 +394,55 @@
     }
 
     function nextSlide() {
-        if (currentIndex < slides.length - 1) {
-            currentIndex++;
-        } else {
-            currentIndex = 0;
-        }
+        if (currentIndex < slides.length - 1) currentIndex++;
+        else currentIndex = 0;
         updateCarousel();
-        resetAutoSlide();
     }
 
     function prevSlide() {
-        if (currentIndex > 0) {
-            currentIndex--;
-        } else {
-            currentIndex = slides.length - 1;
-        }
+        if (currentIndex > 0) currentIndex--;
+        else currentIndex = slides.length - 1;
         updateCarousel();
-        resetAutoSlide();
     }
 
     function goToSlide(index) {
         if (index >= 0 && index < slides.length) {
             currentIndex = index;
             updateCarousel();
-            resetAutoSlide();
         }
     }
 
-    function resetAutoSlide() {
-        if (autoInterval) clearInterval(autoInterval);
-        autoInterval = setInterval(() => {
-            nextSlide();
-        }, 5000);
-    }
+    document.getElementById('prevSlide').addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
+    document.getElementById('nextSlide').addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
 
-    // Обработчики стрелок и точек
-    document.getElementById('prevSlide').addEventListener('click', (e) => {
-        e.stopPropagation();
-        prevSlide();
-    });
-    document.getElementById('nextSlide').addEventListener('click', (e) => {
-        e.stopPropagation();
-        nextSlide();
-    });
-    // динамическая генерация точек (уже есть в html, но перепривяжем)
     const dots = document.querySelectorAll('.dot');
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-            goToSlide(i);
-        });
-    });
+    dots.forEach((dot, i) => { dot.addEventListener('click', () => goToSlide(i)); });
 
-    // Свайп для мобильных (touch)
+    // Свайп для мобильных
     let touchStartX = 0;
-    let touchEndX = 0;
-    inner.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
+    inner.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
     inner.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        const diff = touchEndX - touchStartX;
-        if (Math.abs(diff) > 50) {
-            if (diff > 0) {
-                prevSlide();
-            } else {
-                nextSlide();
-            }
-        }
+        const diff = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(diff) > 50) diff > 0 ? prevSlide() : nextSlide();
     });
-    // для десктопных драгов (не обязательны, но приятно)
-    let mouseDown = false;
-    inner.addEventListener('mousedown', (e) => {
-        mouseDown = true;
-        startX = e.clientX;
-        e.preventDefault();
-    });
+    // Десктоп-драг
+    let mouseDown = false, startX = 0;
+    inner.addEventListener('mousedown', (e) => { mouseDown = true; startX = e.clientX; e.preventDefault(); });
     window.addEventListener('mouseup', (e) => {
         if (mouseDown) {
-            const endX = e.clientX;
-            const diff = endX - startX;
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) prevSlide();
-                else nextSlide();
-            }
+            const diff = e.clientX - startX;
+            if (Math.abs(diff) > 50) diff > 0 ? prevSlide() : nextSlide();
             mouseDown = false;
         }
     });
-    window.addEventListener('resize', () => {
-        updateCarousel();
-    });
-    
-    // Запуск карусели
+    window.addEventListener('resize', () => updateCarousel());
     updateCarousel();
-    resetAutoSlide();
 
-    // -------------------- БУРГЕР-МЕНЮ (скользящее) --------------------
+    // ---------- БУРГЕР-МЕНЮ (серый оверлей, пункты без чёрного фона) ----------
     const burger = document.getElementById('burgerBtn');
     const sideMenu = document.getElementById('sideMenu');
     const overlay = document.getElementById('menuOverlay');
+
     function closeMenu() {
         sideMenu.classList.remove('open');
         overlay.classList.remove('active');
@@ -583,38 +457,27 @@
     }
     burger.addEventListener('click', (e) => {
         e.stopPropagation();
-        if (sideMenu.classList.contains('open')) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
+        if (sideMenu.classList.contains('open')) closeMenu();
+        else openMenu();
     });
     overlay.addEventListener('click', closeMenu);
-    // Закрытие при клике на ссылку в меню (для UX)
-    const menuLinks = sideMenu.querySelectorAll('a');
-    menuLinks.forEach(link => {
+    // Закрытие при клике на ссылки меню
+    document.querySelectorAll('.side-menu a').forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault(); // для демо заглушка, можно убрать или оставить
+            e.preventDefault();
             console.log('Навигация:', link.innerText);
             closeMenu();
-            // здесь можно добавить реальный переход или якорь
-            if (link.innerText === 'Главная') window.scrollTo({top:0,behavior:'smooth'});
-            // для остальных можно показать alert или сделать ссылки #
+            if (link.innerText === 'Главная') window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
 
-    // -------------------- ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ (код адаптирован под овальную кнопку) --------------------
+    // ---------- ЯЗЫКОВОЙ ПЕРЕКЛЮЧАТЕЛЬ (видимый, активный язык — белый фон) ----------
     (function() {
-        // Небольшая модификация: отключаем авторедирект для демо, чтобы не уходило в /en (404),
-        // но оставляем логику смены языка через кнопки с имитацией.
-        // При этом стили полностью рабочие. Для удобства сделаем просто изменение параметра без реальной смены страниц,
-        // но покажем сообщение (чтобы соответствовать "переключатель языков").
-        // Однако в исходном коде был редирект. Сделаем гибрид: если домен поддерживает /en/ - оставим, но чтобы не ломать просмотр,
-        // добавим проверку: если клик на En, а страницы нет, то просто алерт. Для демонстрации.
-        
-        const btns = document.querySelectorAll('.t-lang-btn');
+        const langBtns = document.querySelectorAll('.t-lang-btn');
+        let currentLang = 'ru'; // по умолчанию
+
         function setActiveLang(lang) {
-            btns.forEach(btn => {
+            langBtns.forEach(btn => {
                 const btnLang = btn.getAttribute('data-lang');
                 if (btnLang === lang) {
                     btn.classList.add('active');
@@ -623,75 +486,34 @@
                 }
             });
         }
-        
-        // Определяем текущий язык из URL (простой fallback)
-        let currentLang = 'ru';
+
+        // Проверка URL на /en
         if (window.location.pathname.startsWith('/en')) currentLang = 'en';
         setActiveLang(currentLang);
-        
-        btns.forEach(btn => {
+
+        langBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetLang = btn.getAttribute('data-lang');
                 if (targetLang === currentLang) return;
-                // Эмуляция переключения: меняем URL (добавляем /en/ префикс или убираем)
+                // Эмуляция / реальная смена языка (демо-режим)
                 let newUrl = window.location.href;
                 if (targetLang === 'en') {
                     if (!newUrl.includes('/en/') && !newUrl.endsWith('/en')) {
-                        // если корень, добавляем /en/
                         let origin = window.location.origin;
                         let path = window.location.pathname;
-                        if (path === '/' || path === '') {
-                            newUrl = origin + '/en/';
-                        } else if (!path.startsWith('/en')) {
-                            newUrl = origin + '/en' + path;
-                        } else {
-                            newUrl = origin + path;
-                        }
+                        newUrl = origin + (path === '/' ? '/en/' : '/en' + path);
                     }
                 } else {
-                    // переключение на русский — убираем /en/
-                    newUrl = window.location.href.replace(/\/en\//, '/').replace(/\/en$/, '/');
+                    newUrl = newUrl.replace(/\/en\//, '/').replace(/\/en$/, '/');
                 }
-                // Для демонстрации вместо реального редиректа показываем всплывашку (но если нужно - раскомментировать)
-                alert(`Демо-переключение языка на ${targetLang.toUpperCase()}. В реальном проекте будет редирект на: ${newUrl}`);
-                // чтобы не уйти с текущей страницы, но сохраняем активную кнопку визуально:
+                alert(`Переключение на ${targetLang.toUpperCase()}. В реальном проекте будет редирект на:\n${newUrl}`);
                 setActiveLang(targetLang);
                 currentLang = targetLang;
-                // Здесь можно добавить реальный переход: window.location.href = newUrl;
+                // При желании раскомментировать: window.location.href = newUrl;
             });
         });
     })();
-
-    // Дополнительно: чтобы карусель не мешала кликам по бургеру и соцсетям, накладываем правильный z-index
-    // (всё уже корректно)
-    
-    // Имитация загрузки — адаптация под фон и безопасное отображение
-    window.addEventListener('load', () => {
-        updateCarousel();
-        // проверяем, что изображения загружены (если нет - можно заглушки, но папка images существует)
-        const imgs = document.querySelectorAll('.carousel-slide img');
-        imgs.forEach(img => {
-            img.onerror = () => {
-                console.warn('Не загрузилось изображение, проверьте путь images/pool.jpg или images/rock.jpg');
-                // можно подставить фоном цвет, но для красоты оставим
-            };
-        });
-    });
-    // Обработка ориентации экрана
-    window.addEventListener('orientationchange', () => {
-        setTimeout(updateCarousel, 50);
-    });
 </script>
-
-<!-- Пояснение: Структура полностью соответствует ТЗ:
-- Карусель из pool.jpg и rock.jpg на весь экран мобильного.
-- Левый верхний угол: bau.in
-- Правый верхний: бургер (скользящее меню)
-- Левый нижний: соцсети (instagram, телефон, whatsapp, email, telegram) белым цветом.
-- Правый нижний: овальный переключатель языков (Ru/En) с оригинальным дизайном, но перемещён вниз-вправо.
-- Меню: белый текст на черном фоне со ссылками: Главная, О нас, Услуги, Проекты, Инвестиции, Регламент, Контакты.
-- Шрифт минималистичный, архитектурный стиль.
--->
 </body>
 </html>
