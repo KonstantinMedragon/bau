@@ -3,17 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>bau.in | Инжиниринг и консалтинг в Таиланде</title>
+    <title>bau.in | Инжиниринг, проверка недвижимости и инвестиции на Самуи</title>
+    <meta name="description" content="Инжиниринг, полная проверка недвижимости (due diligence) и инвестиции на Самуи. Технадзор, строительный контроль, легальное сопровождение. Тайское юрлицо, лицензированные инженеры.">
+    <meta name="keywords" content="проверка недвижимости Самуи, технадзор Самуи, due diligence Таиланд, строительный контроль, инвестиции в недвижимость Самуи, инжиниринг Самуи">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://konstantinmedragon.github.io/bau/">
+    <meta property="og:title" content="bau.in — Инжиниринг, проверка недвижимости и инвестиции на Самуи">
+    <meta property="og:description" content="Due diligence перед покупкой, технадзор, инвестиционные проекты (глэмпинг) на Самуи. Легально, с тайскими инженерами.">
+    <meta property="og:image" content="https://konstantinmedragon.github.io/bau/images/logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://konstantinmedragon.github.io/bau/">
+    <meta property="twitter:title" content="bau.in — Инжиниринг, проверка недвижимости и инвестиции на Самуи">
+    <meta property="twitter:description" content="Полная проверка объектов, строительный надзор и инвестиционные возможности на Самуи. Работаем легально.">
+    <meta property="twitter:image" content="https://konstantinmedragon.github.io/bau/images/logo.png">
+    
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* ---- Все стили остаются как в последней рабочей версии (с чёрными обводками, полупрозрачным меню, ручной каруселью) ---- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
         }
-
         body {
             font-family: 'Tilda Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-weight: 400;
@@ -21,8 +38,6 @@
             overflow-x: hidden;
             height: 100vh;
         }
-
-        /* Карусель на весь экран (только ручное управление) */
         .carousel {
             position: fixed;
             top: 0;
@@ -32,7 +47,6 @@
             overflow: hidden;
             z-index: 1;
         }
-
         .carousel-inner {
             display: flex;
             width: 100%;
@@ -40,12 +54,10 @@
             transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             will-change: transform;
         }
-
         .carousel-slide {
             flex: 0 0 100%;
             height: 100%;
         }
-
         .carousel-slide img {
             width: 100%;
             height: 100%;
@@ -53,8 +65,6 @@
             display: block;
             pointer-events: none;
         }
-
-        /* Лёгкое затемнение снизу (для читаемости нижних элементов) */
         .carousel::after {
             content: '';
             position: absolute;
@@ -66,8 +76,6 @@
             pointer-events: none;
             z-index: 2;
         }
-
-        /* Точки и стрелки (ручное управление) */
         .carousel-dots {
             position: absolute;
             bottom: 24px;
@@ -112,17 +120,13 @@
             transition: 0.2s;
             border: 1px solid rgba(0,0,0,0.7);
         }
-        .carousel-arrow:hover {
-            background: rgba(0,0,0,0.7);
-        }
+        .carousel-arrow:hover { background: rgba(0,0,0,0.7); }
         .arrow-left { left: 16px; }
         .arrow-right { right: 16px; }
         @media (max-width: 760px) {
             .carousel-arrow { width: 36px; height: 36px; font-size: 18px; }
             .carousel-dots { bottom: 20px; }
         }
-
-        /* --- Верхняя панель: логотип и бургер (с чёрной обводкой и фоном) --- */
         .top-bar {
             position: fixed;
             top: 0;
@@ -147,12 +151,9 @@
             border: 1px solid rgba(0, 0, 0, 0.8);
             border-radius: 40px;
             padding: 6px 18px;
-            transition: 0.2s;
             font-family: inherit;
         }
-        .logo span {
-            font-weight: 300;
-        }
+        .logo span { font-weight: 300; }
         .burger {
             pointer-events: auto;
             width: 44px;
@@ -167,7 +168,6 @@
             gap: 6px;
             cursor: pointer;
             border: 1px solid rgba(0, 0, 0, 0.8);
-            transition: 0.2s;
         }
         .burger span {
             width: 22px;
@@ -176,24 +176,16 @@
             border-radius: 2px;
             transition: 0.3s;
         }
-        .burger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-        .burger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .burger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        /* --- Оверлей меню: полупрозрачный, чтобы фото просвечивало --- */
+        .burger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .burger.active span:nth-child(2) { opacity: 0; }
+        .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
         .menu-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(20, 20, 25, 0.65); /* светлый серый, фото видно */
+            background: rgba(20, 20, 25, 0.65);
             backdrop-filter: blur(6px);
             z-index: 35;
             opacity: 0;
@@ -204,8 +196,6 @@
             opacity: 1;
             visibility: visible;
         }
-
-        /* Меню-контейнер: текст на оверлее, без дополнительного фона */
         .side-menu {
             position: fixed;
             top: 0;
@@ -222,9 +212,7 @@
             gap: 28px;
             pointer-events: auto;
         }
-        .side-menu.open {
-            right: 0;
-        }
+        .side-menu.open { right: 0; }
         .side-menu a {
             color: white;
             text-decoration: none;
@@ -232,7 +220,6 @@
             font-weight: 450;
             letter-spacing: -0.2px;
             transition: 0.2s;
-            border-bottom: none;
             padding-bottom: 8px;
             display: inline-block;
             width: fit-content;
@@ -247,8 +234,6 @@
             .side-menu a { font-size: 1.5rem; }
             .side-menu { padding: 90px 28px 30px; }
         }
-
-        /* --- Соцсети: общий блок с фоном и чёрной обводкой, как у логотипа --- */
         .social-footer {
             position: fixed;
             bottom: 24px;
@@ -274,8 +259,6 @@
             opacity: 1;
             transform: translateY(-2px);
         }
-
-        /* Языковой переключатель (остаётся внизу справа, стиль не меняем, только обводка чёрная по запросу) */
         .t-lang-switch {
             position: fixed;
             bottom: 24px;
@@ -297,10 +280,8 @@
             font-weight: 500;
             font-size: 14px;
             letter-spacing: 0.2px;
-            text-decoration: none;
             text-align: center;
             cursor: pointer;
-            transition: all 0.2s ease;
             background: transparent;
             border: none;
             color: #ffffff;
@@ -310,7 +291,6 @@
             background: #ffffff !important;
             color: #000000 !important;
             pointer-events: none;
-            cursor: default;
         }
         .t-lang-btn:not(.active):hover {
             background: rgba(255, 255, 255, 0.2) !important;
@@ -328,11 +308,11 @@
 </head>
 <body>
 
-<!-- КАРУСЕЛЬ -->
+<!-- КАРУСЕЛЬ (ручное управление) -->
 <div class="carousel">
     <div class="carousel-inner" id="carouselInner">
-        <div class="carousel-slide"><img src="images/pool.jpg" alt="Современный бассейн"></div>
-        <div class="carousel-slide"><img src="images/rock.jpg" alt="Скальный ландшафт"></div>
+        <div class="carousel-slide"><img src="images/pool.jpg" alt="Бассейн на Самуи"></div>
+        <div class="carousel-slide"><img src="images/rock.jpg" alt="Скалы и строительство на Самуи"></div>
     </div>
     <div class="carousel-arrow arrow-left" id="prevSlide"><i class="fas fa-chevron-left"></i></div>
     <div class="carousel-arrow arrow-right" id="nextSlide"><i class="fas fa-chevron-right"></i></div>
@@ -350,10 +330,10 @@
     </div>
 </div>
 
-<!-- Оверлей меню (полупрозрачный, фото просвечивает) -->
+<!-- Оверлей меню (полупрозрачный) -->
 <div class="menu-overlay" id="menuOverlay"></div>
 
-<!-- Меню (пункты на оверлее) -->
+<!-- Боковое меню -->
 <div class="side-menu" id="sideMenu">
     <a href="#">Главная</a>
     <a href="#">О нас</a>
@@ -364,7 +344,7 @@
     <a href="#">Контакты</a>
 </div>
 
-<!-- Соцсети (с чёрной обводкой и фоном, как у лого) -->
+<!-- Соцсети (левый нижний угол) -->
 <div class="social-footer">
     <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
     <a href="tel:+66812345678" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
@@ -373,14 +353,14 @@
     <a href="https://t.me/bauin" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
 </div>
 
-<!-- Языковой переключатель (видимый, овальный) -->
+<!-- Переключатель языков (овальный, правый нижний угол) -->
 <div class="t-lang-switch">
     <a class="t-lang-btn active" data-lang="ru">Ru</a>
     <a class="t-lang-btn" data-lang="en">En</a>
 </div>
 
 <script>
-    // ---------- КАРУСЕЛЬ: ТОЛЬКО РУЧНОЕ УПРАВЛЕНИЕ ----------
+    // ---------- КАРУСЕЛЬ (только ручное управление) ----------
     const slides = document.querySelectorAll('.carousel-slide');
     const inner = document.getElementById('carouselInner');
     let currentIndex = 0;
@@ -420,14 +400,12 @@
     const dots = document.querySelectorAll('.dot');
     dots.forEach((dot, i) => { dot.addEventListener('click', () => goToSlide(i)); });
 
-    // Свайп для мобильных
     let touchStartX = 0;
     inner.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
     inner.addEventListener('touchend', (e) => {
         const diff = e.changedTouches[0].screenX - touchStartX;
         if (Math.abs(diff) > 50) diff > 0 ? prevSlide() : nextSlide();
     });
-    // Десктоп-драг
     let mouseDown = false, startX = 0;
     inner.addEventListener('mousedown', (e) => { mouseDown = true; startX = e.clientX; e.preventDefault(); });
     window.addEventListener('mouseup', (e) => {
@@ -472,11 +450,10 @@
         });
     });
 
-    // ---------- ЯЗЫКОВОЙ ПЕРЕКЛЮЧАТЕЛЬ (видимый) ----------
+    // ---------- ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ (видимый) ----------
     (function() {
         const langBtns = document.querySelectorAll('.t-lang-btn');
         let currentLang = 'ru';
-
         function setActiveLang(lang) {
             langBtns.forEach(btn => {
                 const btnLang = btn.getAttribute('data-lang');
@@ -484,10 +461,8 @@
                 else btn.classList.remove('active');
             });
         }
-
         if (window.location.pathname.startsWith('/en')) currentLang = 'en';
         setActiveLang(currentLang);
-
         langBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -503,10 +478,10 @@
                 } else {
                     newUrl = newUrl.replace(/\/en\//, '/').replace(/\/en$/, '/');
                 }
-                alert(`Переключение на ${targetLang.toUpperCase()}. Реальный редирект:\n${newUrl}`);
+                alert(`Переключение на ${targetLang.toUpperCase()}. В реальном проекте будет редирект на:\n${newUrl}`);
                 setActiveLang(targetLang);
                 currentLang = targetLang;
-                // window.location.href = newUrl;
+                // window.location.href = newUrl; // раскомментировать для реального редиректа
             });
         });
     })();
