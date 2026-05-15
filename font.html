@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>bau.in | Эксперименты со шрифтами</title>
+    <!-- Подключаем шрифты Google Fonts (бесплатные аналоги) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700;6..96,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Satoshi через CDN (бесплатный аналог) -->
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #F5F5F5; /* светлый фон для контраста с белыми блоками */
+            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+            padding: 48px 24px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        /* Карточка варианта шрифта */
+        .font-card {
+            background: #FFFFFF;
+            border: 2px solid #2C2C2C;   /* графитовый цвет */
+            border-radius: 30px;
+            padding: 40px 32px;
+            transition: box-shadow 0.2s ease;
+        }
+        .font-card:hover {
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+        }
+
+        .variant-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            color: #5A5A5A;
+            margin-bottom: 28px;
+            border-bottom: 1px solid #E0E0E0;
+            padding-bottom: 12px;
+            font-family: monospace;
+        }
+
+        /* Базовые стили для содержимого, переопределяемые шрифтами через классы */
+        .content-root {
+            /* общие отступы */
+        }
+
+        /* Логотип и навигация */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+            border-bottom: 1px solid #E5E5E5;
+            padding-bottom: 20px;
+        }
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: #111;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: #2C2C2C;
+            transition: opacity 0.2s;
+        }
+        .nav-links a:hover { opacity: 0.7; }
+
+        /* Герой секция */
+        .hero {
+            margin-bottom: 60px;
+        }
+        .hero-tagline {
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+        .hero-sub {
+            font-size: 1.2rem;
+            max-width: 500px;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+        .btn-outline {
+            display: inline-block;
+            border: 1.5px solid #2C2C2C;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #2C2C2C;
+            transition: 0.2s;
+        }
+        .btn-outline:hover {
+            background: #2C2C2C;
+            color: white;
+        }
+
+        /* Две колонки: характеристики и блоки */
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            margin-bottom: 60px;
+        }
+        .project-highlights {
+            flex: 1.2;
+            background: #F8F8F8;
+            padding: 28px;
+            border-radius: 24px;
+        }
+        .project-highlights h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: -0.2px;
+        }
+        .highlights-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .highlight-row {
+            display: flex;
+            border-bottom: 1px solid #E2E2E2;
+            padding-bottom: 8px;
+        }
+        .highlight-label {
+            width: 110px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+        .highlight-value {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .features {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+        .feature-item h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .feature-item p {
+            line-height: 1.4;
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        /* Статистика */
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            justify-content: flex-start;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #E5E5E5;
+        }
+        .stat-item {
+            text-align: left;
+        }
+        .stat-number {
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #555;
+        }
+
+        /* для мобильной адаптации */
+        @media (max-width: 860px) {
+            .hero-title { font-size: 2.5rem; }
+            .top-nav { flex-direction: column; gap: 16px; }
+            .nav-links { gap: 20px; }
+            .font-card { padding: 28px 20px; }
+        }
+
+        /* ----- Разные пары шрифтов ----- */
+        /* Вариант 1: Playfair Display (замена Canela) + Inter */
+        .font-pair-1 .logo,
+        .font-pair-1 .hero-title,
+        .font-pair-1 .feature-item h4,
+        .font-pair-1 .stat-number,
+        .font-pair-1 .project-highlights h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-pair-1 .nav-links a,
+        .font-pair-1 .hero-tagline,
+        .font-pair-1 .hero-sub,
+        .font-pair-1 .btn-outline,
+        .font-pair-1 .highlight-label,
+        .font-pair-1 .highlight-value,
+        .font-pair-1 .feature-item p,
+        .font-pair-1 .stat-label,
+        .font-pair-1 .project-highlights,
+        .font-pair-1 .hero-tagline {
+            font-family: 'Inter', sans-serif;
+        }
+        /* специфика для кнопки */
+        .font-pair-1 .btn-outline { font-family: 'Inter', sans-serif; }
+
+        /* Вариант 2: Cormorant Garamond + Inter */
+        .font-pair-2 .logo,
+        .font-pair-2 .hero-title,
+        .font-pair-2 .feature-item h4,
+        .font-pair-2 .stat-number,
+        .font-pair-2 .project-highlights h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+        }
+        .font-pair-2 .hero-title { font-weight: 700; }
+        .font-pair-2 .nav-links a,
+        .font-pair-2 .hero-tagline,
+        .font-pair-2 .hero-sub,
+        .font-pair-2 .btn-outline,
+        .font-pair-2 .highlight-label,
+        .font-pair-2 .highlight-value,
+        .font-pair-2 .feature-item p,
+        .font-pair-2 .stat-label {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Вариант 3: Bodoni Moda + Satoshi */
+        .font-pair-3 .logo,
+        .font-pair-3 .hero-title,
+        .font-pair-3 .feature-item h4,
+        .font-pair-3 .stat-number,
+        .font-pair-3 .project-highlights h3 {
+            font-family: 'Bodoni Moda', serif;
+            font-weight: 700;
+        }
+        .font-pair-3 .nav-links a,
+        .font-pair-3 .hero-tagline,
+        .font-pair-3 .hero-sub,
+        .font-pair-3 .btn-outline,
+        .font-pair-3 .highlight-label,
+        .font-pair-3 .highlight-value,
+        .font-pair-3 .feature-item p,
+        .font-pair-3 .stat-label {
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+        }
+        
+        /* небольшая корректировка для satoshi */
+        .font-pair-3 .hero-sub { font-weight: 450; }
+
+        /* универсальные улучшения */
+        .hero-title br { display: none; } /* для аккуратности */
+        @media (min-width: 600px) {
+            .hero-title br { display: inline; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Вариант 1: Canela (аналог Playfair Display) + Inter -->
+    <div class="font-card font-pair-1">
+        <div class="variant-title">🎨 Вариант 1 · Canela (Playfair Display) + Inter · luxury editorial</div>
+        <div class="content-root">
+            <!-- шапка -->
+            <div class="top-nav">
+                <div class="logo">bau.in</div>
+                <div class="nav-links">
+                    <a href="#">PROJECTS</a>
+                    <a href="#">SERVICES</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">INVEST</a>
+                    <a href="#">CONTACT</a>
+                </div>
+            </div>
+            <!-- герой -->
+            <div class="hero">
+                <div class="hero-tagline">DESIGN · BUILD · INVEST</div>
+                <div class="hero-title">Architecture<br>That Blends<br>Nature & Luxury</div>
+                <div class="hero-sub">Exclusive Tropical Villas<br>For Living & Investment</div>
+                <a href="#" class="btn-outline">Discover our projects →</a>
+            </div>
+            <!-- две колонки -->
+            <div class="two-columns">
+                <div class="project-highlights">
+                    <h3>PROJECT HIGHLIGHTS</h3>
+                    <div class="highlights-grid">
+                        <div class="highlight-row"><span class="highlight-label">LOCATION:</span><span class="highlight-value">TROPICAL COAST</span></div>
+                        <div class="highlight-row"><span class="highlight-label">TYPE:</span><span class="highlight-value">RESIDENTIAL VILLA</span></div>
+                        <div class="highlight-row"><span class="highlight-label">PLOT AREA:</span><span class="highlight-value">2,350 m²</span></div>
+                        <div class="highlight-row"><span class="highlight-label">BUILT AREA:</span><span class="highlight-value">620 m²</span></div>
+                        <div class="highlight-row"><span class="highlight-label">YEAR:</span><span class="highlight-value">2024</span></div>
+                    </div>
+                </div>
+                <div class="features">
+                    <div class="feature-item">
+                        <h4>HARMONY WITH NATURE</h4>
+                        <p>Designed to blend seamlessly with the surrounding landscape.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>MODERN TROPICAL DESIGN</h4>
+                        <p>Open spaces, natural materials and timeless architecture.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>INVESTMENT VALUE</h4>
+                        <p>High potential properties for living and long-term return.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- статистика -->
+            <div class="stats">
+                <div class="stat-item"><div class="stat-number">12+</div><div class="stat-label">PROJECTS COMPLETED</div></div>
+                <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">YEARS OF EXPERIENCE</div></div>
+                <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">DEDICATED TO QUALITY</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вариант 2: Cormorant Garamond + Inter (бесплатный, элегантный) -->
+    <div class="font-card font-pair-2">
+        <div class="variant-title">✒️ Вариант 2 · Cormorant Garamond + Inter · классическая элегантность</div>
+        <div class="content-root">
+            <div class="top-nav">
+                <div class="logo">bau.in</div>
+                <div class="nav-links">
+                    <a href="#">PROJECTS</a>
+                    <a href="#">SERVICES</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">INVEST</a>
+                    <a href="#">CONTACT</a>
+                </div>
+            </div>
+            <div class="hero">
+                <div class="hero-tagline">DESIGN · BUILD · INVEST</div>
+                <div class="hero-title">Architecture<br>That Blends<br>Nature & Luxury</div>
+                <div class="hero-sub">Exclusive Tropical Villas<br>For Living & Investment</div>
+                <a href="#" class="btn-outline">Discover our projects →</a>
+            </div>
+            <div class="two-columns">
+                <div class="project-highlights">
+                    <h3>PROJECT HIGHLIGHTS</h3>
+                    <div class="highlights-grid">
+                        <div class="highlight-row"><span class="highlight-label">LOCATION:</span><span class="highlight-value">TROPICAL COAST</span></div>
+                        <div class="highlight-row"><span class="highlight-label">TYPE:</span><span class="highlight-value">RESIDENTIAL VILLA</span></div>
+                        <div class="highlight-row"><span class="highlight-label">PLOT AREA:</span><span class="highlight-value">2,350 m²</span></div>
+                        <div class="highlight-row"><span class="highlight-label">BUILT AREA:</span><span class="highlight-value">620 m²</span></div>
+                        <div class="highlight-row"><span class="highlight-label">YEAR:</span><span class="highlight-value">2024</span></div>
+                    </div>
+                </div>
+                <div class="features">
+                    <div class="feature-item"><h4>HARMONY WITH NATURE</h4><p>Designed to blend seamlessly with the surrounding landscape.</p></div>
+                    <div class="feature-item"><h4>MODERN TROPICAL DESIGN</h4><p>Open spaces, natural materials and timeless architecture.</p></div>
+                    <div class="feature-item"><h4>INVESTMENT VALUE</h4><p>High potential properties for living and long-term return.</p></div>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-item"><div class="stat-number">12+</div><div class="stat-label">PROJECTS COMPLETED</div></div>
+                <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">YEARS OF EXPERIENCE</div></div>
+                <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">DEDICATED TO QUALITY</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вариант 3: Bodoni Moda + Satoshi (архитектурный, минималистичный) -->
+    <div class="font-card font-pair-3">
+        <div class="variant-title">🏛️ Вариант 3 · Bodoni Moda + Satoshi · архитектурный контраст</div>
+        <div class="content-root">
+            <div class="top-nav">
+                <div class="logo">bau.in</div>
+                <div class="nav-links">
+                    <a href="#">PROJECTS</a>
+                    <a href="#">SERVICES</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">INVEST</a>
+                    <a href="#">CONTACT</a>
+                </div>
+            </div>
+            <div class="hero">
+                <div class="hero-tagline">DESIGN · BUILD · INVEST</div>
+                <div class="hero-title">Architecture<br>That Blends<br>Nature & Luxury</div>
+                <div class="hero-sub">Exclusive Tropical Villas<br>For Living & Investment</div>
+                <a href="#" class="btn-outline">Discover our projects →</a>
+            </div>
+            <div class="two-columns">
+                <div class="project-highlights">
+                    <h3>PROJECT HIGHLIGHTS</h3>
+                    <div class="highlights-grid">
+                        <div class="highlight-row"><span class="highlight-label">LOCATION:</span><span class="highlight-value">TROPICAL COAST</span></div>
+                        <div class="highlight-row"><span class="highlight-label">TYPE:</span><span class="highlight-value">RESIDENTIAL VILLA</span></div>
+                        <div class="highlight-row"><span class="highlight-label">PLOT AREA:</span><span class="highlight-value">2,350 m²</span></div>
+                        <div class="highlight-row"><span class="highlight-label">BUILT AREA:</span><span class="highlight-value">620 m²</span></div>
+                        <div class="highlight-row"><span class="highlight-label">YEAR:</span><span class="highlight-value">2024</span></div>
+                    </div>
+                </div>
+                <div class="features">
+                    <div class="feature-item"><h4>HARMONY WITH NATURE</h4><p>Designed to blend seamlessly with the surrounding landscape.</p></div>
+                    <div class="feature-item"><h4>MODERN TROPICAL DESIGN</h4><p>Open spaces, natural materials and timeless architecture.</p></div>
+                    <div class="feature-item"><h4>INVESTMENT VALUE</h4><p>High potential properties for living and long-term return.</p></div>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-item"><div class="stat-number">12+</div><div class="stat-label">PROJECTS COMPLETED</div></div>
+                <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">YEARS OF EXPERIENCE</div></div>
+                <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">DEDICATED TO QUALITY</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Дополнительно четвёртый вариант: Editorial New (аналог Libre Baskerville) + Helvetica Neue (системный) для демонстрации, по желанию клиента -->
+    <div class="font-card" style="border-color: #2C2C2C;">
+        <div class="variant-title">📘 Вариант 4 · Editorial New (Libre Baskerville) + Helvetica Neue · журнальный стиль</div>
+        <div style="font-family: 'Libre Baskerville', serif;" class="content-root">
+            <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+            <div class="top-nav">
+                <div style="font-family: 'Libre Baskerville', serif; font-weight: 700;" class="logo">bau.in</div>
+                <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;" class="nav-links">
+                    <a href="#">PROJECTS</a>
+                    <a href="#">SERVICES</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">INVEST</a>
+                    <a href="#">CONTACT</a>
+                </div>
+            </div>
+            <div class="hero">
+                <div style="font-family: 'Helvetica Neue', Helvetica, sans-serif; letter-spacing: 2px;" class="hero-tagline">DESIGN · BUILD · INVEST</div>
+                <div style="font-family: 'Libre Baskerville', serif; font-weight: 700;" class="hero-title">Architecture<br>That Blends<br>Nature & Luxury</div>
+                <div style="font-family: 'Helvetica Neue', Helvetica, sans-serif;" class="hero-sub">Exclusive Tropical Villas<br>For Living & Investment</div>
+                <a href="#" style="font-family: 'Helvetica Neue', Helvetica, sans-serif;" class="btn-outline">Discover our projects →</a>
+            </div>
+            <div class="two-columns">
+                <div class="project-highlights">
+                    <h3 style="font-family: 'Libre Baskerville', serif;">PROJECT HIGHLIGHTS</h3>
+                    <div class="highlights-grid" style="font-family: 'Helvetica Neue', Helvetica, sans-serif;">
+                        <div class="highlight-row"><span class="highlight-label">LOCATION:</span><span class="highlight-value">TROPICAL COAST</span></div>
+                        <div class="highlight-row"><span class="highlight-label">TYPE:</span><span class="highlight-value">RESIDENTIAL VILLA</span></div>
+                        <div class="highlight-row"><span class="highlight-label">PLOT AREA:</span><span class="highlight-value">2,350 m²</span></div>
+                        <div class="highlight-row"><span class="highlight-label">BUILT AREA:</span><span class="highlight-value">620 m²</span></div>
+                        <div class="highlight-row"><span class="highlight-label">YEAR:</span><span class="highlight-value">2024</span></div>
+                    </div>
+                </div>
+                <div class="features">
+                    <div class="feature-item"><h4 style="font-family: 'Libre Baskerville', serif;">HARMONY WITH NATURE</h4><p style="font-family: 'Helvetica Neue', Helvetica, sans-serif;">Designed to blend seamlessly with the surrounding landscape.</p></div>
+                    <div class="feature-item"><h4 style="font-family: 'Libre Baskerville', serif;">MODERN TROPICAL DESIGN</h4><p style="font-family: 'Helvetica Neue', Helvetica, sans-serif;">Open spaces, natural materials and timeless architecture.</p></div>
+                    <div class="feature-item"><h4 style="font-family: 'Libre Baskerville', serif;">INVESTMENT VALUE</h4><p style="font-family: 'Helvetica Neue', Helvetica, sans-serif;">High potential properties for living and long-term return.</p></div>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-item"><div style="font-family: 'Libre Baskerville', serif;" class="stat-number">12+</div><div style="font-family: 'Helvetica Neue', Helvetica, sans-serif;" class="stat-label">PROJECTS COMPLETED</div></div>
+                <div class="stat-item"><div style="font-family: 'Libre Baskerville', serif;" class="stat-number">8+</div><div style="font-family: 'Helvetica Neue', Helvetica, sans-serif;" class="stat-label">YEARS OF EXPERIENCE</div></div>
+                <div class="stat-item"><div style="font-family: 'Libre Baskerville', serif;" class="stat-number">100%</div><div style="font-family: 'Helvetica Neue', Helvetica, sans-serif;" class="stat-label">DEDICATED TO QUALITY</div></div>
+            </div>
+        </div>
+        <div style="margin-top: 20px; font-size: 0.8rem; color: #5A5A5A; border-top: 1px solid #eee; padding-top: 16px;">* Editorial New заменён на Libre Baskerville (аналог), Helvetica Neue — системный шрифт.</div>
+    </div>
+    <div style="text-align: center; font-size: 0.85rem; color: #4a4a4a; margin-top: 24px;">Графитовая обводка (2px #2C2C2C), скругление 30px — все блоки соответствуют премиальному стилю.</div>
+</div>
+</body>
+</html>
