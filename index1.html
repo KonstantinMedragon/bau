@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>bau.in | Инжиниринг, проверка и инвестиции на Самуи</title>
+    <!-- Playfair Display для заголовков (без декоративного амперсанда) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Inter для всего остального -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.4;
+        }
+        /* Фоновое изображение на всю страницу */
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            pointer-events: none;
+        }
+        /* Контент поверх фона */
+        .content {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 28px 32px 36px;
+        }
+        /* Верхняя панель */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        /* Переключатель языков (слева) */
+        .lang-switch {
+            display: flex;
+            gap: 12px;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(4px);
+            padding: 6px 16px;
+            border-radius: 40px;
+        }
+        .lang-btn {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: white;
+            text-decoration: none;
+            padding: 4px 12px;
+            border-radius: 30px;
+            transition: 0.2s;
+        }
+        .lang-btn.active {
+            background: white;
+            color: black;
+            pointer-events: none;
+        }
+        .lang-btn:not(.active):hover {
+            background: rgba(255,255,255,0.2);
+        }
+        /* Бургер (только на мобильных) */
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(4px);
+            padding: 10px 14px;
+            border-radius: 40px;
+        }
+        .burger span {
+            width: 24px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        /* Десктопное меню (горизонтальное) */
+        .desktop-nav {
+            display: flex;
+            gap: 32px;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(8px);
+            padding: 8px 28px;
+            border-radius: 60px;
+        }
+        .desktop-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            transition: opacity 0.2s;
+        }
+        .desktop-nav a:hover { opacity: 0.7; }
+
+        /* Мобильное меню (боковое) */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 75%;
+            max-width: 280px;
+            height: 100vh;
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            transition: right 0.3s ease;
+            padding: 100px 32px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            border-left: 1px solid rgba(255,255,255,0.2);
+        }
+        .mobile-menu.open { right: 0; }
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .mobile-menu a:hover { opacity: 0.7; transform: translateX(5px); }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 95;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+        }
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Герой */
+        .hero-section {
+            max-width: 900px;
+            margin-top: 8vh;
+        }
+        .hero-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 24px;
+            opacity: 0.85;
+        }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.6rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+        .hero-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+        .btn-outline-light {
+            display: inline-block;
+            border: 1px solid white;
+            background: transparent;
+            padding: 12px 32px;
+            border-radius: 40px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .btn-outline-light:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Две колонки (хайлайты + фичи) */
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            margin: 80px 0 50px;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(8px);
+            border-radius: 32px;
+            padding: 32px 28px;
+        }
+        .project-highlights {
+            flex: 1.2;
+        }
+        .project-highlights h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0px;
+            margin-bottom: 24px;
+        }
+        .highlights-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .highlight-row {
+            display: flex;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+        .highlight-label {
+            width: 110px;
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+        .highlight-value {
+            flex: 1;
+            font-weight: 500;
+        }
+        .features {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+        .feature-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+        .feature-item p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            opacity: 0.85;
+            line-height: 1.4;
+        }
+
+        /* Статистика */
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            margin: 20px 0 40px;
+            background: rgba(0,0,0,0.35);
+            backdrop-filter: blur(8px);
+            border-radius: 32px;
+            padding: 24px 32px;
+            width: fit-content;
+        }
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        /* Соцсети по центру внизу (три иконки) */
+        .social-center {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 40px;
+            margin-bottom: 10px;
+        }
+        .social-center a {
+            color: white;
+            font-size: 1.6rem;
+            transition: 0.2s;
+            opacity: 0.8;
+        }
+        .social-center a:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 860px) {
+            .content { padding: 20px 24px 30px; }
+            .hero-title { font-size: 2.5rem; }
+            .two-columns { flex-direction: column; padding: 24px 20px; margin: 50px 0 30px; }
+            .desktop-nav { display: none; }
+            .burger { display: flex; }
+            .top-bar { margin-bottom: 20px; }
+            .hero-section { margin-top: 2vh; }
+            .stats { width: 100%; justify-content: space-between; gap: 24px; }
+            .social-center { gap: 28px; }
+        }
+        @media (min-width: 861px) {
+            .mobile-menu, .menu-overlay { display: none; }
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    <img src="images/main1.jpg" alt="Tropical architecture background">
+</div>
+<div class="content">
+    <div class="top-bar">
+        <div class="lang-switch">
+            <a class="lang-btn active" data-lang="ru">Ru</a>
+            <a class="lang-btn" data-lang="en">En</a>
+        </div>
+        <div class="burger" id="burgerBtn">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="desktop-nav">
+            <a href="#">PROJECTS</a>
+            <a href="#">SERVICES</a>
+            <a href="#">ABOUT</a>
+            <a href="#">INVEST</a>
+            <a href="#">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- Мобильное меню (боковое) -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#">PROJECTS</a>
+        <a href="#">SERVICES</a>
+        <a href="#">ABOUT</a>
+        <a href="#">INVEST</a>
+        <a href="#">CONTACT</a>
+    </div>
+
+    <div class="hero-section">
+        <div class="hero-tagline">DESIGN · BUILD · INVEST</div>
+        <!-- Заменяем & на слово "and", чтобы избежать вензелей Playfair -->
+        <div class="hero-title">Architecture That Blends<br>Nature and Luxury</div>
+        <div class="hero-sub">Exclusive Tropical Villas<br>For Living & Investment</div>
+        <a href="#" class="btn-outline-light">Discover our projects →</a>
+    </div>
+
+    <div class="two-columns">
+        <div class="project-highlights">
+            <h3>PROJECT HIGHLIGHTS</h3>
+            <div class="highlights-grid">
+                <div class="highlight-row"><span class="highlight-label">LOCATION:</span><span class="highlight-value">TROPICAL COAST</span></div>
+                <div class="highlight-row"><span class="highlight-label">TYPE:</span><span class="highlight-value">RESIDENTIAL VILLA</span></div>
+                <div class="highlight-row"><span class="highlight-label">PLOT AREA:</span><span class="highlight-value">2,350 m²</span></div>
+                <div class="highlight-row"><span class="highlight-label">BUILT AREA:</span><span class="highlight-value">620 m²</span></div>
+                <div class="highlight-row"><span class="highlight-label">YEAR:</span><span class="highlight-value">2024</span></div>
+            </div>
+        </div>
+        <div class="features">
+            <div class="feature-item">
+                <h4>HARMONY WITH NATURE</h4>
+                <p>Designed to blend seamlessly with the surrounding landscape.</p>
+            </div>
+            <div class="feature-item">
+                <h4>MODERN TROPICAL DESIGN</h4>
+                <p>Open spaces, natural materials and timeless architecture.</p>
+            </div>
+            <div class="feature-item">
+                <h4>INVESTMENT VALUE</h4>
+                <p>High potential properties for living and long-term return.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item"><div class="stat-number">12+</div><div class="stat-label">PROJECTS COMPLETED</div></div>
+        <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">YEARS OF EXPERIENCE</div></div>
+        <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">DEDICATED TO QUALITY</div></div>
+    </div>
+
+    <div class="social-center">
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/66812345678" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+66812345678" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+    </div>
+</div>
+
+<script>
+    // Бургер-меню (мобильное)
+    const burger = document.getElementById('burgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('menuOverlay');
+
+    function closeMenu() {
+        mobileMenu.classList.remove('open');
+        if (overlay) overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        if (burger) burger.classList.remove('active');
+    }
+    function openMenu() {
+        mobileMenu.classList.add('open');
+        if (overlay) overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (burger) burger.classList.add('active');
+    }
+    if (burger) {
+        burger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (mobileMenu.classList.contains('open')) closeMenu();
+            else openMenu();
+        });
+    }
+    if (overlay) {
+        overlay.addEventListener('click', closeMenu);
+    }
+    // Закрываем меню при клике на ссылки
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Navigate:', link.innerText);
+            closeMenu();
+        });
+    });
+
+    // Переключение языков (демо)
+    const langBtns = document.querySelectorAll('.lang-btn');
+    let currentLang = 'ru';
+    function setActiveLang(lang) {
+        langBtns.forEach(btn => {
+            const lg = btn.getAttribute('data-lang');
+            if (lg === lang) btn.classList.add('active');
+            else btn.classList.remove('active');
+        });
+    }
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetLang = btn.getAttribute('data-lang');
+            if (targetLang === currentLang) return;
+            alert(`Демо: переключение на ${targetLang.toUpperCase()}`);
+            setActiveLang(targetLang);
+            currentLang = targetLang;
+        });
+    });
+</script>
+</body>
+</html>
