@@ -25,9 +25,6 @@
             background: #0c0c0c;
             color: #e9c5a5;
             line-height: 1.5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
         /* Фиксированный фон */
@@ -39,11 +36,6 @@
             height: 100%;
             background: #0a0a0a;
             z-index: -2;
-        }
-
-        /* Основной контент */
-        .main-content {
-            flex: 1;
         }
 
         /* Верхняя панель */
@@ -70,7 +62,7 @@
             align-items: center;
             gap: 20px;
         }
-        /* Переключатель языков */
+        /* Переключатель языков — активный RU */
         .lang-custom {
             position: relative;
         }
@@ -134,7 +126,7 @@
             transition: 0.3s;
         }
 
-        /* Мобильное меню */
+        /* Мобильное меню (боковое) */
         .menu-overlay {
             position: fixed;
             top: 0;
@@ -189,7 +181,7 @@
         .projects-container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 20px 28px 100px;
+            padding: 20px 28px 40px;
             position: relative;
             z-index: 1;
         }
@@ -292,23 +284,22 @@
             color: #e9c5a5;
         }
 
-        /* Соцсети — отдельный блок, закреплённый внизу */
-        .social-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 12px 20px;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            border-top: 1px solid rgba(233, 197, 165, 0.3);
+        /* Футер с соцсетями — в самом низу страницы, прижат влево, скроллится вместе с контентом */
+        .footer-social {
+            max-width: 1280px;
+            margin: 40px auto 0;
+            padding: 20px 28px 40px;
+            border-top: 1px solid rgba(233, 197, 165, 0.2);
+            text-align: left;
         }
-        .social-bar a {
+        .social-links-left {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: flex-start;
+            background: transparent;
+        }
+        .social-links-left a {
             color: #e9c5a5;
             font-size: 1.3rem;
             transition: 0.2s;
@@ -316,7 +307,7 @@
             display: inline-flex;
             align-items: center;
         }
-        .social-bar a:hover {
+        .social-links-left a:hover {
             color: #f5d5aa;
             transform: translateY(-2px);
         }
@@ -324,13 +315,14 @@
             color: #e9c5a5;
             opacity: 0.5;
             font-size: 1rem;
+            margin: 0 2px;
         }
 
         /* Кнопка "Наверх" */
         .scroll-top {
             position: fixed;
-            bottom: 80px;
-            right: 20px;
+            bottom: 28px;
+            right: 28px;
             background: rgba(233, 197, 165, 0.2);
             backdrop-filter: blur(4px);
             width: 44px;
@@ -340,7 +332,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 1000;
+            z-index: 100;
             transition: 0.2s;
             border: 1px solid rgba(233, 197, 165, 0.4);
         }
@@ -353,11 +345,6 @@
             font-size: 1.2rem;
         }
 
-        /* Отступ для контента, чтобы не перекрывался соцсетями */
-        .projects-container {
-            padding-bottom: 80px;
-        }
-
         @media (max-width: 760px) {
             .top-bar {
                 padding: 20px 20px 0 20px;
@@ -366,7 +353,7 @@
                 font-size: 1.8rem;
             }
             .projects-container {
-                padding: 20px 20px 80px;
+                padding: 20px 20px 20px;
             }
             .project-content {
                 padding: 22px 22px 28px;
@@ -382,18 +369,17 @@
             .logo {
                 font-size: 1.3rem;
             }
+            .footer-social {
+                padding: 20px 20px 30px;
+            }
+            .social-links-left a {
+                font-size: 1.2rem;
+            }
             .scroll-top {
-                bottom: 70px;
-                right: 16px;
+                bottom: 20px;
+                right: 20px;
                 width: 40px;
                 height: 40px;
-            }
-            .social-bar {
-                padding: 10px 16px;
-                gap: 14px;
-            }
-            .social-bar a {
-                font-size: 1.2rem;
             }
         }
     </style>
@@ -401,108 +387,108 @@
 <body>
 <div class="page-bg"></div>
 
-<div class="main-content">
-    <div class="top-bar">
-        <div class="logo">BAU co.</div>
-        <div class="right-group">
-            <div class="lang-custom" id="langSwitcher">
-                <div class="lang-current" id="currentLang">RU</div>
-                <div class="lang-dropdown">
-                    <a href="#" data-lang="ru">RU</a>
-                    <a href="#" data-lang="en">EN</a>
-                </div>
-            </div>
-            <div class="burger" id="burgerBtn">
-                <span></span><span></span><span></span>
+<div class="top-bar">
+    <div class="logo">BAU co.</div>
+    <div class="right-group">
+        <div class="lang-custom" id="langSwitcher">
+            <div class="lang-current" id="currentLang">RU</div>
+            <div class="lang-dropdown">
+                <a href="#" data-lang="ru">RU</a>
+                <a href="#" data-lang="en">EN</a>
             </div>
         </div>
+        <div class="burger" id="burgerBtn">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</div>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#" data-page="home">Главная</a>
+    <a href="#" data-page="projects">Проекты</a>
+    <a href="#" data-page="services">Услуги</a>
+    <a href="#" data-page="invest">Инвестиции</a>
+    <a href="#footer-contacts" id="contactsLink">Контакты</a>
+</div>
+
+<div class="projects-container">
+    <div class="hero-projects">
+        <h1>Проекты</h1>
+        <p>Реальное участие в проектах на Самуи</p>
     </div>
 
-    <div class="menu-overlay" id="menuOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#" data-page="home">Главная</a>
-        <a href="#" data-page="projects">Проекты</a>
-        <a href="#" data-page="services">Услуги</a>
-        <a href="#" data-page="invest">Инвестиции</a>
-        <a href="#" id="contactsLinkMobile">Контакты</a>
-    </div>
-
-    <div class="projects-container">
-        <div class="hero-projects">
-            <h1>Проекты</h1>
-            <p>Реальное участие в проектах на Самуи</p>
+    <div class="projects-grid">
+        <!-- ПРОЕКТ 1: Level Residence -->
+        <div class="project-card">
+            <div class="project-image">
+                <picture>
+                    <source media="(min-width: 861px)" srcset="images/project1-1.jpg">
+                    <img src="images/project1.jpg" alt="Level Residence — Bo Phut, Koh Samui">
+                </picture>
+            </div>
+            <div class="project-content">
+                <div class="project-title">Level Residence</div>
+                <div class="project-sub">Bo Phut, Koh Samui (начало Июнь 25г)</div>
+                <div class="project-details">
+                    <div class="detail-item"><div class="detail-label">Генподрядчик</div><div class="detail-value">Level Construction</div></div>
+                    <div class="detail-item"><div class="detail-label">Фаза 1/2</div><div class="detail-value">6 / 7 вилл</div></div>
+                    <div class="detail-item"><div class="detail-label">Общая жилая площадь</div><div class="detail-value">1500 м²</div></div>
+                    <div class="detail-item"><div class="detail-label">Роль BAU</div><div class="detail-value">технический надзор</div></div>
+                    <div class="detail-item"><div class="detail-label">Участие BAU</div><div class="detail-value">с нулевого цикла</div></div>
+                    <div class="detail-item"><div class="detail-label">Текущая стадия</div><div class="detail-value">отделочные работы</div></div>
+                </div>
+                <div class="project-description">
+                    BAU co., ltd. участвует в проекте Level Residence в районе Bo Phut с нулевого цикла. Компания сопровождает объект на разных этапах реализации, обеспечивая технический контроль качества исполнения, соответствия проектным решениям и общего уровня готовности объекта. В настоящий момент первая фаза проекта находится на стадии отделочных работ.
+                </div>
+                <div class="role-badge">технический надзор</div>
+            </div>
         </div>
 
-        <div class="projects-grid">
-            <!-- ПРОЕКТ 1 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <picture>
-                        <source media="(min-width: 861px)" srcset="images/project1-1.jpg">
-                        <img src="images/project1.jpg" alt="Level Residence">
-                    </picture>
-                </div>
-                <div class="project-content">
-                    <div class="project-title">Level Residence</div>
-                    <div class="project-sub">Bo Phut, Koh Samui (начало Июнь 25г)</div>
-                    <div class="project-details">
-                        <div class="detail-item"><div class="detail-label">Генподрядчик</div><div class="detail-value">Level Construction</div></div>
-                        <div class="detail-item"><div class="detail-label">Фаза 1/2</div><div class="detail-value">6 / 7 вилл</div></div>
-                        <div class="detail-item"><div class="detail-label">Общая жилая площадь</div><div class="detail-value">1500 м²</div></div>
-                        <div class="detail-item"><div class="detail-label">Роль BAU</div><div class="detail-value">технический надзор</div></div>
-                        <div class="detail-item"><div class="detail-label">Участие BAU</div><div class="detail-value">с нулевого цикла</div></div>
-                        <div class="detail-item"><div class="detail-label">Текущая стадия</div><div class="detail-value">отделочные работы</div></div>
-                    </div>
-                    <div class="project-description">
-                        BAU co., ltd. участвует в проекте Level Residence в районе Bo Phut с нулевого цикла. Компания сопровождает объект на разных этапах реализации, обеспечивая технический контроль качества исполнения, соответствия проектным решениям и общего уровня готовности объекта. В настоящий момент первая фаза проекта находится на стадии отделочных работ.
-                    </div>
-                    <div class="role-badge">технический надзор</div>
-                </div>
+        <!-- ПРОЕКТ 2: Частная вилла -->
+        <div class="project-card">
+            <div class="project-image">
+                <picture>
+                    <source media="(min-width: 861px)" srcset="images/project2-1.jpg">
+                    <img src="images/project2.jpg" alt="Частная вилла — Bo Phut, Koh Samui">
+                </picture>
             </div>
-
-            <!-- ПРОЕКТ 2 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <picture>
-                        <source media="(min-width: 861px)" srcset="images/project2-1.jpg">
-                        <img src="images/project2.jpg" alt="Частная вилла">
-                    </picture>
+            <div class="project-content">
+                <div class="project-title">Частная вилла</div>
+                <div class="project-sub">Bo Phut, Koh Samui</div>
+                <div class="project-details">
+                    <div class="detail-item"><div class="detail-label">Площадь</div><div class="detail-value">350 м²</div></div>
+                    <div class="detail-item"><div class="detail-label">Заказчик</div><div class="detail-value">частный европейский клиент</div></div>
+                    <div class="detail-item"><div class="detail-label">Генеральный подрядчик</div><div class="detail-value">A.P.E.</div></div>
+                    <div class="detail-item"><div class="detail-label">Роль BAU</div><div class="detail-value">техническое сопровождение и контроль качества</div></div>
+                    <div class="detail-item"><div class="detail-label">Участие</div><div class="detail-value">с нулевого цикла</div></div>
+                    <div class="detail-item"><div class="detail-label">Текущая стадия</div><div class="detail-value">отделочные работы</div></div>
                 </div>
-                <div class="project-content">
-                    <div class="project-title">Частная вилла</div>
-                    <div class="project-sub">Bo Phut, Koh Samui</div>
-                    <div class="project-details">
-                        <div class="detail-item"><div class="detail-label">Площадь</div><div class="detail-value">350 м²</div></div>
-                        <div class="detail-item"><div class="detail-label">Заказчик</div><div class="detail-value">частный европейский клиент</div></div>
-                        <div class="detail-item"><div class="detail-label">Генеральный подрядчик</div><div class="detail-value">A.P.E.</div></div>
-                        <div class="detail-item"><div class="detail-label">Роль BAU</div><div class="detail-value">техническое сопровождение и контроль качества</div></div>
-                        <div class="detail-item"><div class="detail-label">Участие</div><div class="detail-value">с нулевого цикла</div></div>
-                        <div class="detail-item"><div class="detail-label">Текущая стадия</div><div class="detail-value">отделочные работы</div></div>
-                    </div>
-                    <div class="project-description">
-                        Частная вилла площадью 350 м² в районе Bo Phut, создаваемая для частного европейского заказчика. Проект реализуется с участием A.P.E. — крупной и известной тайской строительной компании. BAU co., ltd. участвует в проекте с нулевого цикла, обеспечивая техническое сопровождение, контроль качества и внимание к ключевым решениям на всех этапах реализации. На текущий момент объект находится на стадии отделочных работ.
-                    </div>
-                    <div class="role-badge">контроль качества · технадзор</div>
+                <div class="project-description">
+                    Частная вилла площадью 350 м² в районе Bo Phut, создаваемая для частного европейского заказчика. Проект реализуется с участием A.P.E. — крупной и известной тайской строительной компании. BAU co., ltd. участвует в проекте с нулевого цикла, обеспечивая техническое сопровождение, контроль качества и внимание к ключевым решениям на всех этапах реализации. На текущий момент объект находится на стадии отделочных работ.
                 </div>
+                <div class="role-badge">контроль качества · технадзор</div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- ОТДЕЛЬНЫЙ БЛОК СОЦСЕТЕЙ ВНИЗУ — ЗАКРЕПЛЁН -->
-<div class="social-bar" id="contactsFooter">
-    <a href="https://www.instagram.com/bauco.th" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    <span class="social-divider">|</span>
-    <a href="https://www.facebook.com/share/18qsa4jvfY/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-    <span class="social-divider">|</span>
-    <a href="https://wa.me/66805289372" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <span class="social-divider">|</span>
-    <a href="https://t.me/bauco" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-    <span class="social-divider">|</span>
-    <a href="https://line.me/ti/p/1IP3YFzkKG" target="_blank" aria-label="LINE"><i class="fab fa-line"></i></a>
+<!-- ФУТЕР С СОЦСЕТЯМИ — в самом низу страницы, прижат влево -->
+<div class="footer-social" id="footer-contacts">
+    <div class="social-links-left">
+        <a href="https://www.instagram.com/bauco.th" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <span class="social-divider">|</span>
+        <a href="https://www.facebook.com/share/18qsa4jvfY/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <span class="social-divider">|</span>
+        <a href="https://wa.me/66805289372" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <span class="social-divider">|</span>
+        <a href="https://t.me/bauco" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        <span class="social-divider">|</span>
+        <a href="https://line.me/ti/p/1IP3YFzkKG" target="_blank" aria-label="LINE"><i class="fab fa-line"></i></a>
+    </div>
 </div>
 
-<!-- Кнопка наверх -->
+<!-- Кнопка "Наверх" -->
 <div class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})">
     <i class="fas fa-arrow-up"></i>
 </div>
@@ -532,18 +518,19 @@
     });
     overlay.addEventListener('click', closeMenu);
     
-    // Обработка кликов по меню
+    // Обработка кликов по пунктам меню
     document.querySelectorAll('.mobile-menu a').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
+            const href = link.getAttribute('href');
             const text = link.innerText;
             closeMenu();
-            if (text === 'Контакты') {
-                document.getElementById('contactsFooter').scrollIntoView({ behavior: 'smooth' });
+            if (href === '#footer-contacts' || text === 'Контакты') {
+                document.getElementById('footer-contacts').scrollIntoView({ behavior: 'smooth' });
             } else if (text === 'Главная') {
                 window.location.href = 'index12.html';
             } else if (text === 'Проекты') {
-                // уже здесь
+                // уже на этой странице
             } else {
                 alert(`Страница "${text}" в разработке`);
             }
