@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>BAU co. | Проекты на Самуи</title>
-    <!-- Playfair Display + Inter (как в index12) -->
+    <!-- Playfair Display + Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -16,10 +16,6 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        html, body {
-            height: 100%;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
             background: #0c0c0c;
@@ -27,34 +23,15 @@
             line-height: 1.5;
         }
 
-        /* Фон как в index12 – единое изображение (можешь заменить, но оставим как в последних вариантах) */
-        .bg {
+        /* Фон страницы — тёмный, без изображения (чтобы не конфликтовать с картинками проектов) */
+        .page-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
-            z-index: 0;
-            background-image: url('images/finalepc.png');
-            background-size: cover;
-            background-position: left top;
-            background-repeat: no-repeat;
-        }
-
-        @media (max-width: 760px) {
-            .bg {
-                background-image: url('images/finaleph.png');
-                background-position: left bottom;
-            }
-        }
-
-        .content {
-            position: relative;
-            z-index: 2;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding: 28px 28px 36px;
+            height: 100%;
+            background: #0a0a0a;
+            z-index: -2;
         }
 
         /* Верхняя панель (как в index12) */
@@ -63,7 +40,8 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            margin-bottom: 40px;
+            padding: 28px 28px 0 28px;
+            margin-bottom: 20px;
         }
         .logo {
             font-family: 'Inter', sans-serif;
@@ -78,7 +56,7 @@
             align-items: center;
             gap: 20px;
         }
-        /* Переключатель языков (выпадающий как в index12) */
+        /* Переключатель языков */
         .lang-custom {
             position: relative;
         }
@@ -125,7 +103,7 @@
         .lang-custom.open .lang-dropdown {
             display: flex;
         }
-        /* Бургер (как в index12) */
+        /* Бургер */
         .burger {
             display: flex;
             flex-direction: column;
@@ -142,7 +120,7 @@
             transition: 0.3s;
         }
 
-        /* Мобильное меню (боковое) */
+        /* Мобильное меню */
         .menu-overlay {
             position: fixed;
             top: 0;
@@ -194,7 +172,7 @@
             transform: translateX(5px);
         }
 
-        /* Соцсети — левый нижний угол, как в index12 (Inst, FB, WApp, TG, Line) */
+        /* Соцсети — левый нижний угол */
         .social-links-left {
             position: fixed;
             bottom: 28px;
@@ -228,10 +206,10 @@
         .projects-container {
             max-width: 1280px;
             margin: 0 auto;
-            width: 100%;
+            padding: 20px 28px 80px;
         }
         .hero-projects {
-            margin-bottom: 40px;
+            margin-bottom: 48px;
         }
         .hero-projects h1 {
             font-family: 'Inter', sans-serif;
@@ -263,6 +241,7 @@
             transform: translateY(-4px);
             border-color: rgba(233, 197, 165, 0.5);
         }
+        /* Адаптивные изображения: для десктопа project1-1.jpg / project2-1.jpg, для мобильных project1.jpg / project2.jpg */
         .project-image picture img {
             width: 100%;
             display: block;
@@ -330,11 +309,14 @@
         }
 
         @media (max-width: 760px) {
-            .content {
-                padding: 20px 20px 30px;
+            .top-bar {
+                padding: 20px 20px 0 20px;
             }
             .hero-projects h1 {
                 font-size: 1.8rem;
+            }
+            .projects-container {
+                padding: 20px 20px 80px;
             }
             .project-content {
                 padding: 22px 22px 28px;
@@ -362,111 +344,109 @@
     </style>
 </head>
 <body>
-<div class="bg"></div>
+<div class="page-bg"></div>
 
-<div class="content">
-    <div class="top-bar">
-        <div class="logo">BAU co.</div>
-        <div class="right-group">
-            <div class="lang-custom" id="langSwitcher">
-                <div class="lang-current" id="currentLang">EN</div>
-                <div class="lang-dropdown">
-                    <a href="#" data-lang="en">EN</a>
-                    <a href="#" data-lang="ru">RU</a>
-                </div>
-            </div>
-            <div class="burger" id="burgerBtn">
-                <span></span><span></span><span></span>
+<div class="top-bar">
+    <div class="logo">BAU co.</div>
+    <div class="right-group">
+        <div class="lang-custom" id="langSwitcher">
+            <div class="lang-current" id="currentLang">EN</div>
+            <div class="lang-dropdown">
+                <a href="#" data-lang="en">EN</a>
+                <a href="#" data-lang="ru">RU</a>
             </div>
         </div>
-    </div>
-
-    <div class="menu-overlay" id="menuOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#">projects</a>
-        <a href="#">services</a>
-        <a href="#">about</a>
-        <a href="#">invest</a>
-        <a href="#">contact</a>
-    </div>
-
-    <div class="projects-container">
-        <div class="hero-projects">
-            <h1>Проекты</h1>
-            <p>Реальное участие в проектах на Самуи</p>
+        <div class="burger" id="burgerBtn">
+            <span></span><span></span><span></span>
         </div>
-
-        <div class="projects-grid">
-            <!-- ПРОЕКТ 1: Level Residence -->
-            <div class="project-card">
-                <div class="project-image">
-                    <picture>
-                        <source media="(min-width: 861px)" srcset="images/project1-1.jpg">
-                        <img src="images/project1.jpg" alt="Level Residence Bo Phut">
-                    </picture>
-                </div>
-                <div class="project-content">
-                    <div class="project-title">Level Residence</div>
-                    <div class="project-sub">Bo Phut, Koh Samui (начало Июнь 25г)</div>
-                    <div class="project-details">
-                        <div class="detail-item"><div class="detail-label">Генподрядчик</div><div class="detail-value">Level Construction</div></div>
-                        <div class="detail-item"><div class="detail-label">Фаза 1/2</div><div class="detail-value">6 / 7 вилл</div></div>
-                        <div class="detail-item"><div class="detail-label">Общая жилая площадь</div><div class="detail-value">1500 м²</div></div>
-                        <div class="detail-item"><div class="detail-label">Роль BAU</div><div class="detail-value">технический надзор</div></div>
-                        <div class="detail-item"><div class="detail-label">Участие BAU</div><div class="detail-value">с нулевого цикла</div></div>
-                        <div class="detail-item"><div class="detail-label">Текущая стадия</div><div class="detail-value">отделочные работы</div></div>
-                    </div>
-                    <div class="project-description">
-                        BAU co., ltd. участвует в проекте Level Residence в районе Bo Phut с нулевого цикла. Компания сопровождает объект на разных этапах реализации, обеспечивая технический контроль качества исполнения, соответствия проектным решениям и общего уровня готовности объекта. В настоящий момент первая фаза проекта находится на стадии отделочных работ.
-                    </div>
-                    <div class="role-badge">технический надзор</div>
-                </div>
-            </div>
-
-            <!-- ПРОЕКТ 2: Частная вилла -->
-            <div class="project-card">
-                <div class="project-image">
-                    <picture>
-                        <source media="(min-width: 861px)" srcset="images/project2-1.jpg">
-                        <img src="images/project2.jpg" alt="Частная вилла Bo Phut">
-                    </picture>
-                </div>
-                <div class="project-content">
-                    <div class="project-title">Частная вилла</div>
-                    <div class="project-sub">Bo Phut, Koh Samui</div>
-                    <div class="project-details">
-                        <div class="detail-item"><div class="detail-label">Площадь</div><div class="detail-value">350 м²</div></div>
-                        <div class="detail-item"><div class="detail-label">Заказчик</div><div class="detail-value">частный европейский клиент</div></div>
-                        <div class="detail-item"><div class="detail-label">Генеральный подрядчик</div><div class="detail-value">A.P.E.</div></div>
-                        <div class="detail-item"><div class="detail-label">Роль BAU</div><div class="detail-value">техническое сопровождение и контроль качества</div></div>
-                        <div class="detail-item"><div class="detail-label">Участие</div><div class="detail-value">с нулевого цикла</div></div>
-                        <div class="detail-item"><div class="detail-label">Текущая стадия</div><div class="detail-value">отделочные работы</div></div>
-                    </div>
-                    <div class="project-description">
-                        Частная вилла площадью 350 м² в районе Bo Phut, создаваемая для частного европейского заказчика. Проект реализуется с участием A.P.E. — крупной и известной тайской строительной компании. BAU co., ltd. участвует в проекте с нулевого цикла, обеспечивая техническое сопровождение, контроль качества и внимание к ключевым решениям на всех этапах реализации. На текущий момент объект находится на стадии отделочных работ.
-                    </div>
-                    <div class="role-badge">контроль качества · технадзор</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Соцсети левый низ (единообразно с index12) -->
-    <div class="social-links-left">
-        <a href="https://www.instagram.com/bauco.th" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <span class="social-divider">|</span>
-        <a href="https://www.facebook.com/share/18qsa4jvfY/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <span class="social-divider">|</span>
-        <a href="https://wa.me/66805289372" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <span class="social-divider">|</span>
-        <a href="https://t.me/bauco" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-        <span class="social-divider">|</span>
-        <a href="https://line.me/ti/p/1IP3YFzkKG" target="_blank" aria-label="LINE"><i class="fab fa-line"></i></a>
     </div>
 </div>
 
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#">projects</a>
+    <a href="#">services</a>
+    <a href="#">about</a>
+    <a href="#">invest</a>
+    <a href="#">contact</a>
+</div>
+
+<div class="projects-container">
+    <div class="hero-projects">
+        <h1>Проекты</h1>
+        <p>Реальное участие в проектах на Самуи</p>
+    </div>
+
+    <div class="projects-grid">
+        <!-- ПРОЕКТ 1: Level Residence -->
+        <div class="project-card">
+            <div class="project-image">
+                <picture>
+                    <!-- десктопная версия: project1-1.jpg -->
+                    <source media="(min-width: 861px)" srcset="images/project1-1.jpg">
+                    <!-- мобильная версия: project1.jpg -->
+                    <img src="images/project1.jpg" alt="Level Residence — Bo Phut, Koh Samui">
+                </picture>
+            </div>
+            <div class="project-content">
+                <div class="project-title">Level Residence</div>
+                <div class="project-sub">Bo Phut, Koh Samui (начало Июнь 25г)</div>
+                <div class="project-details">
+                    <div class="detail-item"><div class="detail-label">Генподрядчик</div><div class="detail-value">Level Construction</div></div>
+                    <div class="detail-item"><div class="detail-label">Фаза 1/2</div><div class="detail-value">6 / 7 вилл</div></div>
+                    <div class="detail-item"><div class="detail-label">Общая жилая площадь</div><div class="detail-value">1500 м²</div></div>
+                    <div class="detail-item"><div class="detail-label">Роль BAU</div><div class="detail-value">технический надзор</div></div>
+                    <div class="detail-item"><div class="detail-label">Участие BAU</div><div class="detail-value">с нулевого цикла</div></div>
+                    <div class="detail-item"><div class="detail-label">Текущая стадия</div><div class="detail-value">отделочные работы</div></div>
+                </div>
+                <div class="project-description">
+                    BAU co., ltd. участвует в проекте Level Residence в районе Bo Phut с нулевого цикла. Компания сопровождает объект на разных этапах реализации, обеспечивая технический контроль качества исполнения, соответствия проектным решениям и общего уровня готовности объекта. В настоящий момент первая фаза проекта находится на стадии отделочных работ.
+                </div>
+                <div class="role-badge">технический надзор</div>
+            </div>
+        </div>
+
+        <!-- ПРОЕКТ 2: Частная вилла -->
+        <div class="project-card">
+            <div class="project-image">
+                <picture>
+                    <source media="(min-width: 861px)" srcset="images/project2-1.jpg">
+                    <img src="images/project2.jpg" alt="Частная вилла — Bo Phut, Koh Samui">
+                </picture>
+            </div>
+            <div class="project-content">
+                <div class="project-title">Частная вилла</div>
+                <div class="project-sub">Bo Phut, Koh Samui</div>
+                <div class="project-details">
+                    <div class="detail-item"><div class="detail-label">Площадь</div><div class="detail-value">350 м²</div></div>
+                    <div class="detail-item"><div class="detail-label">Заказчик</div><div class="detail-value">частный европейский клиент</div></div>
+                    <div class="detail-item"><div class="detail-label">Генеральный подрядчик</div><div class="detail-value">A.P.E.</div></div>
+                    <div class="detail-item"><div class="detail-label">Роль BAU</div><div class="detail-value">техническое сопровождение и контроль качества</div></div>
+                    <div class="detail-item"><div class="detail-label">Участие</div><div class="detail-value">с нулевого цикла</div></div>
+                    <div class="detail-item"><div class="detail-label">Текущая стадия</div><div class="detail-value">отделочные работы</div></div>
+                </div>
+                <div class="project-description">
+                    Частная вилла площадью 350 м² в районе Bo Phut, создаваемая для частного европейского заказчика. Проект реализуется с участием A.P.E. — крупной и известной тайской строительной компании. BAU co., ltd. участвует в проекте с нулевого цикла, обеспечивая техническое сопровождение, контроль качества и внимание к ключевым решениям на всех этапах реализации. На текущий момент объект находится на стадии отделочных работ.
+                </div>
+                <div class="role-badge">контроль качества · технадзор</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="social-links-left">
+    <a href="https://www.instagram.com/bauco.th" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <span class="social-divider">|</span>
+    <a href="https://www.facebook.com/share/18qsa4jvfY/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <span class="social-divider">|</span>
+    <a href="https://wa.me/66805289372" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <span class="social-divider">|</span>
+    <a href="https://t.me/bauco" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+    <span class="social-divider">|</span>
+    <a href="https://line.me/ti/p/1IP3YFzkKG" target="_blank" aria-label="LINE"><i class="fab fa-line"></i></a>
+</div>
+
 <script>
-    // Бургер-меню
     const burger = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('menuOverlay');
@@ -497,7 +477,6 @@
         });
     });
 
-    // Переключатель языков (как в index12)
     const langSwitcher = document.getElementById('langSwitcher');
     const currentLangSpan = document.getElementById('currentLang');
     const langOptions = document.querySelectorAll('.lang-dropdown a');
