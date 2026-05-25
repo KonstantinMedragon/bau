@@ -274,19 +274,14 @@
     </div>
 
     <div class="social-links-left">
-        <!-- Instagram -->
         <a href="https://www.instagram.com/bauco.th" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <span class="social-divider">|</span>
-        <!-- Facebook -->
         <a href="https://www.facebook.com/share/18qsa4jvfY/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <span class="social-divider">|</span>
-        <!-- WhatsApp -->
         <a href="https://wa.me/66805289372" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <span class="social-divider">|</span>
-        <!-- Telegram -->
         <a href="https://t.me/bauco" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
         <span class="social-divider">|</span>
-        <!-- LINE -->
         <a href="https://line.me/ti/p/1IP3YFzkKG" target="_blank" aria-label="LINE"><i class="fab fa-line"></i></a>
     </div>
 </div>
@@ -315,7 +310,6 @@
     });
     overlay.addEventListener('click', closeMenu);
     
-    // For mobile menu: close after click (navigation handled by href)
     document.querySelectorAll('.mobile-menu a').forEach(link => {
         link.addEventListener('click', () => {
             closeMenu();
@@ -326,30 +320,76 @@
     const currentLangSpan = document.getElementById('currentLang');
     const langOptions = document.querySelectorAll('.lang-dropdown a');
     
-    function setLanguage(lang) {
-        if (lang === 'ru') {
-            window.location.href = 'index12.html';
-        } else {
-            currentLangSpan.innerText = lang.toUpperCase();
+    // Функция для определения русского аналога текущей страницы
+    function getRussianVersion(currentPage) {
+        // Определяем имя текущего файла
+        const path = window.location.pathname;
+        const filename = path.split('/').pop();
+        
+        // Маппинг английских страниц на русские
+        const mapping = {
+            'index-en.html': 'index-ru.html',
+            'project-en.html': 'project-ru.html',
+            'service-en.html': 'service-ru.html',
+            'about-en.html': 'about-ru.html',
+            'invest-en.html': 'invest-ru.html',
+            'contact-en.html': 'contact-ru.html'
+        };
+        
+        // Если файл есть в маппинге — возвращаем русскую версию
+        if (mapping[filename]) {
+            return mapping[filename];
         }
+        // Если нет — по умолчанию на главную русскую
+        return 'index-ru.html';
     }
+    
+    // Функция для определения английского аналога текущей страницы (для обратного переключения)
+    function getEnglishVersion(currentPage) {
+        const path = window.location.pathname;
+        const filename = path.split('/').pop();
+        
+        const mapping = {
+            'index-ru.html': 'index-en.html',
+            'project-ru.html': 'project-en.html',
+            'service-ru.html': 'service-en.html',
+            'about-ru.html': 'about-en.html',
+            'invest-ru.html': 'invest-en.html',
+            'contact-ru.html': 'contact-en.html'
+        };
+        
+        if (mapping[filename]) {
+            return mapping[filename];
+        }
+        return 'index-en.html';
+    }
+    
+    // Обработка переключения языка
     langOptions.forEach(opt => {
         opt.addEventListener('click', (e) => {
             e.preventDefault();
-            const lang = opt.getAttribute('data-lang');
-            if (lang === 'ru') {
-                window.location.href = 'index12.html';
+            const targetLang = opt.getAttribute('data-lang');
+            const currentLangText = currentLangSpan.innerText.toLowerCase();
+            
+            if (targetLang === currentLangText) return;
+            
+            if (targetLang === 'ru') {
+                // Переход на русскую версию текущей страницы
+                const ruPage = getRussianVersion();
+                window.location.href = ruPage;
             } else {
-                if (lang === currentLangSpan.innerText.toLowerCase()) return;
-                currentLangSpan.innerText = lang.toUpperCase();
-                langSwitcher.classList.remove('open');
+                // Переход на английскую версию текущей страницы
+                const enPage = getEnglishVersion();
+                window.location.href = enPage;
             }
         });
     });
+    
     currentLangSpan.addEventListener('click', (e) => {
         e.stopPropagation();
         langSwitcher.classList.toggle('open');
     });
+    
     document.addEventListener('click', (e) => {
         if (!langSwitcher.contains(e.target)) {
             langSwitcher.classList.remove('open');
