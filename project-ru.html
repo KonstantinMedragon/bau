@@ -284,7 +284,7 @@
             color: #e9c5a5;
         }
 
-        /* Футер с соцсетями — в самом низу страницы, прижат влево, скроллится вместе с контентом */
+        /* Футер с соцсетями — в самом низу страницы, прижат влево */
         .footer-social {
             max-width: 1280px;
             margin: 40px auto 0;
@@ -405,11 +405,11 @@
 
 <div class="menu-overlay" id="menuOverlay"></div>
 <div class="mobile-menu" id="mobileMenu">
-    <a href="#" data-page="home">Главная</a>
-    <a href="#" data-page="projects">Проекты</a>
-    <a href="#" data-page="services">Услуги</a>
-    <a href="#" data-page="invest">Инвестиции</a>
-    <a href="#footer-contacts" id="contactsLink">Контакты</a>
+    <a href="index-ru.html">Главная</a>
+    <a href="project-ru.html">Проекты</a>
+    <a href="service-ru.html">Услуги</a>
+    <a href="invest-ru.html">Инвестиции</a>
+    <a href="contact-ru.html">Контакты</a>
 </div>
 
 <div class="projects-container">
@@ -434,12 +434,11 @@
                     <div class="detail-item"><div class="detail-label">Генподрядчик</div><div class="detail-value">Level Construction</div></div>
                     <div class="detail-item"><div class="detail-label">Фаза 1/2</div><div class="detail-value">6 / 7 вилл</div></div>
                     <div class="detail-item"><div class="detail-label">Общая жилая площадь</div><div class="detail-value">1500 м²</div></div>
-                    <div class="detail-item"><div class="detail-label">Роль BAU</div><div class="detail-value">технический надзор</div></div>
-                    <div class="detail-item"><div class="detail-label">Участие BAU</div><div class="detail-value">с нулевого цикла</div></div>
-                    <div class="detail-item"><div class="detail-label">Текущая стадия</div><div class="detail-value">отделочные работы</div></div>
+                    <div class="detail-item"><div class="detail-label">Роль BAU co.</div><div class="detail-value">технический надзор</div></div>
+                    <div class="detail-item"><div class="detail-label">Участие BAU co.</div><div class="detail-value">с нулевого цикла</div></div>
                 </div>
                 <div class="project-description">
-                    BAU co., ltd. участвует в проекте Level Residence в районе Bo Phut с нулевого цикла. Компания сопровождает объект на разных этапах реализации, обеспечивая технический контроль качества исполнения, соответствия проектным решениям и общего уровня готовности объекта. В настоящий момент первая фаза проекта находится на стадии отделочных работ.
+                    BAU co. участвует в проекте Level Residence в районе Bo Phut с нулевого цикла. Компания сопровождает объект на разных этапах реализации, обеспечивая технический контроль качества исполнения, соответствия проектным решениям и общего уровня готовности объекта.
                 </div>
                 <div class="role-badge">технический надзор</div>
             </div>
@@ -460,12 +459,11 @@
                     <div class="detail-item"><div class="detail-label">Площадь</div><div class="detail-value">350 м²</div></div>
                     <div class="detail-item"><div class="detail-label">Заказчик</div><div class="detail-value">частный европейский клиент</div></div>
                     <div class="detail-item"><div class="detail-label">Генеральный подрядчик</div><div class="detail-value">A.P.E.</div></div>
-                    <div class="detail-item"><div class="detail-label">Роль BAU</div><div class="detail-value">техническое сопровождение и контроль качества</div></div>
+                    <div class="detail-item"><div class="detail-label">Роль BAU co.</div><div class="detail-value">техническое сопровождение и контроль качества</div></div>
                     <div class="detail-item"><div class="detail-label">Участие</div><div class="detail-value">с нулевого цикла</div></div>
-                    <div class="detail-item"><div class="detail-label">Текущая стадия</div><div class="detail-value">отделочные работы</div></div>
                 </div>
                 <div class="project-description">
-                    Частная вилла площадью 350 м² в районе Bo Phut, создаваемая для частного европейского заказчика. Проект реализуется с участием A.P.E. — крупной и известной тайской строительной компании. BAU co., ltd. участвует в проекте с нулевого цикла, обеспечивая техническое сопровождение, контроль качества и внимание к ключевым решениям на всех этапах реализации. На текущий момент объект находится на стадии отделочных работ.
+                    Частная вилла площадью 350 м² в районе Bo Phut, создаваемая для частного европейского заказчика. Проект реализуется с участием A.P.E. — крупной и известной тайской строительной компании. BAU co. участвует в проекте с нулевого цикла, обеспечивая техническое сопровождение, контроль качества и внимание к ключевым решениям на всех этапах реализации.
                 </div>
                 <div class="role-badge">контроль качества · технадзор</div>
             </div>
@@ -474,7 +472,7 @@
 </div>
 
 <!-- ФУТЕР С СОЦСЕТЯМИ — в самом низу страницы, прижат влево -->
-<div class="footer-social" id="footer-contacts">
+<div class="footer-social">
     <div class="social-links-left">
         <a href="https://www.instagram.com/bauco.th" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <span class="social-divider">|</span>
@@ -518,49 +516,39 @@
     });
     overlay.addEventListener('click', closeMenu);
     
-    // Обработка кликов по пунктам меню
+    // Обработка кликов по пунктам меню (ссылки уже прописаны в href)
     document.querySelectorAll('.mobile-menu a').forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const href = link.getAttribute('href');
-            const text = link.innerText;
+            // закрываем меню перед переходом
             closeMenu();
-            if (href === '#footer-contacts' || text === 'Контакты') {
-                document.getElementById('footer-contacts').scrollIntoView({ behavior: 'smooth' });
-            } else if (text === 'Главная') {
-                window.location.href = 'index12.html';
-            } else if (text === 'Проекты') {
-                // уже на этой странице
-            } else {
-                alert(`Страница "${text}" в разработке`);
-            }
         });
     });
 
-    // Переключатель языков
+    // Переключатель языков — переход на английскую версию (project-en.html)
     const langSwitcher = document.getElementById('langSwitcher');
     const currentLangSpan = document.getElementById('currentLang');
     const langOptions = document.querySelectorAll('.lang-dropdown a');
     
-    function setLanguage(lang) {
-        currentLangSpan.innerText = lang.toUpperCase();
-        if (lang !== 'ru') {
-            alert('Демо: переключение на английскую версию');
-        }
-    }
     langOptions.forEach(opt => {
         opt.addEventListener('click', (e) => {
             e.preventDefault();
-            const lang = opt.getAttribute('data-lang');
-            if (lang === currentLangSpan.innerText.toLowerCase()) return;
-            setLanguage(lang);
+            const targetLang = opt.getAttribute('data-lang');
+            const currentLangText = currentLangSpan.innerText.toLowerCase();
+            
+            if (targetLang === currentLangText) return;
+            
+            if (targetLang === 'en') {
+                window.location.href = 'project-en.html';
+            }
             langSwitcher.classList.remove('open');
         });
     });
+    
     currentLangSpan.addEventListener('click', (e) => {
         e.stopPropagation();
         langSwitcher.classList.toggle('open');
     });
+    
     document.addEventListener('click', (e) => {
         if (!langSwitcher.contains(e.target)) {
             langSwitcher.classList.remove('open');
