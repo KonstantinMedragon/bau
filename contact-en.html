@@ -3,7 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>BAU co. | Contact on Samui</title>
+    
+    <!-- SEO -->
+    <title>BAU co. — The philosophy of strength, utility and beauty</title>
+    <meta name="description" content="Strength, utility, beauty — the three principles of Vitruvius at the core of BAU co. Building consciously on Samui since 1997 in practice.">
+    <meta name="keywords" content="civil engineer Samui, technical supervision Thailand, construction on Samui, geodetic surveys, building commissioning, BAU co, Vitruvian approach, strength utility beauty, private development Samui">
+    
+    <!-- Open Graph / Facebook / WhatsApp / Telegram / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://konstantinmedragon.github.io/bau/about-en.html">
+    <meta property="og:title" content="BAU co. — Civil engineer Dmitry: strength, utility and beauty">
+    <meta property="og:description" content="30 years in construction. From geodetic surveys to commissioning. Personal responsibility for every project on Samui. We don't just build — we create strong, useful, beautiful and ergonomic space.">
+    <meta property="og:image" content="https://konstantinmedragon.github.io/bau/images/about3.jpg">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="800">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BAU co. — Civil engineer Dmitry: strength, utility and beauty">
+    <meta name="twitter:description" content="30 years in construction. From geodetic surveys to commissioning. Personal responsibility for every project on Samui. We don't just build — we create strong, useful, beautiful and ergonomic space.">
+    <meta name="twitter:image" content="https://konstantinmedragon.github.io/bau/images/about3.jpg">
+    
     <!-- Playfair Display + Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -18,17 +38,13 @@
 
         html {
             scroll-behavior: smooth;
-            height: 100%;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background: #0c0c0c;
-            color: #e9c5a5;
+            color: #E8DFD1;
             line-height: 1.5;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
         }
 
         .page-bg {
@@ -41,32 +57,22 @@
             z-index: -2;
         }
 
-        /* Контент занимает всё пространство, центрируем через flex */
-        .main-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 28px;
-        }
-
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
             padding: 28px 28px 0 28px;
+            margin-bottom: 20px;
             position: relative;
             z-index: 30;
-            flex-shrink: 0;
         }
         .logo {
             font-family: 'Inter', sans-serif;
             font-size: 1.5rem;
             font-weight: 500;
             letter-spacing: -0.3px;
-            color: #e9c5a5;
+            color: #E8DFD1;
             text-decoration: none;
         }
         .right-group {
@@ -80,7 +86,7 @@
         .lang-current {
             font-size: 0.9rem;
             font-weight: 500;
-            color: #e9c5a5;
+            color: #E8DFD1;
             cursor: pointer;
             background: transparent;
             padding: 4px 8px;
@@ -88,7 +94,7 @@
             transition: 0.2s;
         }
         .lang-current:hover {
-            background: rgba(233, 197, 165, 0.15);
+            background: rgba(232, 223, 209, 0.15);
         }
         .lang-dropdown {
             position: absolute;
@@ -103,11 +109,11 @@
             display: none;
             flex-direction: column;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            border: 1px solid rgba(233, 197, 165, 0.3);
+            border: 1px solid rgba(232, 223, 209, 0.3);
             z-index: 50;
         }
         .lang-dropdown a {
-            color: #e9c5a5;
+            color: #E8DFD1;
             text-decoration: none;
             padding: 8px 16px;
             font-size: 0.85rem;
@@ -115,7 +121,7 @@
             display: block;
         }
         .lang-dropdown a:hover {
-            background: rgba(233, 197, 165, 0.15);
+            background: rgba(232, 223, 209, 0.15);
         }
         .lang-custom.open .lang-dropdown {
             display: flex;
@@ -131,7 +137,7 @@
         .burger span {
             width: 26px;
             height: 2px;
-            background: #e9c5a5;
+            background: #E8DFD1;
             border-radius: 2px;
             transition: 0.3s;
         }
@@ -168,13 +174,13 @@
             display: flex;
             flex-direction: column;
             gap: 28px;
-            border-left: 1px solid rgba(233, 197, 165, 0.2);
+            border-left: 1px solid rgba(232, 223, 209, 0.2);
         }
         .mobile-menu.open {
             right: 0;
         }
         .mobile-menu a {
-            color: #e9c5a5;
+            color: #E8DFD1;
             text-decoration: none;
             font-size: 1.3rem;
             font-weight: 400;
@@ -186,71 +192,137 @@
             transform: translateX(5px);
         }
 
-        /* Контент контактов — центрирован */
-        .contacts-centered {
-            width: 100%;
-            max-width: 700px;
+        .about-container {
+            max-width: 1280px;
             margin: 0 auto;
-            text-align: center;
+            padding: 20px 28px 40px;
+            position: relative;
+            z-index: 1;
         }
-        .hero-contacts {
+        .about-header {
+            text-align: center;
             margin-bottom: 40px;
         }
-        .hero-contacts h1 {
+        .about-header h1 {
             font-family: 'Inter', sans-serif;
             font-size: 2.2rem;
             font-weight: 500;
             letter-spacing: -0.01em;
-            margin-bottom: 12px;
-            color: #e9c5a5;
+            color: #E8DFD1;
         }
-        .hero-contacts p {
+        .founder-photo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .founder-photo img {
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(232, 223, 209, 0.4);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        .about-text {
+            background: rgba(20, 22, 25, 0.6);
+            backdrop-filter: blur(4px);
+            border-radius: 28px;
+            border: 1px solid rgba(232, 223, 209, 0.25);
+            padding: 40px 48px;
+            margin-bottom: 56px;
+        }
+        .about-text p {
+            margin-bottom: 1.2em;
             font-size: 1rem;
-            color: rgba(233, 197, 165, 0.85);
+            line-height: 1.6;
+            color: rgba(232, 223, 209, 0.9);
+        }
+        .about-text strong {
+            color: #E8DFD1;
+            font-weight: 600;
+        }
+        .vitruvius-block {
+            margin: 28px 0 24px;
+            padding: 20px 28px;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 24px;
+            border-left: 3px solid #E8DFD1;
+        }
+        .vitruvius-item {
+            margin-bottom: 16px;
+        }
+        .vitruvius-item strong {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        .signature {
+            margin-top: 28px;
+            font-style: italic;
+            opacity: 0.8;
         }
 
-        /* Плашка с соцсетями */
-        .social-footer {
-            background: rgba(20, 22, 25, 0.75);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(233, 197, 165, 0.25);
+        .footer-image {
+            margin: 40px 0 30px;
             border-radius: 28px;
-            padding: 28px 24px;
+            overflow: hidden;
+            border: 1px solid rgba(232, 223, 209, 0.25);
+        }
+        .footer-image picture img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            height: auto;
+        }
+        .footer-caption {
             text-align: center;
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: rgba(232, 223, 209, 0.7);
+            font-style: italic;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .social-links-center {
+
+        .footer-social {
+            max-width: 1280px;
+            margin: 20px auto 0;
+            padding: 20px 28px 40px;
+            border-top: 1px solid rgba(232, 223, 209, 0.2);
+            text-align: left;
+        }
+        .social-links-left {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
             gap: 12px;
+            align-items: center;
+            justify-content: flex-start;
+            background: transparent;
         }
-        .social-links-center a {
-            color: #e9c5a5;
+        .social-links-left a {
+            color: #E8DFD1;
             font-size: 1.3rem;
             transition: 0.2s;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
         }
-        .social-links-center a:hover {
+        .social-links-left a:hover {
             color: #f5d5aa;
             transform: translateY(-2px);
         }
         .social-divider {
-            color: #e9c5a5;
-            opacity: 0.4;
-            font-size: 0.9rem;
-        }
-        .email-icon {
-            cursor: pointer;
+            color: #E8DFD1;
+            opacity: 0.5;
+            font-size: 1rem;
+            margin: 0 2px;
         }
 
         .scroll-top {
             position: fixed;
             bottom: 28px;
             right: 28px;
-            background: rgba(233, 197, 165, 0.2);
+            background: rgba(232, 223, 209, 0.2);
             backdrop-filter: blur(4px);
             width: 44px;
             height: 44px;
@@ -261,26 +333,29 @@
             cursor: pointer;
             z-index: 100;
             transition: 0.2s;
-            border: 1px solid rgba(233, 197, 165, 0.4);
+            border: 1px solid rgba(232, 223, 209, 0.4);
         }
         .scroll-top:hover {
-            background: rgba(233, 197, 165, 0.4);
+            background: rgba(232, 223, 209, 0.4);
             transform: translateY(-2px);
         }
         .scroll-top i {
-            color: #e9c5a5;
+            color: #E8DFD1;
             font-size: 1.2rem;
         }
 
         @media (max-width: 760px) {
             .top-bar { padding: 20px 20px 0 20px; }
-            .hero-contacts h1 { font-size: 1.8rem; }
-            .main-content { padding: 20px 20px; }
-            .social-footer { padding: 20px 16px; }
-            .social-links-center { gap: 8px; }
-            .social-links-center a { font-size: 1.1rem; }
+            .about-container { padding: 20px 20px 20px; }
+            .about-header h1 { font-size: 1.8rem; }
+            .about-text { padding: 28px 24px; margin-bottom: 30px; }
+            .vitruvius-block { padding: 16px 20px; }
+            .founder-photo img { width: 200px; height: 200px; }
             .logo { font-size: 1.3rem; }
+            .footer-social { padding: 20px 20px 30px; }
+            .social-links-left a { font-size: 1.2rem; }
             .scroll-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+            .footer-caption { font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -309,33 +384,59 @@
     <a href="project-en.html">projects</a>
     <a href="service-en.html">services</a>
     <a href="invest-en.html">invest</a>
+    <a href="about-en.html">about</a>
     <a href="contact-en.html">contact</a>
 </div>
 
-<div class="main-content">
-    <div class="contacts-centered">
-        <div class="hero-contacts">
-            <h1>Contact</h1>
-            <p>Reach out to us via social media, messengers or email</p>
+<div class="about-container">
+    <div class="about-header">
+        <h1>About company</h1>
+    </div>
+    <div class="founder-photo">
+        <img src="images/about3.jpg" alt="Founder of BAU co. Dmitry">
+    </div>
+    <div class="about-text">
+        <p><strong>My name is Dmitry, founder of BAU co. But first and foremost — I am a civil engineer.</strong></p>
+        <p>In 1997, as a student at the Faculty of Civil Engineering of St. Petersburg Polytechnic University, in one of the old lecture halls, I first heard the Latin Triad of Vitruvius — the fundamental principle of architecture, formulated by the ancient Roman architect and engineer Marcus Vitruvius Pollio in the 1st century BC.</p>
+        <p><strong>"Firmitas. Utilitas. Venustas" — Strength. Utility. Beauty.</strong></p>
+        <p>Over 30 years of real construction practice, going from harsh industrial facilities to private development, I realized: this is not just a formula of architecture.</p>
+        <p>Every man has an innate desire to create — to turn chaos into order, to give form to ideas, and to lay a foundation that he will not be ashamed of before his children. A builder is a Creator who, like a father, protects his project and bears personal responsibility for it.</p>
+        <p>Having moved to Thailand, I saw how often people build for the sake of a "beautiful picture," forgetting the essence. That is why at BAU co. I returned to the golden standard I adopted for myself back in my student days:</p>
+        
+        <div class="vitruvius-block">
+            <div class="vitruvius-item"><strong>✦ Strength (lat. Firmitas)</strong> — reliability and durability. The structure must be stable, reliably protect from external influences and preserve its construction over time.</div>
+            <div class="vitruvius-item"><strong>✦ Utility (lat. Utilitas)</strong> — practicality and functionality. The building must be perfectly suited for its purpose, comfortable and safe.</div>
+            <div class="vitruvius-item"><strong>✦ Beauty (lat. Venustas)</strong> — aesthetic appeal. The building should please the eye, have harmonious proportions and delight the viewer with its appearance.</div>
         </div>
+        
+        <p>I am personally involved in every stage — from geodetic surveys to commissioning. The real magic begins where the drawing meets the ground. My signature on the contract is my personal responsibility to you and my reputation.</p>
+        <p class="signature"><strong>We don't just build — we create your Strong — Useful — Beautiful and Ergonomic space!</strong></p>
+    </div>
 
-        <div class="social-footer">
-            <div class="social-links-center">
-                <a href="https://www.instagram.com/bauco.th" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <span class="social-divider">|</span>
-                <a href="https://www.facebook.com/share/18qsa4jvfY/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <span class="social-divider">|</span>
-                <a href="https://wa.me/66805289372" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <span class="social-divider">|</span>
-                <a href="https://t.me/bauco" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-                <span class="social-divider">|</span>
-                <a href="https://line.me/ti/p/1IP3YFzkKG" target="_blank" aria-label="LINE"><i class="fab fa-line"></i></a>
-                <span class="social-divider">|</span>
-                <a href="#" id="emailIcon" class="email-icon" aria-label="Email">
-                    <i class="far fa-envelope"></i>
-                </a>
-            </div>
-        </div>
+    <!-- Bottom image with Da Vinci -->
+    <div class="footer-image">
+        <picture>
+            <source media="(min-width: 861px)" srcset="images/Davinchi.jpg">
+            <img src="images/Davinchi.jpg" alt="Vitruvian Man by Leonardo da Vinci">
+        </picture>
+    </div>
+    <div class="footer-caption">
+        "Vitruvian Man" is not just a drawing by Da Vinci, it is a visual formula of ideal proportions, where external beauty and inner strength are inextricably linked with utility. This balance defines my approach.
+    </div>
+</div>
+
+<!-- Social block -->
+<div class="footer-social">
+    <div class="social-links-left">
+        <a href="https://www.instagram.com/bauco.th" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <span class="social-divider">|</span>
+        <a href="https://www.facebook.com/share/18qsa4jvfY/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <span class="social-divider">|</span>
+        <a href="https://wa.me/66805289372" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <span class="social-divider">|</span>
+        <a href="https://t.me/bauco" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        <span class="social-divider">|</span>
+        <a href="https://line.me/ti/p/1IP3YFzkKG" target="_blank" aria-label="LINE"><i class="fab fa-line"></i></a>
     </div>
 </div>
 
@@ -386,7 +487,7 @@
             if (targetLang === currentLangText) return;
             
             if (targetLang === 'ru') {
-                window.location.href = 'contact-ru.html';
+                window.location.href = 'about-ru.html';
             }
             langSwitcher.classList.remove('open');
         });
@@ -402,17 +503,6 @@
             langSwitcher.classList.remove('open');
         }
     });
-
-    const emailIcon = document.getElementById('emailIcon');
-    if (emailIcon) {
-        emailIcon.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.location.href = 'mailto:bauinthai@gmail.com';
-            setTimeout(() => {
-                alert('Please contact us via email: bauinthai@gmail.com');
-            }, 200);
-        });
-    }
 </script>
 </body>
 </html>
