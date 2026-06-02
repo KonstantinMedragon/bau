@@ -23,7 +23,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background: #0c0c0c;
-            color: #e9c5a5;
+            color: #E8DFD1;
             line-height: 1.5;
         }
 
@@ -52,7 +52,7 @@
             font-size: 1.5rem;
             font-weight: 500;
             letter-spacing: -0.3px;
-            color: #e9c5a5;
+            color: #E8DFD1;
             text-decoration: none;
         }
         .right-group {
@@ -66,7 +66,7 @@
         .lang-current {
             font-size: 0.9rem;
             font-weight: 500;
-            color: #e9c5a5;
+            color: #E8DFD1;
             cursor: pointer;
             background: transparent;
             padding: 4px 8px;
@@ -74,7 +74,7 @@
             transition: 0.2s;
         }
         .lang-current:hover {
-            background: rgba(233, 197, 165, 0.15);
+            background: rgba(232, 223, 209, 0.15);
         }
         .lang-dropdown {
             position: absolute;
@@ -89,11 +89,11 @@
             display: none;
             flex-direction: column;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            border: 1px solid rgba(233, 197, 165, 0.3);
+            border: 1px solid rgba(232, 223, 209, 0.3);
             z-index: 50;
         }
         .lang-dropdown a {
-            color: #e9c5a5;
+            color: #E8DFD1;
             text-decoration: none;
             padding: 8px 16px;
             font-size: 0.85rem;
@@ -101,7 +101,7 @@
             display: block;
         }
         .lang-dropdown a:hover {
-            background: rgba(233, 197, 165, 0.15);
+            background: rgba(232, 223, 209, 0.15);
         }
         .lang-custom.open .lang-dropdown {
             display: flex;
@@ -117,7 +117,7 @@
         .burger span {
             width: 26px;
             height: 2px;
-            background: #e9c5a5;
+            background: #E8DFD1;
             border-radius: 2px;
             transition: 0.3s;
         }
@@ -154,13 +154,13 @@
             display: flex;
             flex-direction: column;
             gap: 28px;
-            border-left: 1px solid rgba(233, 197, 165, 0.2);
+            border-left: 1px solid rgba(232, 223, 209, 0.2);
         }
         .mobile-menu.open {
             right: 0;
         }
         .mobile-menu a {
-            color: #e9c5a5;
+            color: #E8DFD1;
             text-decoration: none;
             font-size: 1.3rem;
             font-weight: 400;
@@ -188,18 +188,18 @@
             font-weight: 500;
             letter-spacing: -0.01em;
             margin-bottom: 12px;
-            color: #e9c5a5;
+            color: #E8DFD1;
         }
         .hero-services p {
             font-size: 1rem;
-            color: rgba(233, 197, 165, 0.85);
+            color: rgba(232, 223, 209, 0.85);
         }
 
         .hero-image {
             margin-bottom: 56px;
             border-radius: 28px;
             overflow: hidden;
-            border: 1px solid rgba(233, 197, 165, 0.25);
+            border: 1px solid rgba(232, 223, 209, 0.25);
         }
         .hero-image picture img {
             width: 100%;
@@ -208,51 +208,106 @@
             height: auto;
         }
 
+        /* Стили для аккордеона */
         .services-grid {
             display: flex;
             flex-direction: column;
             gap: 16px;
             margin-bottom: 56px;
         }
+        .service-item {
+            background: rgba(20, 22, 25, 0.75);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(232, 223, 209, 0.25);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
         .service-btn {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(20, 22, 25, 0.75);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(233, 197, 165, 0.25);
-            border-radius: 20px;
             padding: 18px 24px;
             cursor: pointer;
             transition: all 0.2s ease;
             text-decoration: none;
-            color: #e9c5a5;
-        }
-        .service-btn:hover {
-            transform: translateX(6px);
-            border-color: rgba(233, 197, 165, 0.6);
-            background: rgba(233, 197, 165, 0.08);
-        }
-        .service-name {
+            color: #E8DFD1;
+            background: transparent;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: 500;
             letter-spacing: -0.2px;
         }
+        .service-btn:hover {
+            background: rgba(232, 223, 209, 0.08);
+        }
         .service-arrow {
             font-size: 1.2rem;
             opacity: 0.7;
+            transition: transform 0.3s ease;
+        }
+        .service-item.open .service-arrow {
+            transform: rotate(90deg);
+        }
+        .service-details {
+            display: none;
+            padding: 0 24px 24px 24px;
+            border-top: 1px solid rgba(232, 223, 209, 0.15);
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .service-item.open .service-details {
+            display: block;
+        }
+        .subpoints-list {
+            list-style: none;
+            margin: 20px 0 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .subpoints-list li {
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            background: rgba(232, 223, 209, 0.1);
+            border-radius: 20px;
+            color: rgba(232, 223, 209, 0.9);
+        }
+        .detail-description {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(232, 223, 209, 0.85);
+            margin: 16px 0 20px;
+        }
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(37, 211, 102, 0.2);
+            border: 1px solid rgba(37, 211, 102, 0.5);
+            padding: 8px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #25D366;
+            font-size: 0.85rem;
+            font-weight: 500;
             transition: 0.2s;
         }
-        .service-btn:hover .service-arrow {
-            opacity: 1;
-            transform: translateX(3px);
+        .whatsapp-btn:hover {
+            background: rgba(37, 211, 102, 0.4);
+            transform: translateY(-2px);
+        }
+        .whatsapp-btn i {
+            font-size: 1rem;
         }
 
         .footer-image {
             margin: 40px 0 30px;
             border-radius: 28px;
             overflow: hidden;
-            border: 1px solid rgba(233, 197, 165, 0.25);
+            border: 1px solid rgba(232, 223, 209, 0.25);
         }
         .footer-image picture img {
             width: 100%;
@@ -265,7 +320,7 @@
             max-width: 1280px;
             margin: 20px auto 0;
             padding: 20px 28px 40px;
-            border-top: 1px solid rgba(233, 197, 165, 0.2);
+            border-top: 1px solid rgba(232, 223, 209, 0.2);
             text-align: left;
         }
         .social-links-left {
@@ -276,7 +331,7 @@
             background: transparent;
         }
         .social-links-left a {
-            color: #e9c5a5;
+            color: #E8DFD1;
             font-size: 1.3rem;
             transition: 0.2s;
             text-decoration: none;
@@ -288,7 +343,7 @@
             transform: translateY(-2px);
         }
         .social-divider {
-            color: #e9c5a5;
+            color: #E8DFD1;
             opacity: 0.5;
             font-size: 1rem;
             margin: 0 2px;
@@ -298,7 +353,7 @@
             position: fixed;
             bottom: 28px;
             right: 28px;
-            background: rgba(233, 197, 165, 0.2);
+            background: rgba(232, 223, 209, 0.2);
             backdrop-filter: blur(4px);
             width: 44px;
             height: 44px;
@@ -309,14 +364,14 @@
             cursor: pointer;
             z-index: 100;
             transition: 0.2s;
-            border: 1px solid rgba(233, 197, 165, 0.4);
+            border: 1px solid rgba(232, 223, 209, 0.4);
         }
         .scroll-top:hover {
-            background: rgba(233, 197, 165, 0.4);
+            background: rgba(232, 223, 209, 0.4);
             transform: translateY(-2px);
         }
         .scroll-top i {
-            color: #e9c5a5;
+            color: #E8DFD1;
             font-size: 1.2rem;
         }
 
@@ -324,8 +379,9 @@
             .top-bar { padding: 20px 20px 0 20px; }
             .hero-services h1 { font-size: 1.8rem; }
             .services-container { padding: 20px 20px 20px; }
-            .service-btn { padding: 14px 20px; }
-            .service-name { font-size: 0.9rem; }
+            .service-btn { padding: 14px 20px; font-size: 0.9rem; }
+            .subpoints-list li { font-size: 0.75rem; }
+            .detail-description { font-size: 0.85rem; }
             .logo { font-size: 1.3rem; }
             .footer-social { padding: 20px 20px 30px; }
             .social-links-left a { font-size: 1.2rem; }
@@ -358,6 +414,7 @@
     <a href="project-ru.html">Проекты</a>
     <a href="service-ru.html">Услуги</a>
     <a href="invest-ru.html">Инвестиции</a>
+    <a href="about-ru.html">О нас</a>
     <a href="contact-ru.html">Контакты</a>
 </div>
 
@@ -375,50 +432,107 @@
     </div>
 
     <div class="services-grid">
-        <a href="development-ru.html" class="service-btn">
-            <span class="service-name">1. Девелопмент</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="construction-management-ru.html" class="service-btn">
-            <span class="service-name">2. Управление строительством</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="infrastructure-ru.html" class="service-btn">
-            <span class="service-name">3. Инженерные и земляные работы</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="technical-supervision-ru.html" class="service-btn">
-            <span class="service-name">4. Технический надзор</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="due-diligence-ru.html" class="service-btn">
-            <span class="service-name">5. Техническая экспертиза</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="architecture-ru.html" class="service-btn">
-            <span class="service-name">6. Архитектурное проектирование</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="interior-design-ru.html" class="service-btn">
-            <span class="service-name">7. Дизайн интерьеров</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="landscape-ru.html" class="service-btn">
-            <span class="service-name">8. Ландшафтный дизайн</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="turnkey-ru.html" class="service-btn">
-            <span class="service-name">9. Строительно-монтажные работы</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="renovation-ru.html" class="service-btn">
-            <span class="service-name">10. Реновация и обслуживание</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="permits-ru.html" class="service-btn">
-            <span class="service-name">11. Юридическое сопровождение и согласования</span>
-            <span class="service-arrow">→</span>
-        </a>
+        <!-- 1. Девелопмент -->
+        <div class="service-item">
+            <div class="service-btn">
+                <span class="service-name">1. Девелопмент</span>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-details">
+                <ul class="subpoints-list">
+                    <li>анализ участка</li>
+                    <li>концепция проекта</li>
+                    <li>инвестиционная модель</li>
+                    <li>сопровождение реализации</li>
+                    <li>разрешения и согласования</li>
+                    <li>юридическое сопровождение</li>
+                    <li>консультации инвесторов</li>
+                </ul>
+                <div class="detail-description">
+                    Развитие и управление инвестиционно-строительными проектами. Комплексное сопровождение проекта от анализа участка до формирования концепции и стратегии реализации. Мы оцениваем потенциал земли, риски, инфраструктуру и создаем основу для эффективного девелопмента.
+                </div>
+                <a href="https://wa.me/66805289372" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Узнать детали</a>
+            </div>
+        </div>
+
+        <!-- 2. Проектирование и инженерия -->
+        <div class="service-item">
+            <div class="service-btn">
+                <span class="service-name">2. Проектирование и инженерия</span>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-details">
+                <ul class="subpoints-list">
+                    <li>архитектурное проектирование</li>
+                    <li>инженерные решения</li>
+                    <li>конструктивные системы</li>
+                    <li>интеграция с рельефом и климатом Самуи</li>
+                </ul>
+                <div class="detail-description">
+                    Архитектура и инженерные решения. Разработка архитектурных концепций и инженерных систем с учетом климата, рельефа и строительных особенностей Самуи. Фокус на функциональности, долговечности и интеграции с природной средой.
+                </div>
+                <a href="https://wa.me/66805289372" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Узнать детали</a>
+            </div>
+        </div>
+
+        <!-- 3. Управление строительством (Генеральный подряд) -->
+        <div class="service-item">
+            <div class="service-btn">
+                <span class="service-name">3. Управление строительством (Генеральный подряд)</span>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-details">
+                <ul class="subpoints-list">
+                    <li>управление строительством</li>
+                    <li>координация подрядчиков</li>
+                    <li>контроль сроков и бюджета</li>
+                    <li>организация строительного процесса</li>
+                </ul>
+                <div class="detail-description">
+                    Управление строительством. Полное управление строительным процессом: координация подрядчиков, контроль сроков, бюджета и качества работ. Обеспечение прозрачности и технической дисциплины на всех этапах реализации.
+                </div>
+                <a href="https://wa.me/66805289372" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Узнать детали</a>
+            </div>
+        </div>
+
+        <!-- 4. Контроль качества и проверка объектов -->
+        <div class="service-item">
+            <div class="service-btn">
+                <span class="service-name">4. Контроль качества и проверка объектов</span>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-details">
+                <ul class="subpoints-list">
+                    <li>технический надзор</li>
+                    <li>техническая экспертиза объектов</li>
+                    <li>проверка недвижимости перед покупкой</li>
+                    <li>аудит качества строительства</li>
+                </ul>
+                <div class="detail-description">
+                    Технический контроль и экспертиза объектов. Независимая оценка строительных решений и качества выполнения работ. Проверка объектов перед покупкой или запуском строительства: конструктив, инженерия, гидроизоляция, риски.
+                </div>
+                <a href="https://wa.me/66805289372" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Узнать детали</a>
+            </div>
+        </div>
+
+        <!-- 5. Реализация под ключ -->
+        <div class="service-item">
+            <div class="service-btn">
+                <span class="service-name">5. Реализация под ключ</span>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-details">
+                <ul class="subpoints-list">
+                    <li>строительство объектов “под ключ”</li>
+                    <li>реновация и реконструкция</li>
+                    <li>сдача готового объекта</li>
+                </ul>
+                <div class="detail-description">
+                    Строительство и реализация под ключ. Полный цикл реализации объекта — от строительных работ до финальной сдачи. Реновация, реконструкция и строительство готовых объектов с контролем качества на каждом этапе.
+                </div>
+                <a href="https://wa.me/66805289372" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Узнать детали</a>
+            </div>
+        </div>
     </div>
 
     <div class="footer-image">
@@ -448,6 +562,7 @@
 </div>
 
 <script>
+    // Бургер-меню
     const burger = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('menuOverlay');
@@ -477,6 +592,22 @@
         });
     });
 
+    // Аккордеон для услуг
+    const serviceItems = document.querySelectorAll('.service-item');
+    serviceItems.forEach(item => {
+        const btn = item.querySelector('.service-btn');
+        btn.addEventListener('click', () => {
+            // Закрываем все другие открытые
+            serviceItems.forEach(other => {
+                if (other !== item && other.classList.contains('open')) {
+                    other.classList.remove('open');
+                }
+            });
+            item.classList.toggle('open');
+        });
+    });
+
+    // Переключатель языков
     const langSwitcher = document.getElementById('langSwitcher');
     const currentLangSpan = document.getElementById('currentLang');
     const langOptions = document.querySelectorAll('.lang-dropdown a');
