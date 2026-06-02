@@ -27,7 +27,7 @@
             line-height: 1.4;
         }
 
-        /* Desktop background — left top */
+        /* Desktop background — left top (unchanged) */
         .bg {
             position: fixed;
             top: 0;
@@ -41,11 +41,57 @@
             background-repeat: no-repeat;
         }
 
-        /* Mobile background — left bottom */
+        /* Mobile background — new image and new color */
         @media (max-width: 760px) {
             .bg {
-                background-image: url('images/finaleph.png');
+                background-image: url('images/finalephen.png');
                 background-position: left bottom;
+            }
+            body {
+                color: #fcdbbd;
+            }
+            .logo {
+                color: #fcdbbd;
+            }
+            .burger span {
+                background: #fcdbbd;
+            }
+            .lang-current {
+                color: #fcdbbd;
+            }
+            .lang-current:hover {
+                background: rgba(252, 219, 189, 0.15);
+            }
+            .lang-dropdown {
+                border: 1px solid rgba(252, 219, 189, 0.3);
+            }
+            .lang-dropdown a {
+                color: #fcdbbd;
+            }
+            .lang-dropdown a:hover {
+                background: rgba(252, 219, 189, 0.15);
+            }
+            .mobile-menu {
+                border-left: 1px solid rgba(252, 219, 189, 0.2);
+            }
+            .mobile-menu a {
+                color: #fcdbbd;
+            }
+            .social-links-left a {
+                color: #fcdbbd;
+            }
+            .social-divider {
+                color: #fcdbbd;
+            }
+            .scroll-top {
+                background: rgba(252, 219, 189, 0.2);
+                border: 1px solid rgba(252, 219, 189, 0.4);
+            }
+            .scroll-top i {
+                color: #fcdbbd;
+            }
+            .scroll-top:hover {
+                background: rgba(252, 219, 189, 0.4);
             }
         }
 
@@ -226,6 +272,32 @@
             margin: 0 2px;
         }
 
+        .scroll-top {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: rgba(233, 197, 165, 0.2);
+            backdrop-filter: blur(4px);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            transition: 0.2s;
+            border: 1px solid rgba(233, 197, 165, 0.4);
+        }
+        .scroll-top:hover {
+            background: rgba(233, 197, 165, 0.4);
+            transform: translateY(-2px);
+        }
+        .scroll-top i {
+            color: #e9c5a5;
+            font-size: 1.2rem;
+        }
+
         @media (max-width: 760px) {
             .content {
                 padding: 20px 20px 30px;
@@ -240,6 +312,12 @@
             }
             .logo {
                 font-size: 1.3rem;
+            }
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
@@ -286,6 +364,10 @@
     </div>
 </div>
 
+<div class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
 <script>
     const burger = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -320,51 +402,6 @@
     const currentLangSpan = document.getElementById('currentLang');
     const langOptions = document.querySelectorAll('.lang-dropdown a');
     
-    // Функция для определения русского аналога текущей страницы
-    function getRussianVersion(currentPage) {
-        // Определяем имя текущего файла
-        const path = window.location.pathname;
-        const filename = path.split('/').pop();
-        
-        // Маппинг английских страниц на русские
-        const mapping = {
-            'index-en.html': 'index-ru.html',
-            'project-en.html': 'project-ru.html',
-            'service-en.html': 'service-ru.html',
-            'about-en.html': 'about-ru.html',
-            'invest-en.html': 'invest-ru.html',
-            'contact-en.html': 'contact-ru.html'
-        };
-        
-        // Если файл есть в маппинге — возвращаем русскую версию
-        if (mapping[filename]) {
-            return mapping[filename];
-        }
-        // Если нет — по умолчанию на главную русскую
-        return 'index-ru.html';
-    }
-    
-    // Функция для определения английского аналога текущей страницы (для обратного переключения)
-    function getEnglishVersion(currentPage) {
-        const path = window.location.pathname;
-        const filename = path.split('/').pop();
-        
-        const mapping = {
-            'index-ru.html': 'index-en.html',
-            'project-ru.html': 'project-en.html',
-            'service-ru.html': 'service-en.html',
-            'about-ru.html': 'about-en.html',
-            'invest-ru.html': 'invest-en.html',
-            'contact-ru.html': 'contact-en.html'
-        };
-        
-        if (mapping[filename]) {
-            return mapping[filename];
-        }
-        return 'index-en.html';
-    }
-    
-    // Обработка переключения языка
     langOptions.forEach(opt => {
         opt.addEventListener('click', (e) => {
             e.preventDefault();
@@ -374,14 +411,9 @@
             if (targetLang === currentLangText) return;
             
             if (targetLang === 'ru') {
-                // Переход на русскую версию текущей страницы
-                const ruPage = getRussianVersion();
-                window.location.href = ruPage;
-            } else {
-                // Переход на английскую версию текущей страницы
-                const enPage = getEnglishVersion();
-                window.location.href = enPage;
+                window.location.href = 'index12.html';
             }
+            langSwitcher.classList.remove('open');
         });
     });
     
