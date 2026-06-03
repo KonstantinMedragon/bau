@@ -3,7 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>BAU co. | Services on Samui</title>
+    <title>BAU co. | Full cycle construction services on Samui</title>
+    <meta name="description" content="Development, design, construction management, quality control, turnkey solutions on Samui. Technical supervision and property inspection.">
+    <meta name="keywords" content="construction Samui, development Samui, construction management, technical supervision, design, quality control, turnkey solutions, BAU co">
+    
+    <!-- Open Graph / Facebook / WhatsApp / Telegram -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://konstantinmedragon.github.io/bau/service-en.html">
+    <meta property="og:title" content="BAU co. — Services on Samui">
+    <meta property="og:description" content="Full cycle of construction and property management services on Samui. Development, design, general contracting, technical supervision, turnkey solutions.">
+    <meta property="og:image" content="https://konstantinmedragon.github.io/bau/images/heropc.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BAU co. — Services on Samui">
+    <meta name="twitter:description" content="Full cycle of construction and property management services on Samui. Development, design, general contracting, technical supervision, turnkey solutions.">
+    <meta name="twitter:image" content="https://konstantinmedragon.github.io/bau/images/heropc.jpg">
+    
     <!-- Playfair Display + Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -23,7 +41,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background: #0c0c0c;
-            color: #e9c5a5;
+            color: #E8DFD1;
             line-height: 1.5;
         }
 
@@ -52,7 +70,7 @@
             font-size: 1.5rem;
             font-weight: 500;
             letter-spacing: -0.3px;
-            color: #e9c5a5;
+            color: #E8DFD1;
             text-decoration: none;
         }
         .right-group {
@@ -66,7 +84,7 @@
         .lang-current {
             font-size: 0.9rem;
             font-weight: 500;
-            color: #e9c5a5;
+            color: #E8DFD1;
             cursor: pointer;
             background: transparent;
             padding: 4px 8px;
@@ -74,7 +92,7 @@
             transition: 0.2s;
         }
         .lang-current:hover {
-            background: rgba(233, 197, 165, 0.15);
+            background: rgba(232, 223, 209, 0.15);
         }
         .lang-dropdown {
             position: absolute;
@@ -89,11 +107,11 @@
             display: none;
             flex-direction: column;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            border: 1px solid rgba(233, 197, 165, 0.3);
+            border: 1px solid rgba(232, 223, 209, 0.3);
             z-index: 50;
         }
         .lang-dropdown a {
-            color: #e9c5a5;
+            color: #E8DFD1;
             text-decoration: none;
             padding: 8px 16px;
             font-size: 0.85rem;
@@ -101,7 +119,7 @@
             display: block;
         }
         .lang-dropdown a:hover {
-            background: rgba(233, 197, 165, 0.15);
+            background: rgba(232, 223, 209, 0.15);
         }
         .lang-custom.open .lang-dropdown {
             display: flex;
@@ -117,7 +135,7 @@
         .burger span {
             width: 26px;
             height: 2px;
-            background: #e9c5a5;
+            background: #E8DFD1;
             border-radius: 2px;
             transition: 0.3s;
         }
@@ -154,13 +172,13 @@
             display: flex;
             flex-direction: column;
             gap: 28px;
-            border-left: 1px solid rgba(233, 197, 165, 0.2);
+            border-left: 1px solid rgba(232, 223, 209, 0.2);
         }
         .mobile-menu.open {
             right: 0;
         }
         .mobile-menu a {
-            color: #e9c5a5;
+            color: #E8DFD1;
             text-decoration: none;
             font-size: 1.3rem;
             font-weight: 400;
@@ -180,6 +198,7 @@
             z-index: 1;
         }
         .hero-services {
+            text-align: center;
             margin-bottom: 48px;
         }
         .hero-services h1 {
@@ -188,18 +207,18 @@
             font-weight: 500;
             letter-spacing: -0.01em;
             margin-bottom: 12px;
-            color: #e9c5a5;
+            color: #E8DFD1;
         }
         .hero-services p {
             font-size: 1rem;
-            color: rgba(233, 197, 165, 0.85);
+            color: rgba(232, 223, 209, 0.85);
         }
 
         .hero-image {
             margin-bottom: 56px;
             border-radius: 28px;
             overflow: hidden;
-            border: 1px solid rgba(233, 197, 165, 0.25);
+            border: 1px solid rgba(232, 223, 209, 0.25);
         }
         .hero-image picture img {
             width: 100%;
@@ -214,45 +233,99 @@
             gap: 16px;
             margin-bottom: 56px;
         }
+        .service-item {
+            background: rgba(20, 22, 25, 0.75);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(232, 223, 209, 0.25);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
         .service-btn {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(20, 22, 25, 0.75);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(233, 197, 165, 0.25);
-            border-radius: 20px;
             padding: 18px 24px;
             cursor: pointer;
             transition: all 0.2s ease;
             text-decoration: none;
-            color: #e9c5a5;
-        }
-        .service-btn:hover {
-            transform: translateX(6px);
-            border-color: rgba(233, 197, 165, 0.6);
-            background: rgba(233, 197, 165, 0.08);
-        }
-        .service-name {
+            color: #E8DFD1;
+            background: transparent;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: 500;
             letter-spacing: -0.2px;
         }
+        .service-btn:hover {
+            background: rgba(232, 223, 209, 0.08);
+        }
         .service-arrow {
             font-size: 1.2rem;
             opacity: 0.7;
-            transition: 0.2s;
+            transition: transform 0.3s ease;
         }
-        .service-btn:hover .service-arrow {
-            opacity: 1;
-            transform: translateX(3px);
+        .service-item.open .service-arrow {
+            transform: rotate(90deg);
+        }
+        .service-details {
+            display: none;
+            padding: 0 24px 24px 24px;
+            border-top: 1px solid rgba(232, 223, 209, 0.15);
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .service-item.open .service-details {
+            display: block;
+        }
+        .subpoints-list {
+            list-style: none;
+            margin: 20px 0 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .subpoints-list li {
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            background: rgba(232, 223, 209, 0.1);
+            border-radius: 20px;
+            color: rgba(232, 223, 209, 0.9);
+        }
+        .detail-description {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(232, 223, 209, 0.85);
+            margin: 16px 0 20px;
+        }
+        .details-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(20, 22, 25, 0.9);
+            border: 1px solid rgba(232, 223, 209, 0.4);
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #E8DFD1;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: 0.2s;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        .details-btn:hover {
+            background: rgba(232, 223, 209, 0.15);
+            transform: translateY(-2px);
+            border-color: rgba(232, 223, 209, 0.7);
         }
 
         .footer-image {
             margin: 40px 0 30px;
             border-radius: 28px;
             overflow: hidden;
-            border: 1px solid rgba(233, 197, 165, 0.25);
+            border: 1px solid rgba(232, 223, 209, 0.25);
         }
         .footer-image picture img {
             width: 100%;
@@ -265,7 +338,7 @@
             max-width: 1280px;
             margin: 20px auto 0;
             padding: 20px 28px 40px;
-            border-top: 1px solid rgba(233, 197, 165, 0.2);
+            border-top: 1px solid rgba(232, 223, 209, 0.2);
             text-align: left;
         }
         .social-links-left {
@@ -276,7 +349,7 @@
             background: transparent;
         }
         .social-links-left a {
-            color: #e9c5a5;
+            color: #E8DFD1;
             font-size: 1.3rem;
             transition: 0.2s;
             text-decoration: none;
@@ -288,7 +361,7 @@
             transform: translateY(-2px);
         }
         .social-divider {
-            color: #e9c5a5;
+            color: #E8DFD1;
             opacity: 0.5;
             font-size: 1rem;
             margin: 0 2px;
@@ -298,7 +371,7 @@
             position: fixed;
             bottom: 28px;
             right: 28px;
-            background: rgba(233, 197, 165, 0.2);
+            background: rgba(232, 223, 209, 0.2);
             backdrop-filter: blur(4px);
             width: 44px;
             height: 44px;
@@ -309,14 +382,14 @@
             cursor: pointer;
             z-index: 100;
             transition: 0.2s;
-            border: 1px solid rgba(233, 197, 165, 0.4);
+            border: 1px solid rgba(232, 223, 209, 0.4);
         }
         .scroll-top:hover {
-            background: rgba(233, 197, 165, 0.4);
+            background: rgba(232, 223, 209, 0.4);
             transform: translateY(-2px);
         }
         .scroll-top i {
-            color: #e9c5a5;
+            color: #E8DFD1;
             font-size: 1.2rem;
         }
 
@@ -324,12 +397,14 @@
             .top-bar { padding: 20px 20px 0 20px; }
             .hero-services h1 { font-size: 1.8rem; }
             .services-container { padding: 20px 20px 20px; }
-            .service-btn { padding: 14px 20px; }
-            .service-name { font-size: 0.9rem; }
+            .service-btn { padding: 14px 20px; font-size: 0.9rem; }
+            .subpoints-list li { font-size: 0.75rem; }
+            .detail-description { font-size: 0.85rem; }
             .logo { font-size: 1.3rem; }
             .footer-social { padding: 20px 20px 30px; }
             .social-links-left a { font-size: 1.2rem; }
             .scroll-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+            .details-btn { padding: 8px 18px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -358,6 +433,7 @@
     <a href="project-en.html">projects</a>
     <a href="service-en.html">services</a>
     <a href="invest-en.html">invest</a>
+    <a href="about-en.html">about</a>
     <a href="contact-en.html">contact</a>
 </div>
 
@@ -375,50 +451,107 @@
     </div>
 
     <div class="services-grid">
-        <a href="development-en.html" class="service-btn">
-            <span class="service-name">1. Development</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="construction-management-en.html" class="service-btn">
-            <span class="service-name">2. Construction Management (General contracting)</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="infrastructure-en.html" class="service-btn">
-            <span class="service-name">3. Infrastructure & Excavation</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="technical-supervision-en.html" class="service-btn">
-            <span class="service-name">4. Technical Supervision</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="due-diligence-en.html" class="service-btn">
-            <span class="service-name">5. Technical Due Diligence</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="architecture-en.html" class="service-btn">
-            <span class="service-name">6. Architectural Design</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="interior-design-en.html" class="service-btn">
-            <span class="service-name">7. Interior Design</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="landscape-en.html" class="service-btn">
-            <span class="service-name">8. Landscape Design</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="turnkey-en.html" class="service-btn">
-            <span class="service-name">9. Turnkey Solutions</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="renovation-en.html" class="service-btn">
-            <span class="service-name">10. Renovation & Maintenance</span>
-            <span class="service-arrow">→</span>
-        </a>
-        <a href="permits-en.html" class="service-btn">
-            <span class="service-name">11. Permits & Legal Support</span>
-            <span class="service-arrow">→</span>
-        </a>
+        <!-- 1. Development -->
+        <div class="service-item">
+            <div class="service-btn">
+                <span class="service-name">1. Development</span>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-details">
+                <ul class="subpoints-list">
+                    <li>site analysis</li>
+                    <li>project concept</li>
+                    <li>investment model</li>
+                    <li>implementation support</li>
+                    <li>permits and approvals</li>
+                    <li>legal support</li>
+                    <li>investor consulting</li>
+                </ul>
+                <div class="detail-description">
+                    Development and management of investment and construction projects. Comprehensive project support from site analysis to concept formation and implementation strategy. We assess land potential, risks, infrastructure and create the foundation for effective development.
+                </div>
+                <button class="details-btn" data-wa="66805289372">Learn more</button>
+            </div>
+        </div>
+
+        <!-- 2. Design & Engineering -->
+        <div class="service-item">
+            <div class="service-btn">
+                <span class="service-name">2. Design & Engineering</span>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-details">
+                <ul class="subpoints-list">
+                    <li>architectural design</li>
+                    <li>engineering solutions</li>
+                    <li>structural systems</li>
+                    <li>integration with Samui's terrain and climate</li>
+                </ul>
+                <div class="detail-description">
+                    Architecture and engineering solutions. Development of architectural concepts and engineering systems taking into account the climate, terrain and construction features of Samui. Focus on functionality, durability and integration with the natural environment.
+                </div>
+                <button class="details-btn" data-wa="66805289372">Learn more</button>
+            </div>
+        </div>
+
+        <!-- 3. Construction Management (General Contracting) -->
+        <div class="service-item">
+            <div class="service-btn">
+                <span class="service-name">3. Construction Management (General Contracting)</span>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-details">
+                <ul class="subpoints-list">
+                    <li>construction management</li>
+                    <li>contractor coordination</li>
+                    <li>schedule and budget control</li>
+                    <li>construction process organization</li>
+                </ul>
+                <div class="detail-description">
+                    Construction management. Full management of the construction process: coordination of contractors, control of deadlines, budget and quality of work. Ensuring transparency and technical discipline at all stages of implementation.
+                </div>
+                <button class="details-btn" data-wa="66805289372">Learn more</button>
+            </div>
+        </div>
+
+        <!-- 4. Quality Control & Property Inspection -->
+        <div class="service-item">
+            <div class="service-btn">
+                <span class="service-name">4. Quality Control & Property Inspection</span>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-details">
+                <ul class="subpoints-list">
+                    <li>technical supervision</li>
+                    <li>technical expertise of properties</li>
+                    <li>real estate due diligence before purchase</li>
+                    <li>construction quality audit</li>
+                </ul>
+                <div class="detail-description">
+                    Technical control and expertise of properties. Independent assessment of construction solutions and quality of work. Inspection of properties before purchase or start of construction: structure, engineering, waterproofing, risks.
+                </div>
+                <button class="details-btn" data-wa="66805289372">Learn more</button>
+            </div>
+        </div>
+
+        <!-- 5. Turnkey Solutions -->
+        <div class="service-item">
+            <div class="service-btn">
+                <span class="service-name">5. Turnkey Solutions</span>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-details">
+                <ul class="subpoints-list">
+                    <li>turnkey construction</li>
+                    <li>renovation and reconstruction</li>
+                    <li>project handover</li>
+                </ul>
+                <div class="detail-description">
+                    Turnkey construction and implementation. Full cycle of project implementation — from construction work to final delivery. Renovation, reconstruction and construction of ready-made objects with quality control at every stage.
+                </div>
+                <button class="details-btn" data-wa="66805289372">Learn more</button>
+            </div>
+        </div>
     </div>
 
     <div class="footer-image">
@@ -448,6 +581,7 @@
 </div>
 
 <script>
+    // Burger menu
     const burger = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('menuOverlay');
@@ -477,6 +611,32 @@
         });
     });
 
+    // Accordion for services
+    const serviceItems = document.querySelectorAll('.service-item');
+    serviceItems.forEach(item => {
+        const btn = item.querySelector('.service-btn');
+        btn.addEventListener('click', () => {
+            serviceItems.forEach(other => {
+                if (other !== item && other.classList.contains('open')) {
+                    other.classList.remove('open');
+                }
+            });
+            item.classList.toggle('open');
+        });
+    });
+
+    // Learn more buttons — open WhatsApp
+    const detailBtns = document.querySelectorAll('.details-btn');
+    detailBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const phone = btn.getAttribute('data-wa');
+            if (phone) {
+                window.open(`https://wa.me/${phone}`, '_blank');
+            }
+        });
+    });
+
+    // Language switcher
     const langSwitcher = document.getElementById('langSwitcher');
     const currentLangSpan = document.getElementById('currentLang');
     const langOptions = document.querySelectorAll('.lang-dropdown a');
