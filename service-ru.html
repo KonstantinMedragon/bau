@@ -3,8 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>BAU co. | Услуги на Самуи</title>
-    <!-- Playfair Display + Inter -->
+    <title>BAU co. | Полный цикл строительных услуг на Самуи</title>
+    <meta name="description" content="Девелопмент, проектирование, управление строительством, контроль качества, реализация под ключ на Самуи. Технический надзор и экспертиза объектов.">
+    <meta name="keywords" content="строительство Самуи, девелопмент Самуи, управление строительством, технический надзор, проектирование, контроль качества, реализация под ключ, BAU co">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://konstantinmedragon.github.io/bau/service-ru.html">
+    <meta property="og:title" content="BAU co. — Услуги на Самуи">
+    <meta property="og:description" content="Полный цикл услуг в строительстве и управлении недвижимостью на Самуи. Девелопмент, проектирование, генподряд, технадзор, реализация под ключ.">
+    <meta property="og:image" content="https://konstantinmedragon.github.io/bau/images/heropc.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BAU co. — Услуги на Самуи">
+    <meta name="twitter:description" content="Полный цикл услуг в строительстве и управлении недвижимостью на Самуи. Девелопмент, проектирование, генподряд, технадзор, реализация под ключ.">
+    <meta name="twitter:image" content="https://konstantinmedragon.github.io/bau/images/heropc.jpg">
+    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -180,6 +195,7 @@
             z-index: 1;
         }
         .hero-services {
+            text-align: center;
             margin-bottom: 48px;
         }
         .hero-services h1 {
@@ -208,7 +224,6 @@
             height: auto;
         }
 
-        /* Стили для аккордеона */
         .services-grid {
             display: flex;
             flex-direction: column;
@@ -281,23 +296,27 @@
             color: rgba(232, 223, 209, 0.85);
             margin: 16px 0 20px;
         }
+        /* Зелёная кнопка (WhatsApp-стиль) */
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: rgba(37, 211, 102, 0.2);
-            border: 1px solid rgba(37, 211, 102, 0.5);
-            padding: 8px 20px;
+            border: 1px solid rgba(37, 211, 102, 0.6);
+            padding: 10px 24px;
             border-radius: 40px;
             text-decoration: none;
             color: #25D366;
             font-size: 0.85rem;
             font-weight: 500;
             transition: 0.2s;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
         }
         .whatsapp-btn:hover {
             background: rgba(37, 211, 102, 0.4);
             transform: translateY(-2px);
+            color: #ffffff;
         }
         .whatsapp-btn i {
             font-size: 1rem;
@@ -386,6 +405,7 @@
             .footer-social { padding: 20px 20px 30px; }
             .social-links-left a { font-size: 1.2rem; }
             .scroll-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+            .whatsapp-btn { padding: 8px 18px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -451,7 +471,7 @@
                 <div class="detail-description">
                     Развитие и управление инвестиционно-строительными проектами. Комплексное сопровождение проекта от анализа участка до формирования концепции и стратегии реализации. Мы оцениваем потенциал земли, риски, инфраструктуру и создаем основу для эффективного девелопмента.
                 </div>
-                <a href="https://wa.me/66805289372" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Узнать детали</a>
+                <button class="whatsapp-btn" data-wa="66805289372"><i class="fab fa-whatsapp"></i> Узнать детали</button>
             </div>
         </div>
 
@@ -471,7 +491,7 @@
                 <div class="detail-description">
                     Архитектура и инженерные решения. Разработка архитектурных концепций и инженерных систем с учетом климата, рельефа и строительных особенностей Самуи. Фокус на функциональности, долговечности и интеграции с природной средой.
                 </div>
-                <a href="https://wa.me/66805289372" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Узнать детали</a>
+                <button class="whatsapp-btn" data-wa="66805289372"><i class="fab fa-whatsapp"></i> Узнать детали</button>
             </div>
         </div>
 
@@ -491,7 +511,7 @@
                 <div class="detail-description">
                     Управление строительством. Полное управление строительным процессом: координация подрядчиков, контроль сроков, бюджета и качества работ. Обеспечение прозрачности и технической дисциплины на всех этапах реализации.
                 </div>
-                <a href="https://wa.me/66805289372" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Узнать детали</a>
+                <button class="whatsapp-btn" data-wa="66805289372"><i class="fab fa-whatsapp"></i> Узнать детали</button>
             </div>
         </div>
 
@@ -511,7 +531,7 @@
                 <div class="detail-description">
                     Технический контроль и экспертиза объектов. Независимая оценка строительных решений и качества выполнения работ. Проверка объектов перед покупкой или запуском строительства: конструктив, инженерия, гидроизоляция, риски.
                 </div>
-                <a href="https://wa.me/66805289372" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Узнать детали</a>
+                <button class="whatsapp-btn" data-wa="66805289372"><i class="fab fa-whatsapp"></i> Узнать детали</button>
             </div>
         </div>
 
@@ -530,7 +550,7 @@
                 <div class="detail-description">
                     Строительство и реализация под ключ. Полный цикл реализации объекта — от строительных работ до финальной сдачи. Реновация, реконструкция и строительство готовых объектов с контролем качества на каждом этапе.
                 </div>
-                <a href="https://wa.me/66805289372" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Узнать детали</a>
+                <button class="whatsapp-btn" data-wa="66805289372"><i class="fab fa-whatsapp"></i> Узнать детали</button>
             </div>
         </div>
     </div>
@@ -545,15 +565,15 @@
 
 <div class="footer-social">
     <div class="social-links-left">
-        <a href="https://www.instagram.com/bauco.th" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/bauco.th" target="_blank"><i class="fab fa-instagram"></i></a>
         <span class="social-divider">|</span>
-        <a href="https://www.facebook.com/share/18qsa4jvfY/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.facebook.com/share/18qsa4jvfY/" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <span class="social-divider">|</span>
-        <a href="https://wa.me/66805289372" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/66805289372" target="_blank"><i class="fab fa-whatsapp"></i></a>
         <span class="social-divider">|</span>
-        <a href="https://t.me/bauco" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://t.me/bauco" target="_blank"><i class="fab fa-telegram-plane"></i></a>
         <span class="social-divider">|</span>
-        <a href="https://line.me/ti/p/1IP3YFzkKG" target="_blank" aria-label="LINE"><i class="fab fa-line"></i></a>
+        <a href="https://line.me/ti/p/1IP3YFzkKG" target="_blank"><i class="fab fa-line"></i></a>
     </div>
 </div>
 
@@ -562,7 +582,6 @@
 </div>
 
 <script>
-    // Бургер-меню
     const burger = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('menuOverlay');
@@ -592,12 +611,10 @@
         });
     });
 
-    // Аккордеон для услуг
     const serviceItems = document.querySelectorAll('.service-item');
     serviceItems.forEach(item => {
         const btn = item.querySelector('.service-btn');
         btn.addEventListener('click', () => {
-            // Закрываем все другие открытые
             serviceItems.forEach(other => {
                 if (other !== item && other.classList.contains('open')) {
                     other.classList.remove('open');
@@ -607,7 +624,16 @@
         });
     });
 
-    // Переключатель языков
+    const whatsappBtns = document.querySelectorAll('.whatsapp-btn');
+    whatsappBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const phone = btn.getAttribute('data-wa');
+            if (phone) {
+                window.open(`https://wa.me/${phone}`, '_blank');
+            }
+        });
+    });
+
     const langSwitcher = document.getElementById('langSwitcher');
     const currentLangSpan = document.getElementById('currentLang');
     const langOptions = document.querySelectorAll('.lang-dropdown a');
@@ -617,12 +643,8 @@
             e.preventDefault();
             const targetLang = opt.getAttribute('data-lang');
             const currentLangText = currentLangSpan.innerText.toLowerCase();
-            
             if (targetLang === currentLangText) return;
-            
-            if (targetLang === 'en') {
-                window.location.href = 'service-en.html';
-            }
+            if (targetLang === 'en') window.location.href = 'service-en.html';
             langSwitcher.classList.remove('open');
         });
     });
