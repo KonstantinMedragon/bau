@@ -7,7 +7,6 @@
     <meta name="description" content="Инвестиции в глэмпинг-отель на Самуи. Уникальное предложение в сегменте экотуризма с высоким потенциалом роста и доходности.">
     <meta name="keywords" content="инвестиции Самуи, глэмпинг, экотуризм Таиланд, строительство глэмпинга, курортная недвижимость, BAU co">
     
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://konstantinmedragon.github.io/bau/invest-ru.html">
     <meta property="og:title" content="BAU co. — Инвестиции в глэмпинг на Самуи">
@@ -16,13 +15,11 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="BAU co. — Инвестиции в глэмпинг на Самуи">
     <meta name="twitter:description" content="Инвестируйте в глэмпинг-отель на Самуи — быстрорастущий сегмент экотуризма с высоким потенциалом.">
     <meta name="twitter:image" content="https://konstantinmedragon.github.io/bau/images/glamp1.png">
     
-    <!-- Playfair Display + Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -260,7 +257,7 @@
             opacity: 0.7;
         }
 
-        /* Стили для карусели */
+        /* Карусель — бесконечная (циклическая) с адаптивной высотой */
         .carousel-section {
             margin: 56px 0;
         }
@@ -276,19 +273,25 @@
             overflow: hidden;
             border-radius: 28px;
             border: 1px solid rgba(232, 223, 209, 0.25);
+            background: #0a0a0a;
         }
         .carousel-track {
             display: flex;
-            transition: transform 0.4s ease;
+            transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            will-change: transform;
         }
         .carousel-slide {
             flex: 0 0 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0a0a0a;
         }
         .carousel-slide img {
             width: 100%;
             display: block;
-            object-fit: cover;
-            height: auto;
+            object-fit: contain;
+            max-height: 70vh;
         }
         .carousel-btn {
             position: absolute;
@@ -338,18 +341,6 @@
             width: 24px;
             border-radius: 4px;
             background: #E8DFD1;
-        }
-        @media (max-width: 760px) {
-            .carousel-btn {
-                width: 36px;
-                height: 36px;
-            }
-            .carousel-btn i {
-                font-size: 1rem;
-            }
-            .btn-prev { left: 12px; }
-            .btn-next { right: 12px; }
-            .carousel-title { font-size: 1.4rem; }
         }
 
         .footer-social {
@@ -421,6 +412,11 @@
             .social-links-left a { font-size: 1.2rem; }
             .scroll-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
             .carousel-section { margin: 40px 0; }
+            .carousel-title { font-size: 1.4rem; }
+            .carousel-btn { width: 36px; height: 36px; }
+            .carousel-btn i { font-size: 1rem; }
+            .btn-prev { left: 12px; }
+            .btn-next { right: 12px; }
         }
     </style>
 </head>
@@ -454,7 +450,7 @@
 </div>
 
 <div class="invest-container">
-    <!-- ПЕРВЫЙ БЛОК (без изменений) -->
+    <!-- ПЕРВЫЙ БЛОК -->
     <div class="invest-header">
         <h1>Инвестиции</h1>
         <p>Задумываетесь об инвестициях в инфраструктурные объекты Таиланда?</p>
@@ -468,7 +464,7 @@
         <p><strong>Уникальное предложение на острове Самуи — глэмпинг отель.</strong></p>
         
         <p><strong>Что такое глэмпинг?</strong><br>
-        Глэмпинг (Glamping = Glamorous + Camping) — это современный формат курортного размещения, который сочетает комфорт гостиничного номера с уникальным опытом проживания на природе.</p>
+        Глэмпинг — это современный формат курортного размещения, который сочетает комфорт гостиничного номера с уникальным опытом проживания на природе.</p>
         
         <p>В отличие от классического кемпинга, гости получают полноценный уровень комфорта:</p>
         <ul class="glamping-list">
@@ -495,23 +491,17 @@
         <p>Если вы рассматриваете инвестиции в этот сектор, то остров Самуи в Таиланде является топовой локацией благодаря низкой конкуренции и тропическому климату.</p>
     </div>
 
-    <!-- ВТОРОЙ БЛОК: карусель и текст реализации -->
+    <!-- ВТОРОЙ БЛОК: бесконечная карусель + текст реализации -->
     <div class="carousel-section">
         <div class="carousel-title">Реализация</div>
-        <div class="carousel-container">
+        <div class="carousel-container" id="carouselContainer">
             <div class="carousel-track" id="carouselTrack">
-                <div class="carousel-slide"><img src="images/glamp2.png" alt="Глэмпинг на Самуи"></div>
-                <div class="carousel-slide"><img src="images/glamp3.png" alt="Глэмпинг на Самуи"></div>
-                <div class="carousel-slide"><img src="images/glamp4.png" alt="Глэмпинг на Самуи"></div>
+                <!-- Фотографии будут вставлены через JS для бесконечного цикла -->
             </div>
             <div class="carousel-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i></div>
             <div class="carousel-btn btn-next" id="nextBtn"><i class="fas fa-chevron-right"></i></div>
         </div>
-        <div class="carousel-dots" id="carouselDots">
-            <div class="dot active"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
     </div>
 
     <div class="invest-text">
@@ -594,42 +584,153 @@
         });
     });
 
-    // Карусель
+    // ---------- БЕСКОНЕЧНАЯ КАРУСЕЛЬ ----------
+    const images = ['glamp2.png', 'glamp3.png', 'glamp4.png'];
     const track = document.getElementById('carouselTrack');
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.dot');
+    const dotsContainer = document.getElementById('carouselDots');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-
-    function updateCarousel() {
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentIndex);
-        });
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateCarousel();
-    }
-
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateCarousel();
-    }
-
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-            currentIndex = i;
-            updateCarousel();
-        });
+    
+    let currentIndex = 1; // начинаем с первого реального слайда (индекс 1 в дублированном массиве)
+    let autoSlideInterval;
+    let isTransitioning = false;
+    
+    // Строим расширенный массив слайдов: [последний, 1, 2, 3, первый]
+    const extendedImages = [images[images.length - 1], ...images, images[0]];
+    
+    // Создаём слайды в треке
+    extendedImages.forEach((img, idx) => {
+        const slide = document.createElement('div');
+        slide.className = 'carousel-slide';
+        const imgEl = document.createElement('img');
+        imgEl.src = `images/${img}`;
+        imgEl.alt = 'Глэмпинг на Самуи';
+        slide.appendChild(imgEl);
+        track.appendChild(slide);
     });
-
+    
+    // Создаём точки (dots) для реальных слайдов
+    images.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.dataset.index = idx;
+        dot.addEventListener('click', () => {
+            if (isTransitioning) return;
+            goToSlide(idx + 1);
+        });
+        dotsContainer.appendChild(dot);
+    });
+    
+    const slides = document.querySelectorAll('.carousel-slide');
+    const totalSlides = slides.length;
+    const realStartIndex = 1;
+    const realEndIndex = images.length;
+    
+    function updateCarousel(instant = false) {
+        if (instant) {
+            track.style.transition = 'none';
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            track.offsetHeight; // force reflow
+            track.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+        } else {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        
+        // Обновляем активную точку
+        let realIndex = currentIndex - 1;
+        if (realIndex < 0) realIndex = images.length - 1;
+        if (realIndex >= images.length) realIndex = 0;
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === realIndex);
+        });
+    }
+    
+    function goToSlide(index, instant = false) {
+        if (isTransitioning && !instant) return;
+        isTransitioning = true;
+        currentIndex = index;
+        updateCarousel(instant);
+        
+        setTimeout(() => {
+            isTransitioning = false;
+            // Проверяем, не вышли ли за границы реальных слайдов
+            if (currentIndex <= 0) {
+                currentIndex = realEndIndex;
+                updateCarousel(true);
+            } else if (currentIndex >= totalSlides - 1) {
+                currentIndex = realStartIndex;
+                updateCarousel(true);
+            }
+        }, 500);
+    }
+    
+    function nextSlide() {
+        if (isTransitioning) return;
+        goToSlide(currentIndex + 1);
+    }
+    
+    function prevSlide() {
+        if (isTransitioning) return;
+        goToSlide(currentIndex - 1);
+    }
+    
+    // Адаптация высоты контейнера под текущее изображение
+    function adjustHeight() {
+        const container = document.getElementById('carouselContainer');
+        const currentSlide = slides[currentIndex];
+        if (currentSlide) {
+            const img = currentSlide.querySelector('img');
+            if (img && img.complete) {
+                const imgHeight = img.naturalHeight;
+                const maxHeight = window.innerHeight * 0.7;
+                if (imgHeight > 0 && imgHeight < maxHeight) {
+                    container.style.height = `${imgHeight}px`;
+                } else {
+                    container.style.height = `${maxHeight}px`;
+                }
+            } else {
+                container.style.height = 'auto';
+            }
+        }
+    }
+    
+    // Ждём загрузки всех изображений для корректной высоты
+    function waitForImages() {
+        const imgs = document.querySelectorAll('.carousel-slide img');
+        let loadedCount = 0;
+        imgs.forEach(img => {
+            if (img.complete) {
+                loadedCount++;
+            } else {
+                img.addEventListener('load', () => {
+                    loadedCount++;
+                    if (loadedCount === imgs.length) {
+                        adjustHeight();
+                    }
+                });
+            }
+        });
+        if (loadedCount === imgs.length) {
+            adjustHeight();
+        }
+    }
+    
+    // Инициализация карусели
+    function initCarousel() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        track.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+        waitForImages();
+        
+        // Обновляем высоту при ресайзе
+        window.addEventListener('resize', () => {
+            setTimeout(adjustHeight, 100);
+        });
+    }
+    
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    
     // Свайп для мобильных
     let touchStartX = 0;
     track.addEventListener('touchstart', (e) => {
@@ -637,11 +738,13 @@
     });
     track.addEventListener('touchend', (e) => {
         const diff = e.changedTouches[0].screenX - touchStartX;
-        if (Math.abs(diff) > 50) {
+        if (Math.abs(diff) > 50 && !isTransitioning) {
             if (diff > 0) prevSlide();
             else nextSlide();
         }
     });
+    
+    initCarousel();
 
     // Языковой переключатель
     const langSwitcher = document.getElementById('langSwitcher');
