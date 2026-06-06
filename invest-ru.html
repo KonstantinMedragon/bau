@@ -260,6 +260,98 @@
             opacity: 0.7;
         }
 
+        /* Стили для карусели */
+        .carousel-section {
+            margin: 56px 0;
+        }
+        .carousel-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            color: #E8DFD1;
+        }
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 28px;
+            border: 1px solid rgba(232, 223, 209, 0.25);
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s ease;
+        }
+        .carousel-slide {
+            flex: 0 0 100%;
+        }
+        .carousel-slide img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            height: auto;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(20, 22, 25, 0.8);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(232, 223, 209, 0.4);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.2s;
+        }
+        .carousel-btn:hover {
+            background: rgba(232, 223, 209, 0.2);
+        }
+        .carousel-btn i {
+            color: #E8DFD1;
+            font-size: 1.2rem;
+        }
+        .btn-prev {
+            left: 20px;
+        }
+        .btn-next {
+            right: 20px;
+        }
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(232, 223, 209, 0.4);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .dot.active {
+            width: 24px;
+            border-radius: 4px;
+            background: #E8DFD1;
+        }
+        @media (max-width: 760px) {
+            .carousel-btn {
+                width: 36px;
+                height: 36px;
+            }
+            .carousel-btn i {
+                font-size: 1rem;
+            }
+            .btn-prev { left: 12px; }
+            .btn-next { right: 12px; }
+            .carousel-title { font-size: 1.4rem; }
+        }
+
         .footer-social {
             max-width: 1280px;
             margin: 20px auto 0;
@@ -328,6 +420,7 @@
             .footer-social { padding: 20px 20px 30px; }
             .social-links-left a { font-size: 1.2rem; }
             .scroll-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+            .carousel-section { margin: 40px 0; }
         }
     </style>
 </head>
@@ -361,6 +454,7 @@
 </div>
 
 <div class="invest-container">
+    <!-- ПЕРВЫЙ БЛОК (без изменений) -->
     <div class="invest-header">
         <h1>Инвестиции</h1>
         <p>Задумываетесь об инвестициях в инфраструктурные объекты Таиланда?</p>
@@ -400,6 +494,55 @@
         
         <p>Если вы рассматриваете инвестиции в этот сектор, то остров Самуи в Таиланде является топовой локацией благодаря низкой конкуренции и тропическому климату.</p>
     </div>
+
+    <!-- ВТОРОЙ БЛОК: карусель и текст реализации -->
+    <div class="carousel-section">
+        <div class="carousel-title">Реализация</div>
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide"><img src="images/glamp2.png" alt="Глэмпинг на Самуи"></div>
+                <div class="carousel-slide"><img src="images/glamp3.png" alt="Глэмпинг на Самуи"></div>
+                <div class="carousel-slide"><img src="images/glamp4.png" alt="Глэмпинг на Самуи"></div>
+            </div>
+            <div class="carousel-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i></div>
+            <div class="carousel-btn btn-next" id="nextBtn"><i class="fas fa-chevron-right"></i></div>
+        </div>
+        <div class="carousel-dots" id="carouselDots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <div class="invest-text">
+        <p>Глэмпинг — идеальная основа для оздоровительных концепций. В современном мире путешественники ищут не просто ночлег, а место для восстановления сил, релаксации и единения с природой.</p>
+        
+        <p>Мы создаём полноценный оздоровительный комплекс под открытым небом, на основе технологии глэмпинга. Йога-павильоны, спа-зоны с видом на джунгли, термальные купели, медитационные террасы, рестораны здорового питания — всё это органично вписывается в концепцию, усиливая привлекательность объекта и его инвестиционную ценность.</p>
+        
+        <p><strong>Конструктивные особенности и эко-стиль</strong></p>
+        <p>Учитывая сложный рельеф Самуи, мы применяем решения, которые гарантируют долговечность и высокий уровень комфорта:</p>
+        <ul class="glamping-list">
+            <li>Адаптация под сложный ландшафт — свайные фундаменты, террасное размещение, минимальное вмешательство в природный рельеф.</li>
+            <li>Эко-стиль — натуральные материалы (дерево, камень, бамбук, текстиль), интеграция построек в окружающую среду, зелёные крыши, естественная вентиляция.</li>
+            <li>Качественные материалы для тропического климата:</li>
+            <ul class="glamping-list" style="margin-left: 20px;">
+                <li>Металлоконструкции со специальным антикоррозийным покрытием, устойчивые к высокой влажности и солёному воздуху.</li>
+                <li>Техническая мембранная ткань с водоотталкивающей пропиткой и защитой от ультрафиолета — не накапливает влагу, не течёт, сохраняет форму.</li>
+                <li>Панорамное остекление с низкоэмиссионным покрытием для комфортного микроклимата внутри.</li>
+            </ul>
+            <li>Удобство подключения инфраструктуры — коммуникации спроектированы для быстрого подключения к центральным сетям (вода, электричество, канализация) либо автономные решения (солнечные панели, системы сбора дождевой воды, септики).</li>
+        </ul>
+        
+        <p><strong>Дополнительные преимущества</strong></p>
+        <ul class="glamping-list">
+            <li>Модульность и масштабируемость — поэтапное расширение без остановки работы.</li>
+            <li>Пожаробезопасность — негорючие и самозатухающие материалы.</li>
+            <li>Устойчивость к ураганным ветрам — аэродинамические формы и надёжные крепления.</li>
+            <li>Автоматизация управления — системы освещения, климат-контроля, безопасности с удалённым доступом.</li>
+        </ul>
+        
+        <p>Такой подход гарантирует долговечность объекта, низкие эксплуатационные расходы и высокий уровень комфорта для гостей.</p>
+    </div>
 </div>
 
 <div class="footer-social">
@@ -421,6 +564,7 @@
 </div>
 
 <script>
+    // Бургер-меню
     const burger = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('menuOverlay');
@@ -450,6 +594,56 @@
         });
     });
 
+    // Карусель
+    const track = document.getElementById('carouselTrack');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    function updateCarousel() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            currentIndex = i;
+            updateCarousel();
+        });
+    });
+
+    // Свайп для мобильных
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+    track.addEventListener('touchend', (e) => {
+        const diff = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) prevSlide();
+            else nextSlide();
+        }
+    });
+
+    // Языковой переключатель
     const langSwitcher = document.getElementById('langSwitcher');
     const currentLangSpan = document.getElementById('currentLang');
     const langOptions = document.querySelectorAll('.lang-dropdown a');
