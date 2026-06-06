@@ -52,7 +52,7 @@
         .invest-header h1 { font-family: 'Inter', sans-serif; font-size: 2.2rem; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 12px; color: #E8DFD1; }
         .invest-header p { font-size: 1rem; color: rgba(232, 223, 209, 0.85); }
         .invest-image { margin-bottom: 48px; border-radius: 28px; overflow: hidden; border: 1px solid rgba(232, 223, 209, 0.25); }
-        .invest-image img { width: 100%; display: block; object-fit: cover; height: auto; }
+        .invest-image img { width: 100%; display: block; height: auto; }
         .invest-text { background: rgba(20, 22, 25, 0.6); backdrop-filter: blur(4px); border-radius: 28px; border: 1px solid rgba(232, 223, 209, 0.25); padding: 40px 48px; margin-bottom: 56px; }
         .invest-text p { margin-bottom: 1.2em; font-size: 1rem; line-height: 1.6; color: rgba(232, 223, 209, 0.9); }
         .invest-text strong { color: #E8DFD1; font-weight: 600; }
@@ -60,13 +60,13 @@
         .glamping-list li { margin-bottom: 8px; position: relative; padding-left: 20px; }
         .glamping-list li::before { content: "•"; position: absolute; left: 0; color: #E8DFD1; opacity: 0.7; }
         
-        /* Карусель — фиксированный размер, без object-fit (простое растяжение) */
+        /* Карусель — фиксированные размеры 1347x1165, object-fit: cover */
         .carousel-section { margin: 56px 0; }
         .carousel-title { font-size: 1.6rem; font-weight: 500; margin-bottom: 24px; color: #E8DFD1; }
-        .carousel-container { position: relative; width: 100%; max-width: 1347px; height: 1165px; overflow: hidden; border-radius: 28px; border: 1px solid rgba(232, 223, 209, 0.25); background: #0a0a0a; margin: 0 auto; }
-        .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1); will-change: transform; }
-        .carousel-slide { flex: 0 0 100%; display: flex; justify-content: center; align-items: center; background: #0a0a0a; }
-        .carousel-slide img { width: 100%; height: 100%; display: block; }
+        .carousel-container { position: relative; width: 1347px; max-width: 100%; height: 1165px; overflow: hidden; border-radius: 28px; border: 1px solid rgba(232, 223, 209, 0.25); background: #0a0a0a; margin: 0 auto; }
+        .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1); will-change: transform; height: 100%; }
+        .carousel-slide { flex: 0 0 100%; height: 100%; }
+        .carousel-slide img { width: 100%; height: 100%; display: block; object-fit: cover; }
         .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(20, 22, 25, 0.8); backdrop-filter: blur(4px); border: 1px solid rgba(232, 223, 209, 0.4); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; transition: 0.2s; }
         .carousel-btn:hover { background: rgba(232, 223, 209, 0.2); }
         .carousel-btn i { color: #E8DFD1; font-size: 1.2rem; }
@@ -75,15 +75,6 @@
         .carousel-dots { display: flex; justify-content: center; gap: 12px; margin-top: 20px; }
         .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(232, 223, 209, 0.4); cursor: pointer; transition: 0.2s; }
         .dot.active { width: 24px; border-radius: 4px; background: #E8DFD1; }
-
-        /* Блок «Ценность для инвестора» */
-        .investor-block { margin: 56px 0; }
-        .investor-title { font-size: 1.6rem; font-weight: 500; margin-bottom: 24px; color: #E8DFD1; }
-        .investor-grid { display: flex; flex-direction: column; gap: 28px; }
-        .investor-item { background: rgba(20, 22, 25, 0.6); backdrop-filter: blur(4px); border-radius: 28px; border: 1px solid rgba(232, 223, 209, 0.25); padding: 28px 32px; transition: transform 0.2s; }
-        .investor-item:hover { transform: translateY(-4px); border-color: rgba(232, 223, 209, 0.5); }
-        .investor-item h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 12px; color: #E8DFD1; }
-        .investor-item p { font-size: 0.95rem; line-height: 1.5; color: rgba(232, 223, 209, 0.85); }
 
         .footer-social { max-width: 1280px; margin: 20px auto 0; padding: 20px 28px 40px; border-top: 1px solid rgba(232, 223, 209, 0.2); text-align: left; }
         .social-links-left { display: flex; gap: 12px; align-items: center; justify-content: flex-start; background: transparent; }
@@ -96,8 +87,9 @@
         .scroll-top i { color: #E8DFD1; font-size: 1.2rem; }
 
         @media (max-width: 1400px) {
-            .carousel-container { height: auto; }
-            .carousel-slide img { height: auto; }
+            .carousel-container { width: 100%; height: auto; }
+            .carousel-slide img { height: auto; object-fit: contain; }
+            .carousel-track { height: auto; }
         }
         @media (max-width: 760px) {
             .top-bar { padding: 20px 20px 0 20px; }
@@ -114,10 +106,6 @@
             .carousel-btn i { font-size: 1rem; }
             .btn-prev { left: 12px; }
             .btn-next { right: 12px; }
-            .investor-block { margin: 40px 0; }
-            .investor-title { font-size: 1.4rem; }
-            .investor-item { padding: 20px 24px; }
-            .investor-item h3 { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -173,7 +161,7 @@
         <p>Если вы рассматриваете инвестиции в этот сектор, то остров Самуи в Таиланде является топовой локацией благодаря низкой конкуренции и тропическому климату.</p>
     </div>
 
-    <!-- ВТОРОЙ БЛОК: карусель (простое растяжение, без object-fit) -->
+    <!-- ВТОРОЙ БЛОК: карусель (фиксированные размеры 1347x1165, object-fit: cover) -->
     <div class="carousel-section">
         <div class="carousel-title">Реализация</div>
         <div class="carousel-container" id="carouselContainer">
@@ -211,50 +199,31 @@
         <p>Такой подход гарантирует долговечность объекта, низкие эксплуатационные расходы и высокий уровень комфорта для гостей.</p>
     </div>
 
-    <!-- ТРЕТИЙ БЛОК: Ценность для инвестора -->
-    <div class="investor-block">
-        <div class="investor-title">Ценность для инвестора</div>
-        <div class="investor-grid">
-            <div class="investor-item">
-                <h3>Низкий порог входа и быстрый старт</h3>
-                <p>В отличие от капитальной гостиницы, строительство глэмпинга требует значительно меньших первоначальных вложений. Вы не платите за тяжёлые фундаменты, многоэтажные конструкции и дорогую отделку. Основные инвестиции направлены на уникальную атмосферу и комфорт, который гости готовы оплачивать по ставке премиального отеля.</p>
-            </div>
-            <div class="investor-item">
-                <h3>Низкие эксплуатационные расходы</h3>
-                <p>Модульные конструкции, современные мембранные ткани и инженерные решения минимизируют затраты на обслуживание. Простота уборки и долговечные материалы снижают операционные издержки до 30–40% по сравнению с традиционным отелем.</p>
-            </div>
-            <div class="investor-item">
-                <h3>Высокая арендная ставка и загрузка</h3>
-                <p>Глэмпинг — это товарный продукт. Путешественники платят за опыт: вид на джунгли или океан, звуки природы, приватность. Цена за ночь в качественном глэмпинге сопоставима с номером 4-5 звёзд, а спрос только растёт. Даже в низкий сезон такие объекты показывают загрузку 60–70% за счёт уникальности формата.</p>
-            </div>
-            <div class="investor-item">
-                <h3>Модульность и ликвидность инвестиций</h3>
-                <p>Архитектура глэмпинга модульная. Вы можете начать с первой очереди и постепенно расширяться, добавляя новые единицы без остановки работы комплекса, не создавая шумовую нагрузку на гостей. При необходимости конфигурацию легко изменить: переставить шатры, объединить зоны, адаптироваться под новый ландшафт или требования рынка.</p>
-            </div>
-            <div class="investor-item">
-                <h3>Вы владеете активами, которые можно забрать</h3>
-                <p>В отличие от бетонных конструкций, глэмпинг — это мобильные активы. Металлоконструкции, тканевые шатры, инженерное оборудование — всё это можно демонтировать и переместить на другой участок. Если земля находится в аренде на 30 лет (а в Таиланде это стандартная практика для иностранцев), вы не теряете инвестиции при смене локации. Это радикально снижает политические и земельные риски.</p>
-            </div>
-            <div class="investor-item">
-                <h3>Низкое конкурентное давление</h3>
-                <p>Рынок глэмпинга в Таиланде только формируется. В отличие от перенасыщенного рынка традиционных отелей, вы заходите в нишу с минимальной конкуренцией. Первые проекты получают максимальный спрос и лояльность аудитории.</p>
-            </div>
-            <div class="investor-item">
-                <h3>Высокий уровень отделки и реализации за меньшие деньги</h3>
-                <p>Качественный глэмпинг не уступает капитальному отелю по уровню комфорта, но стоит в разы дешевле при строительстве и отделке. Дизайнерские интерьеры, сантехника премиум-класса, панорамное остекление — всё это доступно без затрат на капитальное строительство.</p>
-            </div>
-            <div class="investor-item">
-                <h3>Прозрачность строительства и контроль</h3>
-                <p>Все конструктивные решения стандартизированы, что упрощает приёмку работ и исключает скрытые этапы. Вы всегда видите, на что идут деньги, и можете участвовать в контроле качества на каждом этапе.</p>
-            </div>
-            <div class="investor-item">
-                <h3>Дополнительные возможности для дохода</h3>
-                <p>Глэмпинг легко интегрируется с другими бизнесами: добавить банный комплекс, ресторан или зал для йоги можно без радикального изменения структуры отеля, что позволяет адаптировать бизнес под текущую конъюнктуру рынка. Вы получаете уникальный отель-конструктор от Wellmess&SPA до Outdoor retreat.</p>
-            </div>
-        </div>
-        <div class="invest-image" style="margin-top: 40px;">
-            <img src="images/glamp5.png" alt="Глэмпинг на Самуи — возможности для дохода">
-        </div>
+    <!-- ТРЕТИЙ БЛОК: фото + текст (как первые два) -->
+    <div class="invest-image" style="margin-bottom: 0;">
+        <img src="images/glamp5.png" alt="Глэмпинг на Самуи — возможности для инвестора">
+    </div>
+    <div class="invest-text">
+        <p><strong>Ценность для инвестора</strong></p>
+        <p>Глэмпинг — это не просто красивая картинка, а математически обоснованная инвестиционная модель с коротким сроком окупаемости и прозрачными рисками.</p>
+        
+        <p><strong>Низкий порог входа и быстрый старт</strong><br>В отличие от капитальной гостиницы, строительство глэмпинга требует значительно меньших первоначальных вложений. Вы не платите за тяжёлые фундаменты, многоэтажные конструкции и дорогую отделку. Основные инвестиции направлены на уникальную атмосферу и комфорт, который гости готовы оплачивать по ставке премиального отеля.</p>
+        
+        <p><strong>Низкие эксплуатационные расходы</strong><br>Модульные конструкции, современные мембранные ткани и инженерные решения минимизируют затраты на обслуживание. Простота уборки и долговечные материалы снижают операционные издержки до 30–40% по сравнению с традиционным отелем.</p>
+        
+        <p><strong>Высокая арендная ставка и загрузка</strong><br>Глэмпинг — это товарный продукт. Путешественники платят за опыт: вид на джунгли или океан, звуки природы, приватность. Цена за ночь в качественном глэмпинге сопоставима с номером 4-5 звёзд, а спрос только растёт. Даже в низкий сезон такие объекты показывают загрузку 60–70% за счёт уникальности формата.</p>
+        
+        <p><strong>Модульность и ликвидность инвестиций</strong><br>Архитектура глэмпинга модульная. Вы можете начать с первой очереди и постепенно расширяться, добавляя новые единицы без остановки работы комплекса, не создавая шумовую нагрузку на гостей. При необходимости конфигурацию легко изменить: переставить шатры, объединить зоны, адаптироваться под новый ландшафт или требования рынка.</p>
+        
+        <p><strong>Вы владеете активами, которые можно забрать</strong><br>В отличие от бетонных конструкций, глэмпинг — это мобильные активы. Металлоконструкции, тканевые шатры, инженерное оборудование — всё это можно демонтировать и переместить на другой участок. Если земля находится в аренде на 30 лет (а в Таиланде это стандартная практика для иностранцев), вы не теряете инвестиции при смене локации. Это радикально снижает политические и земельные риски.</p>
+        
+        <p><strong>Низкое конкурентное давление</strong><br>Рынок глэмпинга в Таиланде только формируется. В отличие от перенасыщенного рынка традиционных отелей, вы заходите в нишу с минимальной конкуренцией. Первые проекты получают максимальный спрос и лояльность аудитории.</p>
+        
+        <p><strong>Высокий уровень отделки и реализации за меньшие деньги</strong><br>Качественный глэмпинг не уступает капитальному отелю по уровню комфорта, но стоит в разы дешевле при строительстве и отделке. Дизайнерские интерьеры, сантехника премиум-класса, панорамное остекление — всё это доступно без затрат на капитальное строительство.</p>
+        
+        <p><strong>Прозрачность строительства и контроль</strong><br>Все конструктивные решения стандартизированы, что упрощает приёмку работ и исключает скрытые этапы. Вы всегда видите, на что идут деньги, и можете участвовать в контроле качества на каждом этапе.</p>
+        
+        <p><strong>Дополнительные возможности для дохода</strong><br>Глэмпинг легко интегрируется с другими бизнесами: добавить банный комплекс, ресторан или зал для йоги можно без радикального изменения структуры отеля, что позволяет адаптировать бизнес под текущую конъюнктуру рынка. Вы получаете уникальный отель-конструктор от Wellmess&SPA до Outdoor retreat.</p>
     </div>
 </div>
 
@@ -273,6 +242,7 @@
 </div>
 
 <script>
+    // Бургер-меню
     const burger = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('menuOverlay');
@@ -282,7 +252,7 @@
     overlay.addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-menu a').forEach(link => { link.addEventListener('click', () => { closeMenu(); }); });
 
-    // КАРУСЕЛЬ (без object-fit, простое растяжение)
+    // КАРУСЕЛЬ (фиксированные 1347x1165, object-fit: cover)
     const images = ['glamp2.png', 'glamp3.png', 'glamp4.png'];
     const track = document.getElementById('carouselTrack');
     const dotsContainer = document.getElementById('carouselDots');
