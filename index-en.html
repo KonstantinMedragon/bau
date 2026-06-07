@@ -105,6 +105,17 @@
     burger.addEventListener('click', (e) => { e.stopPropagation(); if (mobileMenu.classList.contains('open')) closeMenu(); else openMenu(); });
     overlay.addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-menu a').forEach(link => { link.addEventListener('click', () => { closeMenu(); }); });
+    
+    // ПРИНУДИТЕЛЬНОЕ ПРИМЕНЕНИЕ OBJECT-POSITION ПОСЛЕ ЗАГРУЗКИ СТРАНИЦЫ
+    window.addEventListener('load', function() {
+        if (window.innerWidth <= 760) {
+            var mobileImg = document.querySelector('.bg .mobile-img');
+            if (mobileImg) {
+                mobileImg.style.objectPosition = 'left bottom';
+            }
+        }
+    });
+    
     const langSwitcher = document.getElementById('langSwitcher'), currentLangSpan = document.getElementById('currentLang'), langOptions = document.querySelectorAll('.lang-dropdown a');
     langOptions.forEach(opt => { opt.addEventListener('click', (e) => { e.preventDefault(); const targetLang = opt.getAttribute('data-lang'); if (targetLang === currentLangSpan.innerText.toLowerCase()) return; if (targetLang === 'ru') window.location.href = 'index-ru.html'; langSwitcher.classList.remove('open'); }); });
     currentLangSpan.addEventListener('click', (e) => { e.stopPropagation(); langSwitcher.classList.toggle('open'); });
