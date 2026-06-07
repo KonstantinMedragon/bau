@@ -12,14 +12,17 @@
         html, body { height: 100%; }
         body { font-family: 'Inter', sans-serif; background-color: #111; color: #e9c5a5; line-height: 1.4; }
 
-        /* Фон через img — точное позиционирование левый нижний угол (как в index-ru) */
+        /* Фон через img — точное позиционирование левый нижний угол */
         .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 0; overflow: hidden; }
         .bg img { width: 100%; height: 100%; object-fit: cover; object-position: left bottom; display: block; }
         
-        /* Десктоп: finalepc.png */
-        /* Мобильные: finalephen.png + новый цвет */
+        /* Десктопное изображение показываем по умолчанию */
+        .bg .mobile-img { display: none; }
+        
+        /* Мобильные: показываем мобильное фото, скрываем десктопное, меняем цвета */
         @media (max-width: 760px) { 
-            .bg img { content: url('images/finalephen.png'); }
+            .bg .desktop-img { display: none; }
+            .bg .mobile-img { display: block; }
             body { color: #fcdbbd; }
             .logo { color: #fcdbbd; }
             .burger span { background: #fcdbbd; }
@@ -71,7 +74,10 @@
     </style>
 </head>
 <body>
-<div class="bg"><img src="images/finalepc.png" alt="BAU co. background"></div>
+<div class="bg">
+    <img class="desktop-img" src="images/finalepc.png" alt="BAU co. background">
+    <img class="mobile-img" src="images/finalephen.png" alt="BAU co. background">
+</div>
 <div class="content">
     <div class="top-bar">
         <div class="logo">BAU co.</div>
