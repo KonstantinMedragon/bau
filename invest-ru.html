@@ -51,19 +51,40 @@
         .invest-header { margin-bottom: 48px; }
         .invest-header h1 { font-family: 'Inter', sans-serif; font-size: 2.2rem; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 12px; color: #E8DFD1; }
         .invest-header p { font-size: 1rem; color: rgba(232, 223, 209, 0.85); }
+        
         .invest-image { margin-bottom: 48px; border-radius: 28px; overflow: hidden; border: 1px solid rgba(232, 223, 209, 0.25); }
         .invest-image img { width: 100%; display: block; height: auto; }
-        .invest-text { background: rgba(20, 22, 25, 0.6); backdrop-filter: blur(4px); border-radius: 28px; border: 1px solid rgba(232, 223, 209, 0.25); padding: 40px 48px; margin-bottom: 56px; }
+        
+        .invest-text { background: rgba(20, 22, 25, 0.6); backdrop-filter: blur(4px); border-radius: 28px; border: 1px solid rgba(232, 223, 209, 0.25); padding: 40px 48px; margin-bottom: 48px; }
         .invest-text p { margin-bottom: 1.2em; font-size: 1rem; line-height: 1.6; color: rgba(232, 223, 209, 0.9); }
         .invest-text strong { color: #E8DFD1; font-weight: 600; }
+        
         .glamping-list { margin: 24px 0; padding-left: 24px; list-style: none; }
-        .glamping-list li { margin-bottom: 8px; position: relative; padding-left: 20px; }
+        .glamping-list li { margin-bottom: 12px; position: relative; padding-left: 20px; }
         .glamping-list li::before { content: "•"; position: absolute; left: 0; color: #E8DFD1; opacity: 0.7; }
         
-        /* Карусель — фиксированные размеры 1347x1165, object-fit: cover */
-        .carousel-section { margin: 56px 0; }
+        /* Цитата для материалов */
+        .materials-quote {
+            margin: 12px 0 8px 0;
+            padding: 12px 20px;
+            background: rgba(0, 0, 0, 0.25);
+            border-left: 3px solid #E8DFD1;
+            border-radius: 16px;
+        }
+        .materials-quote p {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(232, 223, 209, 0.85);
+        }
+        .materials-quote p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Карусель */
+        .carousel-section { margin-bottom: 48px; }
         .carousel-title { font-size: 1.6rem; font-weight: 500; margin-bottom: 24px; color: #E8DFD1; }
-        .carousel-container { position: relative; width: 1347px; max-width: 100%; height: 1165px; overflow: hidden; border-radius: 28px; border: 1px solid rgba(232, 223, 209, 0.25); background: #0a0a0a; margin: 0 auto; }
+        .carousel-container { position: relative; width: 100%; max-width: 1347px; height: 1165px; overflow: hidden; border-radius: 28px; border: 1px solid rgba(232, 223, 209, 0.25); background: #0a0a0a; margin: 0 auto; }
         .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1); will-change: transform; height: 100%; }
         .carousel-slide { flex: 0 0 100%; height: 100%; }
         .carousel-slide img { width: 100%; height: 100%; display: block; object-fit: cover; }
@@ -86,26 +107,26 @@
         .scroll-top:hover { background: rgba(232, 223, 209, 0.4); transform: translateY(-2px); }
         .scroll-top i { color: #E8DFD1; font-size: 1.2rem; }
 
-        @media (max-width: 1400px) {
-            .carousel-container { width: 100%; height: auto; }
-            .carousel-slide img { height: auto; object-fit: contain; }
-            .carousel-track { height: auto; }
-        }
         @media (max-width: 760px) {
             .top-bar { padding: 20px 20px 0 20px; }
             .invest-container { padding: 20px 20px 20px; }
             .invest-header h1 { font-size: 1.8rem; }
-            .invest-text { padding: 28px 24px; margin-bottom: 30px; }
+            .invest-text { padding: 28px 24px; }
+            .invest-image { margin-bottom: 32px; }
+            .invest-text { margin-bottom: 32px; }
+            .carousel-section { margin-bottom: 32px; }
             .logo { font-size: 1.3rem; }
             .footer-social { padding: 20px 20px 30px; }
             .social-links-left a { font-size: 1.2rem; }
             .scroll-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
-            .carousel-section { margin: 40px 0; }
             .carousel-title { font-size: 1.4rem; }
             .carousel-btn { width: 36px; height: 36px; }
             .carousel-btn i { font-size: 1rem; }
             .btn-prev { left: 12px; }
             .btn-next { right: 12px; }
+            .carousel-container { height: auto; }
+            .carousel-slide img { height: auto; object-fit: contain; }
+            .materials-quote { padding: 10px 16px; }
         }
     </style>
 </head>
@@ -153,15 +174,27 @@
         <p><strong>Уникальное предложение на острове Самуи — глэмпинг отель.</strong></p>
         <p><strong>Что такое глэмпинг?</strong><br>Глэмпинг — это современный формат курортного размещения, который сочетает комфорт гостиничного номера с уникальным опытом проживания на природе.</p>
         <p>В отличие от классического кемпинга, гости получают полноценный уровень комфорта:</p>
-        <ul class="glamping-list"><li>собственный санузел;</li><li>кондиционирование;</li><li>дизайнерский интерьер;</li><li>панорамные виды;</li><li>гостиничный сервис;</li><li>рестораны и инфраструктуру отдыха.</li></ul>
-        <p>Сегодня глэмпинг является одним из самых быстрорастущих сегментов туристической недвижимости во всем мире. Экотуризм и формат отдыха на природе демонстрируют устойчивый рост во всем мире.</p>
+        <ul class="glamping-list">
+            <li>собственный санузел;</li>
+            <li>кондиционирование;</li>
+            <li>дизайнерский интерьер;</li>
+            <li>панорамные виды;</li>
+            <li>гостиничный сервис;</li>
+            <li>рестораны и инфраструктуру отдыха.</li>
+        </ul>
+        <p>Сегодня глэмпинг является одним из самых быстрорастущих сегментов туристической недвижимости. Экотуризм и формат отдыха на природе демонстрируют устойчивый рост во всем мире.</p>
         <p>Современные путешественники всё чаще выбирают:</p>
-        <ul class="glamping-list"><li>приватность;</li><li>экологичность;</li><li>уникальный опыт проживания;</li><li>концептуальные проекты вместо стандартных отелей.</li></ul>
+        <ul class="glamping-list">
+            <li>приватность;</li>
+            <li>экологичность;</li>
+            <li>уникальный опыт проживания;</li>
+            <li>концептуальные проекты вместо стандартных отелей.</li>
+        </ul>
         <p>Именно поэтому качественные глэмпинги показывают высокую загрузку даже вне пикового сезона. Рынок глэмпинга переживает мощную структурную трансформацию. Глобальный объем рынка оценивается более чем в $4,2 млрд с устойчивым ежегодным ростом (CAGR) около 10–12%. Важнейшим трендом стало пришествие институциональных игроков, что окончательно вывело глэмпинг из ниши «дикого» туризма в категорию премиального гостеприимства.</p>
         <p>Если вы рассматриваете инвестиции в этот сектор, то остров Самуи в Таиланде является топовой локацией благодаря низкой конкуренции и тропическому климату.</p>
     </div>
 
-    <!-- ВТОРОЙ БЛОК: карусель (фиксированные размеры 1347x1165, object-fit: cover) -->
+    <!-- ВТОРОЙ БЛОК: карусель -->
     <div class="carousel-section">
         <div class="carousel-title">Реализация</div>
         <div class="carousel-container" id="carouselContainer">
@@ -173,22 +206,26 @@
     </div>
 
     <div class="invest-text">
-        <p>Глэмпинг — идеальная основа для оздоровительных концепций. В современном мире путешественники ищут не просто ночлег, а место для восстановления сил, релаксации и единения с природой.</p>
+        <p>Глэмпинг — идеальная основа для оздоровительных концепций. Сегодня путешественники ищут не просто ночлег, а место для восстановления сил, релаксации и единения с природой.</p>
         <p>Мы создаём полноценный оздоровительный комплекс под открытым небом, на основе технологии глэмпинга. Йога-павильоны, спа-зоны с видом на джунгли, термальные купели, медитационные террасы, рестораны здорового питания — всё это органично вписывается в концепцию, усиливая привлекательность объекта и его инвестиционную ценность.</p>
+        
         <p><strong>Конструктивные особенности и эко-стиль</strong></p>
         <p>Учитывая сложный рельеф Самуи, мы применяем решения, которые гарантируют долговечность и высокий уровень комфорта:</p>
+        
         <ul class="glamping-list">
             <li>Адаптация под сложный ландшафт — свайные фундаменты, террасное размещение, минимальное вмешательство в природный рельеф.</li>
             <li>Эко-стиль — натуральные материалы (дерево, камень, бамбук, текстиль), интеграция построек в окружающую среду, зелёные крыши, естественная вентиляция.</li>
-            <li>Качественные материалы для тропического климата:
-                <ul class="glamping-list" style="margin-left: 20px;">
-                    <li>Металлоконструкции со специальным антикоррозийным покрытием, устойчивые к высокой влажности и солёному воздуху.</li>
-                    <li>Техническая мембранная ткань с водоотталкивающей пропиткой и защитой от ультрафиолета — не накапливает влагу, не течёт, сохраняет форму.</li>
-                    <li>Панорамное остекление с низкоэмиссионным покрытием для комфортного микроклимата внутри.</li>
-                </ul>
+            <li>
+                <strong>Качественные материалы для тропического климата</strong>
+                <div class="materials-quote">
+                    <p>Металлоконструкции со специальным антикоррозийным покрытием, устойчивые к высокой влажности и солёному воздуху.</p>
+                    <p>Техническая мембранная ткань с водоотталкивающей пропиткой и защитой от ультрафиолета — не накапливает влагу, не течёт, сохраняет форму.</p>
+                    <p>Панорамное остекление с низкоэмиссионным покрытием для комфортного микроклимата внутри.</p>
+                </div>
             </li>
             <li>Удобство подключения инфраструктуры — коммуникации спроектированы для быстрого подключения к центральным сетям (вода, электричество, канализация) либо автономные решения (солнечные панели, системы сбора дождевой воды, септики).</li>
         </ul>
+        
         <p><strong>Дополнительные преимущества</strong></p>
         <ul class="glamping-list">
             <li>Модульность и масштабируемость — поэтапное расширение без остановки работы.</li>
@@ -199,8 +236,8 @@
         <p>Такой подход гарантирует долговечность объекта, низкие эксплуатационные расходы и высокий уровень комфорта для гостей.</p>
     </div>
 
-    <!-- ТРЕТИЙ БЛОК: фото + текст (как первые два) -->
-    <div class="invest-image" style="margin-bottom: 0;">
+    <!-- ТРЕТИЙ БЛОК: фото + текст -->
+    <div class="invest-image">
         <img src="images/glamp5.png" alt="Глэмпинг на Самуи — возможности для инвестора">
     </div>
     <div class="invest-text">
@@ -242,7 +279,6 @@
 </div>
 
 <script>
-    // Бургер-меню
     const burger = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('menuOverlay');
@@ -252,7 +288,7 @@
     overlay.addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-menu a').forEach(link => { link.addEventListener('click', () => { closeMenu(); }); });
 
-    // КАРУСЕЛЬ (фиксированные 1347x1165, object-fit: cover)
+    // КАРУСЕЛЬ
     const images = ['glamp2.png', 'glamp3.png', 'glamp4.png'];
     const track = document.getElementById('carouselTrack');
     const dotsContainer = document.getElementById('carouselDots');
@@ -326,7 +362,6 @@
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
     track.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
 
-    // Языковой переключатель
     const langSwitcher = document.getElementById('langSwitcher');
     const currentLangSpan = document.getElementById('currentLang');
     const langOptions = document.querySelectorAll('.lang-dropdown a');
