@@ -53,7 +53,8 @@
         .invest-header p { font-size: 1rem; color: rgba(232, 223, 209, 0.85); }
         
         .invest-image { margin-bottom: 48px; border-radius: 28px; overflow: hidden; border: 1px solid rgba(232, 223, 209, 0.25); }
-        .invest-image img { width: 100%; display: block; height: auto; }
+        .invest-image img { width: 100%; display: block; height: auto; cursor: pointer; transition: transform 0.2s; }
+        .invest-image img:hover { transform: scale(1.01); }
         
         .invest-text { background: rgba(20, 22, 25, 0.6); backdrop-filter: blur(4px); border-radius: 28px; border: 1px solid rgba(232, 223, 209, 0.25); padding: 40px 48px; margin-bottom: 48px; }
         .invest-text p { margin-bottom: 1.2em; font-size: 1rem; line-height: 1.6; color: rgba(232, 223, 209, 0.9); }
@@ -63,7 +64,6 @@
         .glamping-list li { margin-bottom: 12px; position: relative; padding-left: 20px; }
         .glamping-list li::before { content: "•"; position: absolute; left: 0; color: #E8DFD1; opacity: 0.7; }
         
-        /* Цитата для материалов */
         .materials-quote {
             margin: 12px 0 8px 0;
             padding: 12px 20px;
@@ -71,17 +71,10 @@
             border-left: 3px solid #E8DFD1;
             border-radius: 16px;
         }
-        .materials-quote p {
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: rgba(232, 223, 209, 0.85);
-        }
-        .materials-quote p:last-child {
-            margin-bottom: 0;
-        }
+        .materials-quote p { margin-bottom: 8px; font-size: 0.9rem; line-height: 1.5; color: rgba(232, 223, 209, 0.85); }
+        .materials-quote p:last-child { margin-bottom: 0; }
         
-        /* Карусель */
+        /* Карусель для второго блока */
         .carousel-section { margin-bottom: 48px; }
         .carousel-title { font-size: 1.6rem; font-weight: 500; margin-bottom: 24px; color: #E8DFD1; }
         .carousel-container { position: relative; width: 100%; max-width: 1347px; height: 1165px; overflow: hidden; border-radius: 28px; border: 1px solid rgba(232, 223, 209, 0.25); background: #0a0a0a; margin: 0 auto; }
@@ -96,7 +89,112 @@
         .carousel-dots { display: flex; justify-content: center; gap: 12px; margin-top: 20px; }
         .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(232, 223, 209, 0.4); cursor: pointer; transition: 0.2s; }
         .dot.active { width: 24px; border-radius: 4px; background: #E8DFD1; }
-
+        
+        /* LIGHTBOX (полноэкранная карусель) для четвёртого блока */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox-track {
+            display: flex;
+            transition: transform 0.4s ease;
+            height: 100%;
+            width: 100%;
+        }
+        .lightbox-slide {
+            flex: 0 0 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+        }
+        .lightbox-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .lightbox-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1010;
+            transition: 0.2s;
+            color: white;
+            font-size: 1.5rem;
+        }
+        .lightbox-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1010;
+            transition: 0.2s;
+            color: white;
+            font-size: 1.3rem;
+        }
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .lightbox-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            z-index: 1010;
+        }
+        .lightbox-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .lightbox-dot.active {
+            width: 24px;
+            border-radius: 4px;
+            background: white;
+        }
+        
         .footer-social { max-width: 1280px; margin: 20px auto 0; padding: 20px 28px 40px; border-top: 1px solid rgba(232, 223, 209, 0.2); text-align: left; }
         .social-links-left { display: flex; gap: 12px; align-items: center; justify-content: flex-start; background: transparent; }
         .social-links-left a { color: #E8DFD1; font-size: 1.3rem; transition: 0.2s; text-decoration: none; display: inline-flex; align-items: center; }
@@ -127,6 +225,8 @@
             .carousel-container { height: auto; }
             .carousel-slide img { height: auto; object-fit: contain; }
             .materials-quote { padding: 10px 16px; }
+            .lightbox-btn { width: 40px; height: 40px; font-size: 1.2rem; }
+            .lightbox-close { width: 40px; height: 40px; font-size: 1rem; top: 16px; right: 16px; }
         }
     </style>
 </head>
@@ -194,7 +294,7 @@
         <p>Если вы рассматриваете инвестиции в этот сектор, то остров Самуи в Таиланде является топовой локацией благодаря низкой конкуренции и тропическому климату.</p>
     </div>
 
-    <!-- ВТОРОЙ БЛОК: карусель -->
+    <!-- ВТОРОЙ БЛОК: карусель glamp2-3-4 -->
     <div class="carousel-section">
         <div class="carousel-title">Реализация</div>
         <div class="carousel-container" id="carouselContainer">
@@ -211,7 +311,6 @@
         
         <p><strong>Конструктивные особенности и эко-стиль</strong></p>
         <p>Учитывая сложный рельеф Самуи, мы применяем решения, которые гарантируют долговечность и высокий уровень комфорта:</p>
-        
         <ul class="glamping-list">
             <li>Адаптация под сложный ландшафт — свайные фундаменты, террасное размещение, минимальное вмешательство в природный рельеф.</li>
             <li>Эко-стиль — натуральные материалы (дерево, камень, бамбук, текстиль), интеграция построек в окружающую среду, зелёные крыши, естественная вентиляция.</li>
@@ -262,6 +361,23 @@
         
         <p><strong>Дополнительные возможности для дохода</strong><br>Глэмпинг легко интегрируется с другими бизнесами: добавить банный комплекс, ресторан или зал для йоги можно без радикального изменения структуры отеля, что позволяет адаптировать бизнес под текущую конъюнктуру рынка. Вы получаете уникальный отель-конструктор от Wellmess&SPA до Outdoor retreat.</p>
     </div>
+
+    <!-- ЧЕТВЁРТЫЙ БЛОК: полноэкранная карусель (lightbox) glamp6pcru / glamp6phru -->
+    <div class="invest-image" id="lightboxTrigger">
+        <picture>
+            <source media="(max-width: 760px)" srcset="images/glamp6phru.png">
+            <img src="images/glamp6pcru.png" alt="Роскошный глэмпинг с видом на океан">
+        </picture>
+    </div>
+</div>
+
+<!-- LIGHTBOX (полноэкранная карусель) -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-track" id="lightboxTrack"></div>
+    <button class="lightbox-btn lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-btn lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+    <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+    <div class="lightbox-dots" id="lightboxDots"></div>
 </div>
 
 <div class="footer-social">
@@ -279,6 +395,7 @@
 </div>
 
 <script>
+    // Бургер-меню
     const burger = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('menuOverlay');
@@ -288,7 +405,7 @@
     overlay.addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-menu a').forEach(link => { link.addEventListener('click', () => { closeMenu(); }); });
 
-    // КАРУСЕЛЬ
+    // КАРУСЕЛЬ glamp2-3-4
     const images = ['glamp2.png', 'glamp3.png', 'glamp4.png'];
     const track = document.getElementById('carouselTrack');
     const dotsContainer = document.getElementById('carouselDots');
@@ -358,10 +475,109 @@
         const diff = e.changedTouches[0].screenX - touchStartX;
         if (Math.abs(diff) > 50 && !isTransitioning) { diff > 0 ? prevBtn.click() : nextBtn.click(); }
     });
-    
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
     track.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
 
+    // LIGHTBOX (полноэкранная карусель для glamp6)
+    const lightboxImages = [
+        { pc: 'glamp6pcru.png', ph: 'glamp6phru.png' }
+    ];
+    const lightbox = document.getElementById('lightbox');
+    const lightboxTrack = document.getElementById('lightboxTrack');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxDotsContainer = document.getElementById('lightboxDots');
+    let lightboxCurrentIndex = 0;
+    
+    function buildLightbox() {
+        lightboxTrack.innerHTML = '';
+        lightboxDotsContainer.innerHTML = '';
+        lightboxImages.forEach((img, idx) => {
+            const slide = document.createElement('div');
+            slide.className = 'lightbox-slide';
+            const picture = document.createElement('picture');
+            const source = document.createElement('source');
+            source.media = '(max-width: 760px)';
+            source.srcset = `images/${img.ph}`;
+            const imgEl = document.createElement('img');
+            imgEl.src = `images/${img.pc}`;
+            imgEl.alt = 'Роскошный глэмпинг';
+            picture.appendChild(source);
+            picture.appendChild(imgEl);
+            slide.appendChild(picture);
+            lightboxTrack.appendChild(slide);
+            
+            const dot = document.createElement('div');
+            dot.className = 'lightbox-dot';
+            dot.addEventListener('click', () => {
+                lightboxCurrentIndex = idx;
+                updateLightbox();
+            });
+            lightboxDotsContainer.appendChild(dot);
+        });
+    }
+    
+    function updateLightbox() {
+        const width = lightboxTrack.parentElement.clientWidth;
+        lightboxTrack.style.transform = `translateX(-${lightboxCurrentIndex * width}px)`;
+        const dots = document.querySelectorAll('.lightbox-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === lightboxCurrentIndex);
+        });
+    }
+    
+    function openLightbox() {
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        updateLightbox();
+    }
+    
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    function nextLightbox() {
+        if (lightboxCurrentIndex < lightboxImages.length - 1) {
+            lightboxCurrentIndex++;
+        } else {
+            lightboxCurrentIndex = 0;
+        }
+        updateLightbox();
+    }
+    
+    function prevLightbox() {
+        if (lightboxCurrentIndex > 0) {
+            lightboxCurrentIndex--;
+        } else {
+            lightboxCurrentIndex = lightboxImages.length - 1;
+        }
+        updateLightbox();
+    }
+    
+    document.getElementById('lightboxTrigger').addEventListener('click', openLightbox);
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxNext.addEventListener('click', nextLightbox);
+    lightboxPrev.addEventListener('click', prevLightbox);
+    
+    // Свайп для lightbox
+    let lightboxTouchStart = 0;
+    lightboxTrack.addEventListener('touchstart', (e) => { lightboxTouchStart = e.changedTouches[0].screenX; });
+    lightboxTrack.addEventListener('touchend', (e) => {
+        const diff = e.changedTouches[0].screenX - lightboxTouchStart;
+        if (Math.abs(diff) > 50) {
+            diff > 0 ? prevLightbox() : nextLightbox();
+        }
+    });
+    
+    window.addEventListener('resize', () => {
+        if (lightbox.classList.contains('active')) updateLightbox();
+    });
+    
+    buildLightbox();
+
+    // Языковой переключатель
     const langSwitcher = document.getElementById('langSwitcher');
     const currentLangSpan = document.getElementById('currentLang');
     const langOptions = document.querySelectorAll('.lang-dropdown a');
