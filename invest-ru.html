@@ -27,7 +27,6 @@
         body { font-family: 'Inter', sans-serif; background: #0c0c0c; color: #E8DFD1; line-height: 1.5; }
         .page-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0a0a0a; z-index: -2; }
         
-        /* Верхняя панель */
         .top-bar { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 28px 28px 0 28px; margin-bottom: 20px; position: relative; z-index: 30; }
         .logo { font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 500; letter-spacing: -0.3px; color: #E8DFD1; text-decoration: none; }
         .right-group { display: flex; align-items: center; gap: 20px; }
@@ -74,23 +73,11 @@
         .materials-quote p { margin-bottom: 8px; font-size: 0.9rem; line-height: 1.5; color: rgba(232, 223, 209, 0.85); }
         .materials-quote p:last-child { margin-bottom: 0; }
         
-        /* Карусель для второго блока */
-        .carousel-section { margin-bottom: 48px; }
-        .carousel-title { font-size: 1.6rem; font-weight: 500; margin-bottom: 24px; color: #E8DFD1; }
-        .carousel-container { position: relative; width: 100%; max-width: 1347px; height: 1165px; overflow: hidden; border-radius: 28px; border: 1px solid rgba(232, 223, 209, 0.25); background: #0a0a0a; margin: 0 auto; }
-        .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1); will-change: transform; height: 100%; }
-        .carousel-slide { flex: 0 0 100%; height: 100%; }
-        .carousel-slide img { width: 100%; height: 100%; display: block; object-fit: cover; }
-        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(20, 22, 25, 0.8); backdrop-filter: blur(4px); border: 1px solid rgba(232, 223, 209, 0.4); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; transition: 0.2s; }
-        .carousel-btn:hover { background: rgba(232, 223, 209, 0.2); }
-        .carousel-btn i { color: #E8DFD1; font-size: 1.2rem; }
-        .btn-prev { left: 20px; }
-        .btn-next { right: 20px; }
-        .carousel-dots { display: flex; justify-content: center; gap: 12px; margin-top: 20px; }
-        .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(232, 223, 209, 0.4); cursor: pointer; transition: 0.2s; }
-        .dot.active { width: 24px; border-radius: 4px; background: #E8DFD1; }
+        /* Второй блок — единственное фото restoglamp.png */
+        .resto-image { margin-bottom: 48px; border-radius: 28px; overflow: hidden; border: 1px solid rgba(232, 223, 209, 0.25); }
+        .resto-image img { width: 100%; display: block; height: auto; }
         
-        /* LIGHTBOX (полноэкранная карусель) для четвёртого блока */
+        /* LIGHTBOX (полноэкранная карусель) для четвёртого блока — без текста поверх glamp7 */
         .lightbox {
             display: none;
             position: fixed;
@@ -104,27 +91,10 @@
             align-items: center;
             flex-direction: column;
         }
-        .lightbox.active {
-            display: flex;
-        }
-        .lightbox-track {
-            display: flex;
-            transition: transform 0.4s ease;
-            height: 100%;
-            width: 100%;
-        }
-        .lightbox-slide {
-            flex: 0 0 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #000;
-        }
-        .lightbox-slide img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
+        .lightbox.active { display: flex; }
+        .lightbox-track { display: flex; transition: transform 0.4s ease; height: 100%; width: 100%; }
+        .lightbox-slide { flex: 0 0 100%; display: flex; justify-content: center; align-items: center; background: #000; }
+        .lightbox-slide img { max-width: 100%; max-height: 100%; object-fit: contain; }
         .lightbox-btn {
             position: absolute;
             top: 50%;
@@ -144,9 +114,7 @@
             color: white;
             font-size: 1.5rem;
         }
-        .lightbox-btn:hover {
-            background: rgba(255, 255, 255, 0.4);
-        }
+        .lightbox-btn:hover { background: rgba(255, 255, 255, 0.4); }
         .lightbox-prev { left: 20px; }
         .lightbox-next { right: 20px; }
         .lightbox-close {
@@ -168,9 +136,7 @@
             color: white;
             font-size: 1.3rem;
         }
-        .lightbox-close:hover {
-            background: rgba(255, 255, 255, 0.4);
-        }
+        .lightbox-close:hover { background: rgba(255, 255, 255, 0.4); }
         .lightbox-dots {
             position: absolute;
             bottom: 20px;
@@ -189,11 +155,7 @@
             cursor: pointer;
             transition: 0.2s;
         }
-        .lightbox-dot.active {
-            width: 24px;
-            border-radius: 4px;
-            background: white;
-        }
+        .lightbox-dot.active { width: 24px; border-radius: 4px; background: white; }
         
         .footer-social { max-width: 1280px; margin: 20px auto 0; padding: 20px 28px 40px; border-top: 1px solid rgba(232, 223, 209, 0.2); text-align: left; }
         .social-links-left { display: flex; gap: 12px; align-items: center; justify-content: flex-start; background: transparent; }
@@ -209,22 +171,13 @@
             .top-bar { padding: 20px 20px 0 20px; }
             .invest-container { padding: 20px 20px 20px; }
             .invest-header h1 { font-size: 1.8rem; }
-            .invest-text { padding: 28px 24px; }
+            .invest-text { padding: 28px 24px; margin-bottom: 32px; }
             .invest-image { margin-bottom: 32px; }
-            .invest-text { margin-bottom: 32px; }
-            .carousel-section { margin-bottom: 32px; }
+            .resto-image { margin-bottom: 32px; }
             .logo { font-size: 1.3rem; }
             .footer-social { padding: 20px 20px 30px; }
             .social-links-left a { font-size: 1.2rem; }
             .scroll-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
-            .carousel-title { font-size: 1.4rem; }
-            .carousel-btn { width: 36px; height: 36px; }
-            .carousel-btn i { font-size: 1rem; }
-            .btn-prev { left: 12px; }
-            .btn-next { right: 12px; }
-            .carousel-container { height: auto; }
-            .carousel-slide img { height: auto; object-fit: contain; }
-            .materials-quote { padding: 10px 16px; }
             .lightbox-btn { width: 40px; height: 40px; font-size: 1.2rem; }
             .lightbox-close { width: 40px; height: 40px; font-size: 1rem; top: 16px; right: 16px; }
         }
@@ -294,15 +247,9 @@
         <p>Если вы рассматриваете инвестиции в этот сектор, то остров Самуи в Таиланде является топовой локацией благодаря низкой конкуренции и тропическому климату.</p>
     </div>
 
-    <!-- ВТОРОЙ БЛОК: карусель glamp2-3-4 -->
-    <div class="carousel-section">
-        <div class="carousel-title">Реализация</div>
-        <div class="carousel-container" id="carouselContainer">
-            <div class="carousel-track" id="carouselTrack"></div>
-            <div class="carousel-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i></div>
-            <div class="carousel-btn btn-next" id="nextBtn"><i class="fas fa-chevron-right"></i></div>
-        </div>
-        <div class="carousel-dots" id="carouselDots"></div>
+    <!-- ВТОРОЙ БЛОК: единственное фото restoglamp.png -->
+    <div class="resto-image">
+        <img src="images/restoglamp.png" alt="Глэмпинг ресторан и спа">
     </div>
 
     <div class="invest-text">
@@ -335,7 +282,7 @@
         <p>Такой подход гарантирует долговечность объекта, низкие эксплуатационные расходы и высокий уровень комфорта для гостей.</p>
     </div>
 
-    <!-- ТРЕТИЙ БЛОК: фото + текст -->
+    <!-- ТРЕТИЙ БЛОК: glamp5 -->
     <div class="invest-image">
         <img src="images/glamp5.png" alt="Глэмпинг на Самуи — возможности для инвестора">
     </div>
@@ -347,7 +294,7 @@
         
         <p><strong>Низкие эксплуатационные расходы</strong><br>Модульные конструкции, современные мембранные ткани и инженерные решения минимизируют затраты на обслуживание. Простота уборки и долговечные материалы снижают операционные издержки до 30–40% по сравнению с традиционным отелем.</p>
         
-        <p><strong>Высокая арендная ставка и загрузка</strong><br>Глэмпинг — это товарный продукт. Путешественники платят за опыт: вид на джунгли или океан, звуки природы, приватность. Цена за ночь в качественном глэмпинге сопоставима с номером 4-5 звёзд, а спрос только растёт. Даже в низкий сезон такие объекты показывают загрузку 60–70% за счёт уникальности формата.</p>
+        <p><strong>Высокая арендная ставка и загрузка</strong><br>Глэмпинг — это товарный продукт. Путешественники платят за опыт: вид на джунгли или океан, звуки природы, приватность. Цена за ночь в качественном глэмпинге сопоставима с номером 4-5 звёзд, а спрос только растёт. Даже в низкий сезон такие объекты показывают высокую загрузку за счёт уникальности формата.</p>
         
         <p><strong>Модульность и ликвидность инвестиций</strong><br>Архитектура глэмпинга модульная. Вы можете начать с первой очереди и постепенно расширяться, добавляя новые единицы без остановки работы комплекса, не создавая шумовую нагрузку на гостей. При необходимости конфигурацию легко изменить: переставить шатры, объединить зоны, адаптироваться под новый ландшафт или требования рынка.</p>
         
@@ -362,7 +309,7 @@
         <p><strong>Дополнительные возможности для дохода</strong><br>Глэмпинг легко интегрируется с другими бизнесами: добавить банный комплекс, ресторан или зал для йоги можно без радикального изменения структуры отеля, что позволяет адаптировать бизнес под текущую конъюнктуру рынка. Вы получаете уникальный отель-конструктор от Wellmess&SPA до Outdoor retreat.</p>
     </div>
 
-    <!-- ЧЕТВЁРТЫЙ БЛОК: полноэкранная карусель (lightbox) glamp6pcru / glamp6phru -->
+    <!-- ЧЕТВЁРТЫЙ БЛОК: полноэкранная карусель (glamp6 + glamp7, текст уже в картинках) -->
     <div class="invest-image" id="lightboxTrigger">
         <picture>
             <source media="(max-width: 760px)" srcset="images/glamp6phru.png">
@@ -371,7 +318,7 @@
     </div>
 </div>
 
-<!-- LIGHTBOX (полноэкранная карусель) -->
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
     <div class="lightbox-track" id="lightboxTrack"></div>
     <button class="lightbox-btn lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
@@ -395,7 +342,6 @@
 </div>
 
 <script>
-    // Бургер-меню
     const burger = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('menuOverlay');
@@ -405,82 +351,10 @@
     overlay.addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-menu a').forEach(link => { link.addEventListener('click', () => { closeMenu(); }); });
 
-    // КАРУСЕЛЬ glamp2-3-4
-    const images = ['glamp2.png', 'glamp3.png', 'glamp4.png'];
-    const track = document.getElementById('carouselTrack');
-    const dotsContainer = document.getElementById('carouselDots');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    
-    let currentIndex = 1;
-    let isTransitioning = false;
-    const extendedImages = [images[images.length - 1], ...images, images[0]];
-    
-    extendedImages.forEach((img) => {
-        const slide = document.createElement('div');
-        slide.className = 'carousel-slide';
-        const imgEl = document.createElement('img');
-        imgEl.src = `images/${img}`;
-        imgEl.alt = 'Глэмпинг на Самуи';
-        slide.appendChild(imgEl);
-        track.appendChild(slide);
-    });
-    
-    images.forEach((_, idx) => {
-        const dot = document.createElement('div');
-        dot.className = 'dot';
-        dot.dataset.index = idx;
-        dot.addEventListener('click', () => { if (!isTransitioning) goToSlide(idx + 1); });
-        dotsContainer.appendChild(dot);
-    });
-    
-    const slides = document.querySelectorAll('.carousel-slide');
-    const totalSlides = slides.length;
-    const realStartIndex = 1;
-    const realEndIndex = images.length;
-    
-    function updateCarousel(instant = false) {
-        if (instant) {
-            track.style.transition = 'none';
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            track.offsetHeight;
-            track.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
-        } else {
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-        let realIndex = currentIndex - 1;
-        if (realIndex < 0) realIndex = images.length - 1;
-        if (realIndex >= images.length) realIndex = 0;
-        document.querySelectorAll('.dot').forEach((dot, i) => { dot.classList.toggle('active', i === realIndex); });
-    }
-    
-    function goToSlide(index, instant = false) {
-        if (isTransitioning && !instant) return;
-        isTransitioning = true;
-        currentIndex = index;
-        updateCarousel(instant);
-        setTimeout(() => {
-            isTransitioning = false;
-            if (currentIndex <= 0) { currentIndex = realEndIndex; updateCarousel(true); }
-            else if (currentIndex >= totalSlides - 1) { currentIndex = realStartIndex; updateCarousel(true); }
-        }, 500);
-    }
-    
-    prevBtn.addEventListener('click', () => { if (!isTransitioning) goToSlide(currentIndex - 1); });
-    nextBtn.addEventListener('click', () => { if (!isTransitioning) goToSlide(currentIndex + 1); });
-    
-    let touchStartX = 0;
-    track.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
-    track.addEventListener('touchend', (e) => {
-        const diff = e.changedTouches[0].screenX - touchStartX;
-        if (Math.abs(diff) > 50 && !isTransitioning) { diff > 0 ? prevBtn.click() : nextBtn.click(); }
-    });
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-    track.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
-
-    // LIGHTBOX (полноэкранная карусель для glamp6)
+    // LIGHTBOX для glamp6 и glamp7 (без дополнительного текста)
     const lightboxImages = [
-        { pc: 'glamp6pcru.png', ph: 'glamp6phru.png' }
+        { pc: 'glamp6pcru.png', ph: 'glamp6phru.png' },
+        { pc: 'glamp7pcru.png', ph: 'glamp7phru.png' }
     ];
     const lightbox = document.getElementById('lightbox');
     const lightboxTrack = document.getElementById('lightboxTrack');
@@ -502,7 +376,7 @@
             source.srcset = `images/${img.ph}`;
             const imgEl = document.createElement('img');
             imgEl.src = `images/${img.pc}`;
-            imgEl.alt = 'Роскошный глэмпинг';
+            imgEl.alt = 'Глэмпинг на Самуи';
             picture.appendChild(source);
             picture.appendChild(imgEl);
             slide.appendChild(picture);
@@ -561,7 +435,6 @@
     lightboxNext.addEventListener('click', nextLightbox);
     lightboxPrev.addEventListener('click', prevLightbox);
     
-    // Свайп для lightbox
     let lightboxTouchStart = 0;
     lightboxTrack.addEventListener('touchstart', (e) => { lightboxTouchStart = e.changedTouches[0].screenX; });
     lightboxTrack.addEventListener('touchend', (e) => {
@@ -577,7 +450,6 @@
     
     buildLightbox();
 
-    // Языковой переключатель
     const langSwitcher = document.getElementById('langSwitcher');
     const currentLangSpan = document.getElementById('currentLang');
     const langOptions = document.querySelectorAll('.lang-dropdown a');
