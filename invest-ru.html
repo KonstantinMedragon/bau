@@ -73,11 +73,20 @@
         .materials-quote p { margin-bottom: 8px; font-size: 0.9rem; line-height: 1.5; color: rgba(232, 223, 209, 0.85); }
         .materials-quote p:last-child { margin-bottom: 0; }
         
-        /* Второй блок — единственное фото restoglamp.png */
-        .resto-image { margin-bottom: 48px; border-radius: 28px; overflow: hidden; border: 1px solid rgba(232, 223, 209, 0.25); }
-        .resto-image img { width: 100%; display: block; height: auto; }
+        /* Второй блок — ширина 100%, высота по пропорциям */
+        .resto-image {
+            margin-bottom: 48px;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid rgba(232, 223, 209, 0.25);
+        }
+        .resto-image img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
         
-        /* LIGHTBOX (полноэкранная карусель) для четвёртого блока — без текста поверх glamp7 */
+        /* LIGHTBOX */
         .lightbox {
             display: none;
             position: fixed;
@@ -247,7 +256,7 @@
         <p>Если вы рассматриваете инвестиции в этот сектор, то остров Самуи в Таиланде является топовой локацией благодаря низкой конкуренции и тропическому климату.</p>
     </div>
 
-    <!-- ВТОРОЙ БЛОК: единственное фото restoglamp.png -->
+    <!-- ВТОРОЙ БЛОК: restoglamp.png (ширина 100%, высота по пропорциям) -->
     <div class="resto-image">
         <img src="images/restoglamp.png" alt="Глэмпинг ресторан и спа">
     </div>
@@ -309,7 +318,7 @@
         <p><strong>Дополнительные возможности для дохода</strong><br>Глэмпинг легко интегрируется с другими бизнесами: добавить банный комплекс, ресторан или зал для йоги можно без радикального изменения структуры отеля, что позволяет адаптировать бизнес под текущую конъюнктуру рынка. Вы получаете уникальный отель-конструктор от Wellmess&SPA до Outdoor retreat.</p>
     </div>
 
-    <!-- ЧЕТВЁРТЫЙ БЛОК: полноэкранная карусель (glamp6 + glamp7, текст уже в картинках) -->
+    <!-- ЧЕТВЁРТЫЙ БЛОК: полноэкранная карусель (glamp6 + glamp7) -->
     <div class="invest-image" id="lightboxTrigger">
         <picture>
             <source media="(max-width: 760px)" srcset="images/glamp6phru.png">
@@ -351,7 +360,7 @@
     overlay.addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-menu a').forEach(link => { link.addEventListener('click', () => { closeMenu(); }); });
 
-    // LIGHTBOX для glamp6 и glamp7 (без дополнительного текста)
+    // LIGHTBOX для glamp6 и glamp7
     const lightboxImages = [
         { pc: 'glamp6pcru.png', ph: 'glamp6phru.png' },
         { pc: 'glamp7pcru.png', ph: 'glamp7phru.png' }
