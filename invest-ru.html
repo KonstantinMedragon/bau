@@ -85,7 +85,7 @@
             height: auto;
         }
         
-        /* Четвёртый блок — превью с навигацией */
+        /* Четвёртый блок — превью-галерея с навигацией */
         .gallery-preview {
             position: relative;
             margin-bottom: 48px;
@@ -100,14 +100,11 @@
             cursor: pointer;
             transition: transform 0.2s;
         }
-        .gallery-preview img:hover {
-            transform: scale(1.01);
-        }
+        .gallery-preview img:hover { transform: scale(1.01); }
         .gallery-nav {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-top: 16px;
             margin-bottom: 48px;
         }
         .gallery-nav-btn {
@@ -125,12 +122,9 @@
             color: #E8DFD1;
             font-size: 1.3rem;
         }
-        .gallery-nav-btn:hover {
-            background: rgba(232, 223, 209, 0.2);
-            transform: scale(1.05);
-        }
+        .gallery-nav-btn:hover { background: rgba(232, 223, 209, 0.2); transform: scale(1.05); }
         
-        /* LIGHTBOX (полноэкранная карусель) */
+        /* LIGHTBOX */
         .lightbox {
             display: none;
             position: fixed;
@@ -167,10 +161,7 @@
             color: #E8DFD1;
             font-size: 1.5rem;
         }
-        .lightbox-btn:hover {
-            background: rgba(232, 223, 209, 0.3);
-            transform: translateY(-50%) scale(1.05);
-        }
+        .lightbox-btn:hover { background: rgba(232, 223, 209, 0.3); transform: translateY(-50%) scale(1.05); }
         .lightbox-prev { left: 20px; }
         .lightbox-next { right: 20px; }
         .lightbox-close {
@@ -192,10 +183,7 @@
             color: #E8DFD1;
             font-size: 1.3rem;
         }
-        .lightbox-close:hover {
-            background: rgba(232, 223, 209, 0.3);
-            transform: scale(1.05);
-        }
+        .lightbox-close:hover { background: rgba(232, 223, 209, 0.3); transform: scale(1.05); }
         .lightbox-dots {
             position: absolute;
             bottom: 20px;
@@ -220,6 +208,62 @@
             background: #E8DFD1;
         }
         
+        /* Пятый блок: фото + текст без таблиц, с графическим разделением */
+        .samui-image {
+            margin-bottom: 48px;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid rgba(232, 223, 209, 0.25);
+        }
+        .samui-image img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin: 32px 0 24px;
+            justify-content: space-between;
+        }
+        .stat-card {
+            flex: 1;
+            min-width: 160px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 20px 16px;
+            text-align: center;
+            border-left: 2px solid #E8DFD1;
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #E8DFD1;
+            line-height: 1.2;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-top: 6px;
+        }
+        .divider-line {
+            width: 60px;
+            height: 2px;
+            background: rgba(232, 223, 209, 0.3);
+            margin: 24px 0;
+        }
+        .highlight-text {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #E8DFD1;
+            margin-top: 16px;
+            padding-left: 16px;
+            border-left: 2px solid #E8DFD1;
+        }
+        
         .footer-social { max-width: 1280px; margin: 20px auto 0; padding: 20px 28px 40px; border-top: 1px solid rgba(232, 223, 209, 0.2); text-align: left; }
         .social-links-left { display: flex; gap: 12px; align-items: center; justify-content: flex-start; background: transparent; }
         .social-links-left a { color: #E8DFD1; font-size: 1.3rem; transition: 0.2s; text-decoration: none; display: inline-flex; align-items: center; }
@@ -240,6 +284,10 @@
             .gallery-preview { margin-bottom: 32px; }
             .gallery-nav { margin-bottom: 32px; gap: 15px; }
             .gallery-nav-btn { width: 42px; height: 42px; font-size: 1.1rem; }
+            .samui-image { margin-bottom: 32px; }
+            .stats-grid { gap: 16px; flex-direction: column; }
+            .stat-card { min-width: auto; }
+            .stat-number { font-size: 1.5rem; }
             .logo { font-size: 1.3rem; }
             .footer-social { padding: 20px 20px 30px; }
             .social-links-left a { font-size: 1.2rem; }
@@ -354,7 +402,7 @@
         <p><strong>Дополнительные возможности для дохода</strong><br>Глэмпинг легко интегрируется с другими бизнесами: добавить банный комплекс, ресторан или зал для йоги можно без радикального изменения структуры отеля, что позволяет адаптировать бизнес под текущую конъюнктуру рынка. Вы получаете уникальный отель-конструктор от Wellmess&SPA до Outdoor retreat.</p>
     </div>
 
-    <!-- ЧЕТВЁРТЫЙ БЛОК: превью-галерея с навигацией под блоком -->
+    <!-- ЧЕТВЁРТЫЙ БЛОК: превью-галерея (glamp6, glamp7, glamp8, glamp9) -->
     <div class="gallery-preview" id="galleryPreview">
         <picture>
             <source media="(max-width: 760px)" srcset="images/glamp6phru.png" id="previewMobile">
@@ -365,15 +413,56 @@
         <div class="gallery-nav-btn" id="galleryPrev"><i class="fas fa-chevron-left"></i></div>
         <div class="gallery-nav-btn" id="galleryNext"><i class="fas fa-chevron-right"></i></div>
     </div>
-</div>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-    <div class="lightbox-track" id="lightboxTrack"></div>
-    <button class="lightbox-btn lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
-    <button class="lightbox-btn lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
-    <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
-    <div class="lightbox-dots" id="lightboxDots"></div>
+    <!-- ПЯТЫЙ БЛОК: Почему Самуи -->
+    <div class="samui-image">
+        <img src="images/samui.jpg" alt="Остров Самуи">
+    </div>
+    <div class="invest-text">
+        <p><strong>Почему Самуи</strong></p>
+        <p>Остров Самуи — второй по популярности курорт Таиланда после Пхукета. Здесь находится международный аэропорт, принимающий прямые рейсы из Сингапура, Гонконга, Куала-Лумпура и основных городов Таиланда. Размеры острова небольшие — всего 25 км в длину и 21 км в ширину, что делает каждую точку легкодоступной.</p>
+        <p>Самуи давно перестал быть направлением для бюджетного туризма. Основной поток — платёжеспособные путешественники из Европы, США, России, Китая и Индии, которые ценят приватность, качественный сервис и природу.</p>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">77–78%</div>
+                <div class="stat-label">средняя загрузка отелей 4–5 звёзд</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">+18–20%</div>
+                <div class="stat-label">рост цен на аренду вилл</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">+9%</div>
+                <div class="stat-label">рост среднего чека (ADR) в 2024 году</div>
+            </div>
+        </div>
+        
+        <p><strong>Главная причина для инвестора</strong> — ограниченное предложение. Из-за строгих экологических законов и дефицита земли номерной фонд на острове растёт всего на 1% в год, в то время как спрос значительно опережает предложение.</p>
+        
+        <div class="divider-line"></div>
+        
+        <p><strong>Сезонность и распределение спроса</strong></p>
+        <ul class="glamping-list">
+            <li><strong>Январь–март</strong> — высокий пик. Загрузка до 92%, цены максимальные.</li>
+            <li><strong>Июль–август</strong> — мини-пик (европейские отпуска). Загрузка 75–80%.</li>
+            <li><strong>Октябрь–ноябрь</strong> — низкий сезон (45–50% загрузки из-за дождей).</li>
+        </ul>
+        
+        <p><strong>Цены на номера в высокий сезон</strong></p>
+        <ul class="glamping-list">
+            <li><strong>15%</strong> отелей продают номера по ставке <strong>5 000–7 500 бат</strong> за ночь и выше.</li>
+            <li><strong>44%</strong> держат средний чек в диапазоне <strong>2 500–5 000 бат</strong> за ночь.</li>
+        </ul>
+        
+        <div class="divider-line"></div>
+        
+        <p>На остров заходят международные сети с небольшими бутик-отелями (80–90 номеров), чтобы не перегружать инфраструктуру. Исключение — Wyndham Garden на 533 номера (запуск к 2028 году).</p>
+        
+        <div class="highlight-text">
+            Рынок премиального жилья и отелей на Самуи перешёл от стратегии «привезти как можно больше туристов» к стратегии «повышать качество и средний чек». Остров окончательно закрепил статус премиальной локации с высокой долей возвратного туризма — около 60% гостей приезжают сюда повторно.
+        </div>
+    </div>
 </div>
 
 <div class="footer-social">
@@ -401,11 +490,12 @@
     overlay.addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-menu a').forEach(link => { link.addEventListener('click', () => { closeMenu(); }); });
 
-    // Данные для галереи (3 изображения)
+    // Данные для галереи (4 изображения)
     const galleryItems = [
         { pc: 'glamp6pcru.png', ph: 'glamp6phru.png' },
         { pc: 'glamp7pcru.png', ph: 'glamp7phru.png' },
-        { pc: 'glamp8pcru.png', ph: 'glamp8phru.png' }
+        { pc: 'glamp8pcru.png', ph: 'glamp8phru.png' },
+        { pc: 'glamp9pcru.png', ph: 'glamp9phru.png' }
     ];
     let currentGalleryIndex = 0;
     const previewImg = document.getElementById('previewImg');
@@ -440,7 +530,7 @@
     galleryNextBtn.addEventListener('click', nextPreview);
     galleryPrevBtn.addEventListener('click', prevPreview);
 
-    // LIGHTBOX
+    // LIGHTBOX (синхронизация с превью)
     const lightbox = document.getElementById('lightbox');
     const lightboxTrack = document.getElementById('lightboxTrack');
     const lightboxPrev = document.getElementById('lightboxPrev');
