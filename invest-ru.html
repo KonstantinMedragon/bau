@@ -208,7 +208,7 @@
             background: #E8DFD1;
         }
         
-        /* Пятый блок: фото + текст без таблиц, с графическим разделением */
+        /* Пятый блок */
         .samui-image {
             margin-bottom: 48px;
             border-radius: 28px;
@@ -402,7 +402,7 @@
         <p><strong>Дополнительные возможности для дохода</strong><br>Глэмпинг легко интегрируется с другими бизнесами: добавить банный комплекс, ресторан или зал для йоги можно без радикального изменения структуры отеля, что позволяет адаптировать бизнес под текущую конъюнктуру рынка. Вы получаете уникальный отель-конструктор от Wellmess&SPA до Outdoor retreat.</p>
     </div>
 
-    <!-- ЧЕТВЁРТЫЙ БЛОК: превью-галерея (glamp6, glamp7, glamp8, glamp9) -->
+    <!-- ЧЕТВЁРТЫЙ БЛОК: превью-галерея (glamp6, glamp7, glamp8, glamp8-1, glamp9, glamp10) -->
     <div class="gallery-preview" id="galleryPreview">
         <picture>
             <source media="(max-width: 760px)" srcset="images/glamp6phru.png" id="previewMobile">
@@ -430,11 +430,11 @@
             </div>
             <div class="stat-card">
                 <div class="stat-number">+18–20%</div>
-                <div class="stat-label">рост цен на аренду вилл</div>
+                <div class="stat-label">рост цен на аренду вилл за последние 2 года</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">+9%</div>
-                <div class="stat-label">рост среднего чека (ADR) в 2024 году</div>
+                <div class="stat-label">рост среднего чека (ADR) в 2025 году</div>
             </div>
         </div>
         
@@ -444,9 +444,9 @@
         
         <p><strong>Сезонность и распределение спроса</strong></p>
         <ul class="glamping-list">
-            <li><strong>Январь–март</strong> — высокий пик. Загрузка до 92%, цены максимальные.</li>
-            <li><strong>Июль–август</strong> — мини-пик (европейские отпуска). Загрузка 75–80%.</li>
-            <li><strong>Октябрь–ноябрь</strong> — низкий сезон (45–50% загрузки из-за дождей).</li>
+            <li><strong>Декабрь – Февраль</strong> — высокий пик. Загрузка до 92%, цены максимальные.</li>
+            <li><strong>Март, Сентябрь – Ноябрь</strong> — средний сезон. Загрузка 60–70%.</li>
+            <li><strong>Апрель – Август</strong> — низкий сезон (45–50%, преимущественно европейские туристы).</li>
         </ul>
         
         <p><strong>Цены на номера в высокий сезон</strong></p>
@@ -457,7 +457,7 @@
         
         <div class="divider-line"></div>
         
-        <p>На остров заходят международные сети с небольшими бутик-отелями (80–90 номеров), чтобы не перегружать инфраструктуру. Исключение — Wyndham Garden на 533 номера (запуск к 2028 году).</p>
+        <p>На остров заходят международные сети с небольшими бутик-отелями (80–90 номеров), чтобы не перегружать инфраструктуру.</p>
         
         <div class="highlight-text">
             Рынок премиального жилья и отелей на Самуи перешёл от стратегии «привезти как можно больше туристов» к стратегии «повышать качество и средний чек». Остров окончательно закрепил статус премиальной локации с высокой долей возвратного туризма — около 60% гостей приезжают сюда повторно.
@@ -490,12 +490,14 @@
     overlay.addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-menu a').forEach(link => { link.addEventListener('click', () => { closeMenu(); }); });
 
-    // Данные для галереи (4 изображения)
+    // Данные для галереи (6 изображений)
     const galleryItems = [
         { pc: 'glamp6pcru.png', ph: 'glamp6phru.png' },
         { pc: 'glamp7pcru.png', ph: 'glamp7phru.png' },
         { pc: 'glamp8pcru.png', ph: 'glamp8phru.png' },
-        { pc: 'glamp9pcru.png', ph: 'glamp9phru.png' }
+        { pc: 'glamp8-1pcru.png', ph: 'glamp8-1phru.png' },
+        { pc: 'glamp9pcru.png', ph: 'glamp9phru.png' },
+        { pc: 'glamp10pcru.png', ph: 'glamp10phru.png' }
     ];
     let currentGalleryIndex = 0;
     const previewImg = document.getElementById('previewImg');
@@ -530,7 +532,7 @@
     galleryNextBtn.addEventListener('click', nextPreview);
     galleryPrevBtn.addEventListener('click', prevPreview);
 
-    // LIGHTBOX (синхронизация с превью)
+    // LIGHTBOX
     const lightbox = document.getElementById('lightbox');
     const lightboxTrack = document.getElementById('lightboxTrack');
     const lightboxPrev = document.getElementById('lightboxPrev');
