@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>BAU co.</title>
+    <script>
+        // Определяем язык браузера
+        const userLang = navigator.language || navigator.userLanguage;
+        // Если язык начинается с 'ru' — отправляем на русскую версию, иначе на английскую
+        if (userLang.startsWith('ru')) {
+            window.location.href = 'index-ru.html';
+        } else {
+            window.location.href = 'index-en.html';
+        }
+    </script>
+</head>
+<body>
+    <p>Перенаправление...</p>
+</body>
+</html>
