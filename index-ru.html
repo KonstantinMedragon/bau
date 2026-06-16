@@ -61,6 +61,18 @@
             display: block;
         }
 
+        /* Градиентное затемнение сверху (только 20% экрана) */
+        .top-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20vh;
+            z-index: 1;
+            pointer-events: none;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
+        }
+
         .content {
             position: relative;
             z-index: 2;
@@ -86,6 +98,7 @@
             letter-spacing: -0.3px;
             color: #e9c5a5;
             text-decoration: none;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
         .right-group {
             display: flex;
@@ -100,15 +113,14 @@
             font-weight: 500;
             color: #e9c5a5;
             cursor: pointer;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(8px);
+            background: transparent;
             padding: 6px 14px;
             border-radius: 30px;
             transition: 0.2s;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
         .lang-current:hover {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(255, 255, 255, 0.1);
         }
         .lang-dropdown {
             position: absolute;
@@ -144,15 +156,13 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(8px);
-            padding: 10px 12px;
+            background: transparent;
+            padding: 8px 10px;
             border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
             transition: 0.2s;
         }
         .burger:hover {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(255, 255, 255, 0.1);
         }
         .burger span {
             width: 22px;
@@ -160,6 +170,15 @@
             background: #e9c5a5;
             border-radius: 2px;
             transition: 0.3s;
+        }
+        .burger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .burger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
         }
 
         .menu-overlay {
@@ -257,11 +276,8 @@
             .logo {
                 font-size: 1.3rem;
             }
-            .burger {
-                padding: 8px 10px;
-            }
-            .burger span {
-                width: 20px;
+            .top-gradient {
+                height: 15vh;
             }
         }
     </style>
@@ -273,6 +289,7 @@
         <img src="images/finalepcru.png" alt="BAU co. фон">
     </picture>
 </div>
+<div class="top-gradient"></div>
 
 <div class="content">
     <div class="top-bar">
