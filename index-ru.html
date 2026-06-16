@@ -44,7 +44,6 @@
             line-height: 1.4;
         }
 
-        /* ПК — фон через background-image (cover) */
         .bg {
             position: fixed;
             top: 0;
@@ -52,34 +51,14 @@
             width: 100%;
             height: 100dvh;
             z-index: 0;
-            background-image: url('images/finalepcru.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #111;
+            overflow: hidden;
         }
-
-        /* Мобильные — используем тег img с contain (работает как раньше) */
-        @media (max-width: 760px) {
-            .bg {
-                background-image: none;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .bg img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                display: block;
-            }
-        }
-
-        /* На ПК скрываем img, чтобы не мешал */
-        @media (min-width: 761px) {
-            .bg img {
-                display: none;
-            }
+        .bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: left bottom;
+            display: block;
         }
 
         .content {
@@ -275,7 +254,6 @@
 </head>
 <body>
 <div class="bg">
-    <!-- Это img только для мобильных, на ПК оно скрыто -->
     <img src="images/finalephru.png" alt="BAU co. фон">
 </div>
 
@@ -298,9 +276,9 @@
 
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="mobile-menu" id="mobileMenu">
-        <a href="about-ru.html">о нас</a>
         <a href="project-ru.html">проекты</a>
         <a href="service-ru.html">услуги</a>
+        <a href="about-ru.html">о нас</a>
         <a href="invest-ru.html">инвестиции</a>
         <a href="contact-ru.html">контакты</a>
     </div>
