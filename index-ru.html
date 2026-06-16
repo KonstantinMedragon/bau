@@ -64,6 +64,13 @@
             display: block;
         }
 
+        /* Только для ПК — cover, чтобы заполнить экран без полей */
+        @media (min-width: 761px) {
+            .bg img {
+                object-fit: cover;
+            }
+        }
+
         .content {
             position: relative;
             z-index: 2;
