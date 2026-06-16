@@ -44,6 +44,7 @@
             line-height: 1.4;
         }
 
+        /* ПК — фон через background-image (cover) */
         .bg {
             position: fixed;
             top: 0;
@@ -51,23 +52,33 @@
             width: 100%;
             height: 100dvh;
             z-index: 0;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #111;
-        }
-        .bg img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
+            background-image: url('images/finalepcru.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #111;
         }
 
-        /* Только для ПК — cover, чтобы заполнить экран без полей */
+        /* Мобильные — используем тег img с contain (работает как раньше) */
+        @media (max-width: 760px) {
+            .bg {
+                background-image: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .bg img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+            }
+        }
+
+        /* На ПК скрываем img, чтобы не мешал */
         @media (min-width: 761px) {
             .bg img {
-                object-fit: cover;
+                display: none;
             }
         }
 
@@ -264,10 +275,8 @@
 </head>
 <body>
 <div class="bg">
-    <picture>
-        <source media="(max-width: 760px)" srcset="images/finalephru.png">
-        <img src="images/finalepcru.png" alt="BAU co. фон">
-    </picture>
+    <!-- Это img только для мобильных, на ПК оно скрыто -->
+    <img src="images/finalephru.png" alt="BAU co. фон">
 </div>
 
 <div class="content">
