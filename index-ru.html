@@ -3,7 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>BAU co. | Архитектура и инвестиции на Самуи</title>
+    
+    <!-- SEO -->
+    <title>BAU co. — Архитектура, строительство и инвестиции на Самуи</title>
+    <meta name="description" content="BAU co. — инжиниринг, проверка недвижимости и инвестиции на Самуи. Технический надзор, строительство под ключ, глэмпинг-отели. Легальное сопровождение в Таиланде.">
+    <meta name="keywords" content="строительство Самуи, технический надзор, проверка недвижимости, инвестиции Самуи, глэмпинг, архитектура, BAU co, инжиниринг Таиланд">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bau.in.th/">
+    <meta property="og:title" content="BAU co. — Архитектура, строительство и инвестиции на Самуи">
+    <meta property="og:description" content="Инжиниринг, проверка недвижимости и инвестиции на Самуи. Технический надзор, строительство под ключ, глэмпинг-отели.">
+    <meta property="og:image" content="https://bau.in.th/images/finalepcru.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BAU co. — Архитектура, строительство и инвестиции на Самуи">
+    <meta name="twitter:description" content="Инжиниринг, проверка недвижимости и инвестиции на Самуи. Технический надзор, строительство под ключ, глэмпинг-отели.">
+    <meta name="twitter:image" content="https://bau.in.th/images/finalepcru.png">
+    
     <!-- Playfair Display + Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
@@ -27,7 +47,7 @@
             line-height: 1.4;
         }
 
-        /* Desktop background — левый верхний угол */
+        /* Фон через тег img — вписывается без обрезки */
         .bg {
             position: fixed;
             top: 0;
@@ -35,18 +55,17 @@
             width: 100%;
             height: 100vh;
             z-index: 0;
-            background-image: url('images/finalepcru.png');
-            background-size: cover;
-            background-position: left top;
-            background-repeat: no-repeat;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
         }
-
-        /* Mobile background — левый нижний угол */
-        @media (max-width: 760px) {
-            .bg {
-                background-image: url('images/finalephru.png');
-                background-position: left bottom;
-            }
+        .bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
 
         .content {
@@ -56,7 +75,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 28px 28px 36px;
+            padding: 28px 28px 100px;
         }
 
         /* Верхняя панель */
@@ -228,7 +247,7 @@
 
         @media (max-width: 760px) {
             .content {
-                padding: 20px 20px 30px;
+                padding: 20px 20px 80px;
             }
             .social-links-left {
                 bottom: 20px;
@@ -245,7 +264,9 @@
     </style>
 </head>
 <body>
-<div class="bg"></div>
+<div class="bg">
+    <img src="images/finalepcru.png" alt="BAU co. фон">
+</div>
 
 <div class="content">
     <div class="top-bar">
@@ -268,7 +289,7 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="project-ru.html">проекты</a>
         <a href="service-ru.html">услуги</a>
-        <a href="about-ru.html">главная</a>
+        <a href="about-ru.html">о нас</a>
         <a href="invest-ru.html">инвестиции</a>
         <a href="contact-ru.html">контакты</a>
     </div>
@@ -283,6 +304,8 @@
         <a href="https://t.me/bauco" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
         <span class="social-divider">|</span>
         <a href="https://line.me/ti/p/1IP3YFzkKG" target="_blank" aria-label="LINE"><i class="fab fa-line"></i></a>
+        <span class="social-divider">|</span>
+        <a href="https://www.youtube.com/channel/UC6C5aRtqj-YU3GfiOVhaTJw" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
 </div>
 
@@ -320,11 +343,9 @@
     const currentLangSpan = document.getElementById('currentLang');
     const langOptions = document.querySelectorAll('.lang-dropdown a');
     
-    // Функция для определения английской версии текущей страницы
     function getEnglishVersion() {
         const path = window.location.pathname;
         const filename = path.split('/').pop();
-        
         const mapping = {
             'index-ru.html': 'index-en.html',
             'project-ru.html': 'project-en.html',
@@ -333,29 +354,19 @@
             'invest-ru.html': 'invest-en.html',
             'contact-ru.html': 'contact-en.html'
         };
-        
-        if (mapping[filename]) {
-            return mapping[filename];
-        }
-        return 'index-en.html';
+        return mapping[filename] || 'index-en.html';
     }
     
-    // Обработка переключения языка
     langOptions.forEach(opt => {
         opt.addEventListener('click', (e) => {
             e.preventDefault();
             const targetLang = opt.getAttribute('data-lang');
             const currentLangText = currentLangSpan.innerText.toLowerCase();
-            
             if (targetLang === currentLangText) return;
-            
             if (targetLang === 'en') {
-                // Переход на английскую версию текущей страницы
-                const enPage = getEnglishVersion();
-                window.location.href = enPage;
-            } else {
-                // уже на русской, ничего не делаем
+                window.location.href = getEnglishVersion();
             }
+            langSwitcher.classList.remove('open');
         });
     });
     
