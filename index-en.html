@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     
     <title>BAU co. — Architecture, Construction & Investment on Samui</title>
-    <meta name="description" content="BAU co. — engineering, property due diligence and investment on Samui. Technical supervision, turnkey construction, glamping hotels. Legal support in Thailand.">
-    <meta name="keywords" content="construction Samui, technical supervision, property due diligence, investment Samui, glamping, architecture, BAU co, engineering Thailand">
+    <meta name="description" content="BAU co. — engineering, property inspection and investment on Samui. Technical supervision, turnkey construction, glamping hotels. Legal support in Thailand.">
+    <meta name="keywords" content="construction Samui, technical supervision, property inspection, investment Samui, glamping, architecture, BAU co, engineering Thailand">
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bau.in.th/">
     <meta property="og:title" content="BAU co. — Architecture, Construction & Investment on Samui">
-    <meta property="og:description" content="Engineering, property due diligence and investment on Samui. Technical supervision, turnkey construction, glamping hotels.">
-    <meta property="og:image" content="https://bau.in.th/images/finalepcen.png">
+    <meta property="og:description" content="Engineering, property inspection and investment on Samui. Technical supervision, turnkey construction, glamping hotels.">
+    <meta property="og:image" content="https://bau.in.th/images/finalepс-en.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="BAU co. — Architecture, Construction & Investment on Samui">
-    <meta name="twitter:description" content="Engineering, property due diligence and investment on Samui. Technical supervision, turnkey construction, glamping hotels.">
-    <meta name="twitter:image" content="https://bau.in.th/images/finalepcen.png">
+    <meta name="twitter:description" content="Engineering, property inspection and investment on Samui. Technical supervision, turnkey construction, glamping hotels.">
+    <meta name="twitter:image" content="https://bau.in.th/images/finalepс-en.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
@@ -44,7 +44,6 @@
             line-height: 1.4;
         }
 
-        /* ПК — фон через background-image (cover) */
         .bg {
             position: fixed;
             top: 0;
@@ -52,34 +51,14 @@
             width: 100%;
             height: 100dvh;
             z-index: 0;
-            background-image: url('images/finalepcen.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #111;
+            overflow: hidden;
         }
-
-        /* Мобильные — используем тег img с contain */
-        @media (max-width: 760px) {
-            .bg {
-                background-image: none;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .bg img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                display: block;
-            }
-        }
-
-        /* На ПК скрываем img */
-        @media (min-width: 761px) {
-            .bg img {
-                display: none;
-            }
+        .bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: left bottom;
+            display: block;
         }
 
         .content {
@@ -121,28 +100,29 @@
             font-weight: 500;
             color: #e9c5a5;
             cursor: pointer;
-            background: transparent;
-            padding: 4px 8px;
-            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            padding: 6px 14px;
+            border-radius: 30px;
             transition: 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
         .lang-current:hover {
-            background: rgba(233, 197, 165, 0.15);
+            background: rgba(0, 0, 0, 0.7);
         }
         .lang-dropdown {
             position: absolute;
-            top: 100%;
+            top: calc(100% + 8px);
             right: 0;
-            background: rgba(30, 33, 36, 0.95);
-            backdrop-filter: blur(8px);
+            background: rgba(20, 20, 25, 0.95);
+            backdrop-filter: blur(12px);
             border-radius: 12px;
             padding: 8px 0;
-            margin-top: 6px;
             min-width: 70px;
             display: none;
             flex-direction: column;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            border: 1px solid rgba(233, 197, 165, 0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             z-index: 50;
         }
         .lang-dropdown a {
@@ -154,7 +134,7 @@
             display: block;
         }
         .lang-dropdown a:hover {
-            background: rgba(233, 197, 165, 0.15);
+            background: rgba(255, 255, 255, 0.1);
         }
         .lang-custom.open .lang-dropdown {
             display: flex;
@@ -162,13 +142,20 @@
         .burger {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
             cursor: pointer;
-            background: transparent;
-            padding: 6px 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            padding: 10px 12px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: 0.2s;
+        }
+        .burger:hover {
+            background: rgba(0, 0, 0, 0.7);
         }
         .burger span {
-            width: 26px;
+            width: 22px;
             height: 2px;
             background: #e9c5a5;
             border-radius: 2px;
@@ -270,13 +257,21 @@
             .logo {
                 font-size: 1.3rem;
             }
+            .burger {
+                padding: 8px 10px;
+            }
+            .burger span {
+                width: 20px;
+            }
         }
     </style>
 </head>
 <body>
 <div class="bg">
-    <!-- Это img только для мобильных, на ПК оно скрыто -->
-    <img src="images/finalephen.png" alt="BAU co. background">
+    <picture>
+        <source media="(max-width: 760px)" srcset="images/finaleph.png">
+        <img src="images/finalepс-en.png" alt="BAU co. background">
+    </picture>
 </div>
 
 <div class="content">
