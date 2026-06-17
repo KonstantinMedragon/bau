@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>BAU co. | Инвестиции в глэмпинг на Самуи</title>
-    <meta name="description" content="Инвестиции в глэмпинг-отель на Самуи. Уникальное предложение в сегменте экотуризма с высоким потенциалом роста и доходности.">
-    <meta name="keywords" content="инвестиции Самуи, глэмпинг, экотуризм Таиланд, строительство глэмпинга, курортная недвижимость, BAU co">
     
+    <!-- SEO -->
+    <title>BAU co. — Инвестиции в глэмпинг на Самуи | Отель под открытым небом</title>
+    <meta name="description" content="Инвестиции в глэмпинг-отель на Самуи. Уникальное предложение в сегменте экотуризма с высоким потенциалом роста и доходности. Модульность, окупаемость, премиальный отдых.">
+    <meta name="keywords" content="инвестиции Самуи, глэмпинг, экотуризм Таиланд, строительство глэмпинга, курортная недвижимость, BAU co, окупаемость глэмпинга">
+    
+    <!-- Open Graph / Facebook / WhatsApp / Telegram -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://konstantinmedragon.github.io/bau/invest-ru.html">
+    <meta property="og:url" content="https://bau.in.th/invest-ru.html">
     <meta property="og:title" content="BAU co. — Инвестиции в глэмпинг на Самуи">
-    <meta property="og:description" content="Уникальное предложение: глэмпинг-отель на острове Самуи. Инвестируйте в быстрорастущий сегмент экотуризма.">
-    <meta property="og:image" content="https://konstantinmedragon.github.io/bau/images/glamp1.png">
+    <meta property="og:description" content="Инвестиции в глэмпинг-отель на Самуи. Уникальное предложение в сегменте экотуризма с высоким потенциалом роста и доходности.">
+    <meta property="og:image" content="https://bau.in.th/images/glamp1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="BAU co. — Инвестиции в глэмпинг на Самуи">
     <meta name="twitter:description" content="Инвестируйте в глэмпинг-отель на Самуи — быстрорастущий сегмент экотуризма с высоким потенциалом.">
-    <meta name="twitter:image" content="https://konstantinmedragon.github.io/bau/images/glamp1.png">
+    <meta name="twitter:image" content="https://bau.in.th/images/glamp1.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -208,6 +214,17 @@
             background: #E8DFD1;
         }
         
+        /* Блок под лайтбоксом (инвестиционная модель) */
+        .invest-model-block {
+            margin-bottom: 48px;
+        }
+        .invest-model-block .invest-text {
+            margin-bottom: 0;
+        }
+        .invest-model-block .whatsapp-btn {
+            margin-top: 20px;
+        }
+        
         /* Пятый блок */
         .samui-image {
             margin-bottom: 48px;
@@ -264,11 +281,64 @@
             border-left: 2px solid #E8DFD1;
         }
         
-        .footer-social { max-width: 1280px; margin: 20px auto 0; padding: 20px 28px 40px; border-top: 1px solid rgba(232, 223, 209, 0.2); text-align: left; }
-        .social-links-left { display: flex; gap: 12px; align-items: center; justify-content: flex-start; background: transparent; }
-        .social-links-left a { color: #E8DFD1; font-size: 1.3rem; transition: 0.2s; text-decoration: none; display: inline-flex; align-items: center; }
-        .social-links-left a:hover { color: #f5d5aa; transform: translateY(-2px); }
-        .social-divider { color: #E8DFD1; opacity: 0.5; font-size: 1rem; margin: 0 2px; }
+        /* WhatsApp-кнопка (как в услугах) */
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(37, 211, 102, 0.2);
+            border: 1px solid rgba(37, 211, 102, 0.6);
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #25D366;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: 0.2s;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        .whatsapp-btn:hover {
+            background: rgba(37, 211, 102, 0.4);
+            transform: translateY(-2px);
+            color: #ffffff;
+        }
+        .whatsapp-btn i {
+            font-size: 1rem;
+        }
+        
+        .footer-social {
+            max-width: 1280px;
+            margin: 20px auto 0;
+            padding: 20px 28px 40px;
+            border-top: 1px solid rgba(232, 223, 209, 0.2);
+            text-align: left;
+        }
+        .social-links-left {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: flex-start;
+            background: transparent;
+        }
+        .social-links-left a {
+            color: #E8DFD1;
+            font-size: 1.3rem;
+            transition: 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        .social-links-left a:hover {
+            color: #f5d5aa;
+            transform: translateY(-2px);
+        }
+        .social-divider {
+            color: #E8DFD1;
+            opacity: 0.5;
+            font-size: 1rem;
+            margin: 0 2px;
+        }
 
         .scroll-top { position: fixed; bottom: 28px; right: 28px; background: rgba(232, 223, 209, 0.2); backdrop-filter: blur(4px); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 100; transition: 0.2s; border: 1px solid rgba(232, 223, 209, 0.4); }
         .scroll-top:hover { background: rgba(232, 223, 209, 0.4); transform: translateY(-2px); }
@@ -285,6 +355,7 @@
             .gallery-nav { margin-bottom: 32px; gap: 15px; }
             .gallery-nav-btn { width: 42px; height: 42px; font-size: 1.1rem; }
             .samui-image { margin-bottom: 32px; }
+            .invest-model-block { margin-bottom: 32px; }
             .stats-grid { gap: 16px; flex-direction: column; }
             .stat-card { min-width: auto; }
             .stat-number { font-size: 1.5rem; }
@@ -294,6 +365,7 @@
             .scroll-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
             .lightbox-btn { width: 40px; height: 40px; font-size: 1.2rem; }
             .lightbox-close { width: 40px; height: 40px; font-size: 1rem; top: 16px; right: 16px; }
+            .whatsapp-btn { padding: 8px 18px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -384,7 +456,7 @@
         <p>Такой подход гарантирует долговечность объекта, низкие эксплуатационные расходы и высокий уровень комфорта для гостей.</p>
     </div>
 
-    <!-- ТРЕТИЙ БЛОК: roller.jpg (фото заменено) -->
+    <!-- ТРЕТИЙ БЛОК: roller.jpg + текст + кнопка "Узнать детали" -->
     <div class="invest-image">
         <img src="images/roller.jpg" alt="Глэмпинг на Самуи — возможности для инвестора">
     </div>
@@ -400,6 +472,11 @@
         <p><strong>Высокий уровень отделки и реализации за меньшие деньги</strong><br>Качественный глэмпинг не уступает капитальному отелю по уровню комфорта, но стоит в разы дешевле при строительстве и отделке. Дизайнерские интерьеры, сантехника премиум-класса, панорамное остекление — всё это доступно без затрат на капитальное строительство.</p>
         <p><strong>Прозрачность строительства и контроль</strong><br>Все конструктивные решения стандартизированы, что упрощает приёмку работ и исключает скрытые этапы. Вы всегда видите, на что идут деньги, и можете участвовать в контроле качества на каждом этапе.</p>
         <p><strong>Дополнительные возможности для дохода</strong><br>Глэмпинг легко интегрируется с другими бизнесами: добавить банный комплекс, ресторан или зал для йоги можно без радикального изменения структуры отеля, что позволяет адаптировать бизнес под текущую конъюнктуру рынка. Вы получаете уникальный отель-конструктор от Wellmess&SPA до Outdoor retreat.</p>
+        
+        <!-- Кнопка "Узнать детали" (зелёная, WhatsApp) -->
+        <a href="https://wa.me/66805289372?text=Здравствуйте%2C%20я%20хочу%20узнать%20больше%20про%20инвестиции%20в%20глэмпинг%20на%20Самуи" target="_blank" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> Узнать детали
+        </a>
     </div>
 
     <!-- ЧЕТВЁРТЫЙ БЛОК: превью-галерея -->
@@ -412,6 +489,17 @@
     <div class="gallery-nav">
         <div class="gallery-nav-btn" id="galleryPrev"><i class="fas fa-chevron-left"></i></div>
         <div class="gallery-nav-btn" id="galleryNext"><i class="fas fa-chevron-right"></i></div>
+    </div>
+
+    <!-- Блок под лайтбоксом: текст + кнопка "Запросить" -->
+    <div class="invest-model-block">
+        <div class="invest-text">
+            <p>Когда финансовые рынки становятся непредсказуемыми, самые сильные инвесторы выбирают реальные активы, создающие ценность, доход и капитализацию. Глэмпинг — один из них.</p>
+            <p><strong>Подробная инвестиционная модель</strong></p>
+            <a href="https://wa.me/66805289372?text=Здравствуйте%2C%20я%20хочу%20получить%20подробную%20инвестиционную%20модель%20глэмпинг-отеля." target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Запросить
+            </a>
+        </div>
     </div>
 
     <!-- ПЯТЫЙ БЛОК: Почему Самуи -->
@@ -465,13 +553,29 @@
     </div>
 </div>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-track" id="lightboxTrack"></div>
+    <button class="lightbox-btn lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-btn lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+    <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+    <div class="lightbox-dots" id="lightboxDots"></div>
+</div>
+
+<!-- ФУТЕР С СОЦСЕТЯМИ (добавлен YouTube) -->
 <div class="footer-social">
     <div class="social-links-left">
-        <a href="https://www.instagram.com/bauco.th" target="_blank"><i class="fab fa-instagram"></i></a><span class="social-divider">|</span>
-        <a href="https://www.facebook.com/share/18qsa4jvfY/" target="_blank"><i class="fab fa-facebook-f"></i></a><span class="social-divider">|</span>
-        <a href="https://wa.me/66805289372" target="_blank"><i class="fab fa-whatsapp"></i></a><span class="social-divider">|</span>
-        <a href="https://t.me/bauco" target="_blank"><i class="fab fa-telegram-plane"></i></a><span class="social-divider">|</span>
+        <a href="https://www.instagram.com/bauco.th" target="_blank"><i class="fab fa-instagram"></i></a>
+        <span class="social-divider">|</span>
+        <a href="https://www.facebook.com/share/18qsa4jvfY/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <span class="social-divider">|</span>
+        <a href="https://wa.me/66805289372" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <span class="social-divider">|</span>
+        <a href="https://t.me/bauco" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+        <span class="social-divider">|</span>
         <a href="https://line.me/ti/p/1IP3YFzkKG" target="_blank"><i class="fab fa-line"></i></a>
+        <span class="social-divider">|</span>
+        <a href="https://www.youtube.com/channel/UC6C5aRtqj-YU3GfiOVhaTJw" target="_blank"><i class="fab fa-youtube"></i></a>
     </div>
 </div>
 
